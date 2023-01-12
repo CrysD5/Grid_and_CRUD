@@ -1,0 +1,1942 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CanvasAPIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'CanvasAPI.dbo.All sessions$' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="All sessions$">
+          <Property Name="FacultyName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Course" Type="nvarchar" MaxLength="255" />
+          <Property Name="Assignment" Type="nvarchar" MaxLength="255" />
+          <Property Name="caseid" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <EntityType Name="CalendarEvents">
+    <Key>
+      <PropertyRef Name="UniqueId" />
+    </Key>
+    <Property Name="UniqueId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CanvasUserID" Type="int" />
+    <Property Name="CanvasCalendarEventID" Type="nvarchar" MaxLength="500" />
+    <Property Name="StartAt" Type="datetime2" Precision="7" />
+    <Property Name="EndAt" Type="datetime2" Precision="7" />
+    <Property Name="GoogleCalendarEventID" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUpdated" Type="datetime2" Precision="7" />
+    <Property Name="Title" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Location" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="CalendarFaculty">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="case_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CalendarFeeds">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="case_id" Type="nvarchar" MaxLength="12" />
+    <Property Name="url" Type="nvarchar" MaxLength="500" />
+    <Property Name="prev_calendar_data" Type="nvarchar(max)" />
+    <Property Name="canvas_user_id" Type="int" />
+  </EntityType>
+  <EntityType Name="CalendarFeedsBkup8252021">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="case_id" Type="nvarchar" MaxLength="12" />
+    <Property Name="url" Type="nvarchar" MaxLength="500" />
+    <Property Name="prev_calendar_data" Type="nvarchar(max)" />
+    <Property Name="canvas_user_id" Type="int" />
+  </EntityType>
+  <EntityType Name="CanvasAssignment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="canvasassignmentgroup_id" Type="int" />
+    <Property Name="canvasgroupcategory_id" Type="int" />
+    <Property Name="canvascourse_id" Type="int" />
+    <Property Name="grade_group_students_individually" Type="bit" />
+    <Property Name="isDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="CanvasAssignmentGroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="assignments" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CanvasAssignmentOverride">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="canvasassignment_id" Type="int" Nullable="false" />
+    <Property Name="canvasgroup_id" Type="int" />
+    <Property Name="canvassection_id" Type="int" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="due_at" Type="datetime" />
+    <Property Name="unlock_at" Type="datetime" />
+    <Property Name="lock_at" Type="datetime" />
+    <Property Name="canvasstudent_ids" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CanvasCourse">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="500" />
+    <Property Name="code" Type="nvarchar" MaxLength="100" />
+    <Property Name="enrollmentterm_id" Type="int" />
+    <Property Name="start_at" Type="nvarchar" MaxLength="50" />
+    <Property Name="end_at" Type="nvarchar" MaxLength="50" />
+    <Property Name="sis_course_id" Type="nvarchar(max)" />
+    <Property Name="account_id" Type="int" />
+    <Property Name="is_public" Type="bit" />
+    <Property Name="workflow_state" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CanvasDiscussionTopics">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="canvasgroup_id" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="1000" />
+    <Property Name="assignment_id" Type="int" />
+  </EntityType>
+  <EntityType Name="CanvasGroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="canvasgroupcategory_id" Type="int" />
+    <Property Name="name" Type="nvarchar" MaxLength="500" />
+    <Property Name="member_count" Type="int" />
+    <Property Name="unique_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CanvasGroupCategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="500" />
+    <Property Name="canvascourse_id" Type="int" />
+  </EntityType>
+  <EntityType Name="CanvasGroupMember">
+    <Key>
+      <PropertyRef Name="unique_id_key" />
+    </Key>
+    <Property Name="id" Type="int" />
+    <Property Name="canvasgroup_id" Type="int" />
+    <Property Name="canvasuser_id" Type="int" />
+    <Property Name="unique_id_key" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CanvasModule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="500" />
+    <Property Name="canvascourse_id" Type="int" />
+    <Property Name="unlock_at" Type="nvarchar" MaxLength="50" />
+    <Property Name="start_at" Type="datetime" />
+    <Property Name="end_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CanvasModuleItem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="canvasmodule_id" Type="int" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="content_id" Type="int" />
+    <Property Name="due_at" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CanvasRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CanvasSection">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="500" />
+    <Property Name="canvascourse_id" Type="int" />
+    <Property Name="start_at" Type="nvarchar" MaxLength="50" />
+    <Property Name="end_at" Type="nvarchar" MaxLength="50" />
+    <Property Name="total_students" Type="int" />
+  </EntityType>
+  <EntityType Name="CanvasSectionEnrollment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="canvascourse_id" Type="int" />
+    <Property Name="enrollment_state" Type="nvarchar" MaxLength="50" />
+    <Property Name="limit_prev" Type="bit" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="canvasuser_id" Type="int" />
+    <Property Name="canvasrole_id" Type="int" />
+    <Property Name="start_at" Type="nvarchar" MaxLength="50" />
+    <Property Name="end_at" Type="nvarchar" MaxLength="50" />
+    <Property Name="canvassection_id" Type="int" />
+  </EntityType>
+  <EntityType Name="CanvasUser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="case_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" />
+    <Property Name="sortable_name" Type="nvarchar" MaxLength="150" />
+    <Property Name="short_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'CanvasAPI.dbo.Course Directors$' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Course Directors$">
+          <Property Name="FacultyName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="caseid" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'CanvasAPI.dbo.PAs$' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="PAs$">
+          <Property Name="FacultyName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="caseid" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'CanvasAPI.dbo.PBL Facilitators$' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="PBL Facilitators$">
+          <Property Name="FacultyName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="caseid" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <EntityType Name="SelfSchedulingCourses">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="acadyear" Type="int" />
+    <Property Name="acadlevel" Type="int" />
+    <Property Name="canvasCourseId" Type="int" />
+  </EntityType>
+  <EntityType Name="SOMAnatomyPresentation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="canvasAssignment_id" Type="int" Nullable="false" />
+    <Property Name="canvasGroup_id" Type="int" Nullable="false" />
+    <Property Name="presentToGroup" Type="int" />
+    <Property Name="presentToCanvasGroup_id" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.SOMAnatomyPresentationBak' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SOMAnatomyPresentationBak">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="canvasAssignment_id" />
+      <PropertyRef Name="canvasGroup_id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="canvasAssignment_id" Type="int" Nullable="false" />
+    <Property Name="canvasGroup_id" Type="int" Nullable="false" />
+    <Property Name="presentToGroup" Type="int" />
+    <Property Name="presentToCanvasGroup_id" Type="int" />
+  </EntityType>
+  <EntityType Name="SOMAnatomyPresentationMember">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="somAnatomyPresentation_id" Type="int" Nullable="false" />
+    <Property Name="case_id" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.SOMAnatomyPresentationMemberBak' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SOMAnatomyPresentationMemberBak">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="somAnatomyPresentation_id" />
+      <PropertyRef Name="case_id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="somAnatomyPresentation_id" Type="int" Nullable="false" />
+    <Property Name="case_id" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SOMCourseClassYear">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="canvascourse_id" Type="int" />
+    <Property Name="seyear" Type="int" />
+    <Property Name="gyr" Type="int" />
+    <Property Name="courseavailto" Type="nvarchar" MaxLength="50" />
+    <Property Name="somsectionblock_id" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="weekmid" Type="int" />
+    <Property Name="weekend" Type="int" />
+    <Property Name="weektotal" Type="int" />
+    <Property Name="startdate" Type="datetime" />
+    <Property Name="enddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SOMCourseHyperlink">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="canvascourse_id" Type="int" />
+    <Property Name="somsectionblock_id" Type="int" />
+    <Property Name="title" Type="varchar" MaxLength="200" />
+    <Property Name="url" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="SOMFacultyRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="10" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SOMFCMGrading">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="recnumSch" Type="int" Nullable="false" />
+    <Property Name="canvasGroupCategory_id" Type="int" />
+    <Property Name="type" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="gradeBy" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="accessLog" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="SOMFCMGradingGroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="somFCMGrading_id" Type="int" Nullable="false" />
+    <Property Name="canvasGroup_id" Type="int" Nullable="false" />
+    <Property Name="graderId1" Type="varchar" MaxLength="10" />
+    <Property Name="graderId2" Type="varchar" MaxLength="10" />
+    <Property Name="accessLog" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="SOMFCMGradingIndividual">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SOMFCMGradingGroup_id" Type="int" Nullable="false" />
+    <Property Name="case_id" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="graderId1" Type="varchar" MaxLength="10" />
+    <Property Name="graderId2" Type="varchar" MaxLength="10" />
+    <Property Name="accessLog" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="SOMSectionBlock">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="char" MaxLength="10" />
+    <Property Name="code" Type="nchar" MaxLength="10" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" />
+    <Property Name="avail_to" Type="nvarchar" MaxLength="50" />
+    <Property Name="random" Type="bit" />
+    <Property Name="cwru_only" Type="bit" />
+    <Property Name="is_section" Type="bit" />
+    <Property Name="is_group" Type="bit" />
+  </EntityType>
+  <EntityType Name="SOMSectionFaculty">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="somsectionteam_id" Type="int" />
+    <Property Name="canvasmodule_id" Type="int" />
+    <Property Name="somsectionweek_weekid" Type="int" />
+    <Property Name="faculty_id" Type="int" />
+    <Property Name="facultyrole_id" Type="int" />
+    <Property Name="user_login" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_date" Type="datetime" />
+    <Property Name="seyear_old" Type="int" />
+    <Property Name="bcode_old" Type="int" />
+    <Property Name="gid_old" Type="int" />
+    <Property Name="wtcode_old" Type="int" />
+    <Property Name="schtype_old" Type="nvarchar" MaxLength="50" />
+    <Property Name="roleid_old" Type="int" />
+  </EntityType>
+  <EntityType Name="SOMSectionFacultyFeedback">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="somsectionfaculty_id" Type="int" />
+    <Property Name="filename" Type="nvarchar" MaxLength="500" />
+    <Property Name="faculty_id" Type="int" />
+    <Property Name="isproblem" Type="bit" />
+    <Property Name="goal" Type="nvarchar(max)" />
+    <Property Name="learingnobjective" Type="nvarchar(max)" />
+    <Property Name="fieldvalue" Type="nvarchar(max)" />
+    <Property Name="resources" Type="nvarchar(max)" />
+    <Property Name="guide" Type="nvarchar(max)" />
+    <Property Name="comments" Type="nvarchar(max)" />
+    <Property Name="user_login" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_date" Type="datetime" />
+    <Property Name="seyear_old" Type="varchar" MaxLength="4" />
+    <Property Name="bcode_old" Type="int" />
+    <Property Name="wtcode_old" Type="int" />
+    <Property Name="problem_old" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="SOMSectionFacultyFile">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="somcourseclassyear_id" Type="int" />
+    <Property Name="canvasmodule_id" Type="int" />
+    <Property Name="somsectionweek_weekid" Type="int" />
+    <Property Name="somsectionfacultyfiletype_id" Type="int" />
+    <Property Name="link" Type="nvarchar" MaxLength="500" />
+    <Property Name="name" Type="nvarchar" MaxLength="500" />
+    <Property Name="user_login" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_date" Type="datetime" />
+    <Property Name="seyear_old" Type="int" />
+    <Property Name="bcode_old" Type="int" />
+    <Property Name="wtcode_old" Type="int" />
+    <Property Name="iqfileid_old" Type="int" />
+    <Property Name="fid_old" Type="int" />
+  </EntityType>
+  <EntityType Name="SOMSectionFacultyFileType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="5" />
+    <Property Name="name" Type="nvarchar" MaxLength="120" />
+    <Property Name="type" Type="nvarchar" MaxLength="120" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" />
+    <Property Name="user_login" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SOMSectionFacultyNote">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="somsectionfaculty_id" Type="int" />
+    <Property Name="case_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="note" Type="nvarchar(max)" />
+    <Property Name="user_login" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_date" Type="datetime" />
+    <Property Name="seyear_old" Type="int" />
+    <Property Name="bcode_old" Type="int" />
+    <Property Name="gid_old" Type="int" />
+    <Property Name="fcode_old" Type="int" />
+    <Property Name="wtcode_old" Type="int" />
+    <Property Name="schtype_old" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SOMSectionMember">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="somsectionteam_id" Type="int" />
+    <Property Name="case_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="canvasrole_id" Type="int" />
+    <Property Name="user_login" Type="varchar" MaxLength="50" />
+    <Property Name="user_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SOMSectionTeam">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="somsectionblock_id" Type="int" Nullable="false" />
+    <Property Name="grpid" Type="int" Nullable="false" />
+    <Property Name="canvascourse_id" Type="int" />
+    <Property Name="canvassection_id" Type="int" />
+    <Property Name="canvasgroup_id" Type="int" />
+    <Property Name="section_release" Type="bit" />
+    <Property Name="group_release" Type="bit" />
+    <Property Name="section_release_date" Type="datetime" />
+    <Property Name="group_release_date" Type="datetime" />
+    <Property Name="user_login" Type="varchar" MaxLength="50" />
+    <Property Name="user_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SOMSectionWeek">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="canvascourse_id" Type="int" />
+    <Property Name="weeknumber" Type="int" />
+    <Property Name="weekid" Type="int" />
+    <Property Name="name" Type="nvarchar" MaxLength="500" />
+    <Property Name="weekstart" Type="datetime" />
+    <Property Name="weekend" Type="datetime" />
+    <Property Name="user_login" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_date" Type="datetime" />
+    <Property Name="wnumcal_old" Type="int" />
+    <Property Name="wtcode_old" Type="int" />
+  </EntityType>
+  <EntityType Name="SOMSectionWeekSpecial">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gyr" Type="int" />
+    <Property Name="weeknumber" Type="int" />
+    <Property Name="name" Type="nvarchar" MaxLength="500" />
+    <Property Name="weekstart" Type="datetime" />
+    <Property Name="weekend" Type="datetime" />
+    <Property Name="user_login" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_date" Type="datetime" />
+    <Property Name="wnumcal_old" Type="int" />
+    <Property Name="wtcode_old" Type="int" />
+  </EntityType>
+  <EntityType Name="SOMSISCourseBlock">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sissubject" Type="nchar" MaxLength="4" />
+    <Property Name="siscatalog_nbr" Type="nchar" MaxLength="10" />
+    <Property Name="somsectionblock_id" Type="int" />
+    <Property Name="ayearsubtract" Type="int" />
+    <Property Name="gyradd" Type="int" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="canvascourse_code" Type="nvarchar" MaxLength="150" />
+    <Property Name="canvascourse_name" Type="nvarchar" MaxLength="500" />
+    <Property Name="canvasuser_role" Type="int" />
+    <Property Name="somuser_role" Type="int" />
+  </EntityType>
+  <EntityType Name="SOMStudentFileResources">
+    <Key>
+      <PropertyRef Name="case_id" />
+    </Key>
+    <Property Name="case_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="picturesmstream_id" Type="uniqueidentifier" />
+    <Property Name="picturelgstream_id" Type="uniqueidentifier" />
+    <Property Name="soundstream_id" Type="uniqueidentifier" />
+    <Property Name="soundstream" Type="varbinary(max)" />
+    <Property Name="picturesmfilestream" Type="varbinary(max)" />
+    <Property Name="picturelgfilestream" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tmpGroups">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gyr" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="somsectionblock_id" Type="int" />
+    <Property Name="randnum" Type="float" Nullable="false" />
+    <Property Name="canvasuser_id" Type="int" />
+    <Property Name="case_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sex" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="is_minority" Type="bit" Nullable="false" />
+    <Property Name="ethnicity" Type="varchar" MaxLength="100" />
+    <Property Name="advisor_email" Type="char" MaxLength="10" />
+    <Property Name="advisor_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tmpGroupsMedium">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="canvascourse_id" Type="int" />
+    <Property Name="somsectionblock_id" Type="int" Nullable="false" />
+    <Property Name="groupcategoryname" Type="nvarchar" MaxLength="500" />
+    <Property Name="grpcode" Type="nvarchar" MaxLength="5" />
+    <Property Name="grpid" Type="int" Nullable="false" />
+    <Property Name="iqgrpid1" Type="int" />
+    <Property Name="iqgrpid2" Type="int" />
+    <Property Name="iqgrpid3" Type="int" />
+  </EntityType>
+  <EntityType Name="tmpGroupsMediumSplit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="canvascourse_id" Type="int" Nullable="false" />
+    <Property Name="somsectionblock_id" Type="int" Nullable="false" />
+    <Property Name="groupcategoryname" Type="nvarchar" MaxLength="500" />
+    <Property Name="case_id" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="canvasuser_id" Type="int" />
+    <Property Name="grpid" Type="int" Nullable="false" />
+    <Property Name="grpcode" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="tmpGroupsSwap">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="case_id" Type="nvarchar" MaxLength="50" />
+    <Property Name="sex" Type="char" MaxLength="1" />
+    <Property Name="teamid" Type="int" />
+    <Property Name="pteamid" Type="int" />
+    <Property Name="nteamid" Type="int" />
+    <Property Name="grpid" Type="int" />
+    <Property Name="pgrpid" Type="int" />
+    <Property Name="ngrpid" Type="int" />
+    <Property Name="memberid" Type="int" />
+  </EntityType>
+  <EntityType Name="UserCalendars">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CanvasUserId" Type="int" />
+    <Property Name="GoogleCalendarId" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="zSOMModuleFaculty">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="canvasmodule_id" Type="int" />
+    <Property Name="canvasuser_id" Type="int" />
+    <Property Name="somfacultyrolte_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="zSOMSectionTeamCourse">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="somsectionteam_id" Type="int" />
+    <Property Name="canvascourse_id" Type="int" />
+    <Property Name="canvassection_id" Type="int" />
+    <Property Name="canvasgroup_id" Type="int" />
+    <Property Name="section_release" Type="bit" />
+    <Property Name="group_release" Type="bit" />
+    <Property Name="section_release_date" Type="datetime" />
+    <Property Name="group_release_date" Type="datetime" />
+    <Property Name="user_login" Type="varchar" MaxLength="50" />
+    <Property Name="user_date" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.v_AdvisorySociety' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_AdvisorySociety">
+    <Key>
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="GroupId" Type="int" Nullable="false" />
+    <Property Name="Society_Name" Type="char" MaxLength="50" />
+    <Property Name="Advisor_Days" Type="int" />
+    <Property Name="Advisor_Email" Type="char" MaxLength="10" />
+    <Property Name="Advisor_ID" Type="char" MaxLength="11" />
+    <Property Name="Advisor_Years" Type="char" MaxLength="20" />
+    <Property Name="Advisor_Address" Type="varchar" MaxLength="400" />
+    <Property Name="Advisor_phone" Type="char" MaxLength="13" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.v_CourseFeed' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_CourseFeed">
+    <Key>
+      <PropertyRef Name="Crse_ID" />
+      <PropertyRef Name="class_nbr" />
+      <PropertyRef Name="ayear" />
+      <PropertyRef Name="start_dt" />
+      <PropertyRef Name="end_dt" />
+    </Key>
+    <Property Name="Crse_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="class_nbr" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="Strm" Type="char" MaxLength="4" />
+    <Property Name="subject" Type="varchar" MaxLength="8" />
+    <Property Name="catalog_nbr" Type="varchar" MaxLength="10" />
+    <Property Name="ayear" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="course_title" Type="varchar" MaxLength="100" />
+    <Property Name="start_dt" Type="datetime" Nullable="false" />
+    <Property Name="end_dt" Type="datetime" Nullable="false" />
+    <Property Name="course_type" Type="char" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.v_Ethnicity' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_Ethnicity">
+    <Key>
+      <PropertyRef Name="Ethnic_Grp_CD" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="SetID" Type="varchar" MaxLength="5" />
+    <Property Name="Ethnic_Grp_CD" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="EffDt" Type="datetime" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Descr" Type="varchar" MaxLength="100" />
+    <Property Name="Short_Descr" Type="varchar" MaxLength="30" />
+    <Property Name="isminority" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'CanvasAPI.dbo.v_FacultyFeed' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="v_FacultyFeed">
+          <Property Name="case_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="email_address" Type="nvarchar" MaxLength="60" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.v_FacultySom' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_FacultySom">
+    <Key>
+      <PropertyRef Name="ln" />
+      <PropertyRef Name="fn" />
+    </Key>
+    <Property Name="ln" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="fn" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="mn" Type="nvarchar" MaxLength="40" />
+    <Property Name="emplid" Type="nvarchar" MaxLength="50" />
+    <Property Name="email_address" Type="nvarchar" MaxLength="100" />
+    <Property Name="case_id" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.v_FileTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_FileTable">
+    <Key>
+      <PropertyRef Name="stream_id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="is_directory" />
+    </Key>
+    <Property Name="stream_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="file_stream" Type="varbinary(max)" />
+    <Property Name="is_directory" Type="bit" Nullable="false" />
+    <Property Name="FullPath" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6005: The data type 'hierarchyid' is currently not supported for the target Entity Framework version; the column 'path_locator' in the table 'CanvasAPI.dbo.v_FileTable_HierarchyIDs' was excluded.
+warning 6005: The data type 'hierarchyid' is currently not supported for the target Entity Framework version; the column 'parent_path_locator' in the table 'CanvasAPI.dbo.v_FileTable_HierarchyIDs' was excluded.
+warning 6002: The table/view 'CanvasAPI.dbo.v_FileTable_HierarchyIDs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_FileTable_HierarchyIDs">
+    <Key>
+      <PropertyRef Name="stream_id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="is_directory" />
+    </Key>
+    <Property Name="stream_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="file_stream" Type="varbinary(max)" />
+    <Property Name="is_directory" Type="bit" Nullable="false" />
+    <Property Name="FullPath" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6005: The data type 'hierarchyid' is currently not supported for the target Entity Framework version; the column 'path_locator' in the table 'CanvasAPI.dbo.v_FileTable_ParentPathLocator' was excluded.
+warning 6005: The data type 'hierarchyid' is currently not supported for the target Entity Framework version; the column 'parent_path_locator' in the table 'CanvasAPI.dbo.v_FileTable_ParentPathLocator' was excluded.
+warning 6002: The table/view 'CanvasAPI.dbo.v_FileTable_ParentPathLocator' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_FileTable_ParentPathLocator">
+    <Key>
+      <PropertyRef Name="stream_id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="is_directory" />
+    </Key>
+    <Property Name="stream_id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="file_stream" Type="varbinary(max)" />
+    <Property Name="is_directory" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.v_StudentCoreBlockEnrollment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_StudentCoreBlockEnrollment">
+    <Key>
+      <PropertyRef Name="ayear" />
+      <PropertyRef Name="block_id" />
+      <PropertyRef Name="session_id" />
+    </Key>
+    <Property Name="emaddr" Type="varchar" MaxLength="16" />
+    <Property Name="Sex" Type="char" MaxLength="1" />
+    <Property Name="firstName" Type="varchar" MaxLength="30" />
+    <Property Name="lastName" Type="varchar" MaxLength="50" />
+    <Property Name="ayear" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="block_id" Type="int" Nullable="false" />
+    <Property Name="coreblocknum" Type="varchar" MaxLength="10" />
+    <Property Name="coreblockname" Type="varchar" MaxLength="50" />
+    <Property Name="session_id" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.v_StudentGroups' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_StudentGroups">
+    <Key>
+      <PropertyRef Name="Emplid" />
+      <PropertyRef Name="seyear" />
+      <PropertyRef Name="blockid" />
+      <PropertyRef Name="schtype" />
+      <PropertyRef Name="groupid" />
+    </Key>
+    <Property Name="Emplid" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="seyear" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="blockid" Type="int" Nullable="false" />
+    <Property Name="schtype" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="groupid" Type="int" Nullable="false" />
+    <Property Name="blockname" Type="nvarchar" MaxLength="111" />
+    <Property Name="gender_identity" Type="varchar" MaxLength="50" />
+    <Property Name="gender_pronoun" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.v_studentsAll' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_studentsAll">
+    <Key>
+      <PropertyRef Name="Emplid" />
+      <PropertyRef Name="reduced_fee" />
+    </Key>
+    <Property Name="Emplid" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="Last_Name" Type="char" MaxLength="30" />
+    <Property Name="First_Name" Type="char" MaxLength="30" />
+    <Property Name="Middle_Name" Type="char" MaxLength="30" />
+    <Property Name="Sex" Type="char" MaxLength="1" />
+    <Property Name="Ethnic_Grp_CD" Type="varchar" MaxLength="100" />
+    <Property Name="BIRTHDATE" Type="datetime" />
+    <Property Name="studentname" Type="varchar" MaxLength="98" />
+    <Property Name="Email_Addr" Type="char" MaxLength="70" />
+    <Property Name="emaddr" Type="char" MaxLength="16" />
+    <Property Name="mdyr" Type="char" MaxLength="4" />
+    <Property Name="gyr" Type="char" MaxLength="4" />
+    <Property Name="campuscode" Type="char" MaxLength="5" />
+    <Property Name="Acad_Prog" Type="char" MaxLength="5" />
+    <Property Name="desk" Type="char" MaxLength="10" />
+    <Property Name="advisor_name" Type="char" MaxLength="70" />
+    <Property Name="advisor_email" Type="char" MaxLength="70" />
+    <Property Name="advisor_campus_id" Type="char" MaxLength="16" />
+    <Property Name="Prog_status" Type="char" MaxLength="4" />
+    <Property Name="CW_PREF_FIRST_NAME" Type="char" MaxLength="30" />
+    <Property Name="reduced_fee" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="gender_identity" Type="varchar" MaxLength="50" />
+    <Property Name="gender_pronoun" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.v_StudentsSOM' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_StudentsSOM">
+    <Key>
+      <PropertyRef Name="gyr" />
+      <PropertyRef Name="Emplid" />
+    </Key>
+    <Property Name="case_id" Type="char" MaxLength="16" />
+    <Property Name="Last_Name" Type="char" MaxLength="30" />
+    <Property Name="First_Name" Type="char" MaxLength="30" />
+    <Property Name="Middle_Name" Type="char" MaxLength="30" />
+    <Property Name="CW_PREF_FIRST_NAME" Type="char" MaxLength="30" />
+    <Property Name="gyr" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="seyear" Type="varchar" MaxLength="4" />
+    <Property Name="mdyr" Type="char" MaxLength="4" />
+    <Property Name="campuscode" Type="char" MaxLength="5" />
+    <Property Name="stpict" Type="char" MaxLength="100" />
+    <Property Name="advisor_name" Type="char" MaxLength="70" />
+    <Property Name="advisor_email" Type="char" MaxLength="70" />
+    <Property Name="advisor_campus_id" Type="char" MaxLength="16" />
+    <Property Name="advisor_society" Type="char" MaxLength="50" />
+    <Property Name="advisor_society_id" Type="int" />
+    <Property Name="Emplid" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="desk" Type="char" MaxLength="10" />
+    <Property Name="Acad_Prog" Type="char" MaxLength="5" />
+    <Property Name="Prog_status" Type="char" MaxLength="4" />
+    <Property Name="Sex" Type="char" MaxLength="1" />
+    <Property Name="BIRTHDATE" Type="datetime" />
+    <Property Name="dcode" Type="varchar(max)" />
+    <Property Name="stsound" Type="char" MaxLength="100" />
+    <Property Name="Phone" Type="char" MaxLength="24" />
+    <Property Name="Extension" Type="char" MaxLength="6" />
+    <Property Name="aamc_id" Type="char" MaxLength="10" />
+    <Property Name="ethnicity" Type="varchar" MaxLength="100" />
+    <Property Name="Email_Addr" Type="char" MaxLength="70" />
+    <Property Name="gender_identity" Type="varchar" MaxLength="50" />
+    <Property Name="gender_pronoun" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.v_StudentsSOMwithReducedFee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_StudentsSOMwithReducedFee">
+    <Key>
+      <PropertyRef Name="gyr" />
+      <PropertyRef Name="Emplid" />
+    </Key>
+    <Property Name="case_id" Type="char" MaxLength="16" />
+    <Property Name="Last_Name" Type="char" MaxLength="30" />
+    <Property Name="First_Name" Type="char" MaxLength="30" />
+    <Property Name="Middle_Name" Type="char" MaxLength="30" />
+    <Property Name="CW_PREF_FIRST_NAME" Type="char" MaxLength="30" />
+    <Property Name="gyr" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="seyear" Type="varchar" MaxLength="4" />
+    <Property Name="mdyr" Type="char" MaxLength="4" />
+    <Property Name="campuscode" Type="char" MaxLength="5" />
+    <Property Name="stpict" Type="char" MaxLength="100" />
+    <Property Name="advisor_name" Type="char" MaxLength="70" />
+    <Property Name="advisor_email" Type="char" MaxLength="70" />
+    <Property Name="advisor_campus_id" Type="char" MaxLength="16" />
+    <Property Name="advisor_society" Type="char" MaxLength="50" />
+    <Property Name="advisor_society_id" Type="int" />
+    <Property Name="Emplid" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="desk" Type="char" MaxLength="10" />
+    <Property Name="Acad_Prog" Type="char" MaxLength="5" />
+    <Property Name="Prog_status" Type="char" MaxLength="4" />
+    <Property Name="Sex" Type="char" MaxLength="1" />
+    <Property Name="BIRTHDATE" Type="datetime" />
+    <Property Name="dcode" Type="varchar(max)" />
+    <Property Name="stsound" Type="char" MaxLength="100" />
+    <Property Name="Phone" Type="char" MaxLength="24" />
+    <Property Name="Extension" Type="char" MaxLength="6" />
+    <Property Name="aamc_id" Type="char" MaxLength="10" />
+    <Property Name="ethnicity" Type="varchar" MaxLength="100" />
+    <Property Name="Email_Addr" Type="char" MaxLength="70" />
+    <Property Name="gender_identity" Type="varchar" MaxLength="50" />
+    <Property Name="gender_pronoun" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CanvasAPI.dbo.zv_CourseFeed' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="zv_CourseFeed">
+    <Key>
+      <PropertyRef Name="Crse_ID" />
+      <PropertyRef Name="class_nbr" />
+      <PropertyRef Name="ayear" />
+      <PropertyRef Name="start_dt" />
+      <PropertyRef Name="end_dt" />
+    </Key>
+    <Property Name="Crse_ID" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="class_nbr" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="Strm" Type="char" MaxLength="4" />
+    <Property Name="subject" Type="varchar" MaxLength="8" />
+    <Property Name="catalog_nbr" Type="varchar" MaxLength="10" />
+    <Property Name="ayear" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="course_title" Type="varchar" MaxLength="100" />
+    <Property Name="start_dt" Type="datetime" Nullable="false" />
+    <Property Name="end_dt" Type="datetime" Nullable="false" />
+    <Property Name="course_type" Type="char" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_CanvasAssignment_CanvasAssignmentGroup">
+    <End Role="CanvasAssignmentGroup" Type="Self.CanvasAssignmentGroup" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasAssignment" Type="Self.CanvasAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasAssignmentGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasAssignment">
+        <PropertyRef Name="canvasassignmentgroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasAssignment_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasAssignment" Type="Self.CanvasAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasAssignment">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasAssignment_CanvasGroupCategory">
+    <End Role="CanvasGroupCategory" Type="Self.CanvasGroupCategory" Multiplicity="0..1" />
+    <End Role="CanvasAssignment" Type="Self.CanvasAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroupCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasAssignment">
+        <PropertyRef Name="canvasgroupcategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasAssignmentOverride_CanvasAssignment">
+    <End Role="CanvasAssignment" Type="Self.CanvasAssignment" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasAssignmentOverride" Type="Self.CanvasAssignmentOverride" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasAssignment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasAssignmentOverride">
+        <PropertyRef Name="canvasassignment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasAssignmentOverride_CanvasGroup">
+    <End Role="CanvasGroup" Type="Self.CanvasGroup" Multiplicity="0..1" />
+    <End Role="CanvasAssignmentOverride" Type="Self.CanvasAssignmentOverride" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasAssignmentOverride">
+        <PropertyRef Name="canvasgroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasAssignmentOverride_CanvasSection">
+    <End Role="CanvasSection" Type="Self.CanvasSection" Multiplicity="0..1" />
+    <End Role="CanvasAssignmentOverride" Type="Self.CanvasAssignmentOverride" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasSection">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasAssignmentOverride">
+        <PropertyRef Name="canvassection_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasGroup_CanvasGroupCategory">
+    <End Role="CanvasGroupCategory" Type="Self.CanvasGroupCategory" Multiplicity="0..1" />
+    <End Role="CanvasGroup" Type="Self.CanvasGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroupCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasGroup">
+        <PropertyRef Name="canvasgroupcategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasGroupCategory_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasGroupCategory" Type="Self.CanvasGroupCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasGroupCategory">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasGroupMember_CanvasGroup">
+    <End Role="CanvasGroup" Type="Self.CanvasGroup" Multiplicity="0..1" />
+    <End Role="CanvasGroupMember" Type="Self.CanvasGroupMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasGroupMember">
+        <PropertyRef Name="canvasgroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasGroupMember_CanvasUser">
+    <End Role="CanvasUser" Type="Self.CanvasUser" Multiplicity="0..1" />
+    <End Role="CanvasGroupMember" Type="Self.CanvasGroupMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasUser">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasGroupMember">
+        <PropertyRef Name="canvasuser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasModule_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasModule" Type="Self.CanvasModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasModule">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasModuleItem_CanvasModule">
+    <End Role="CanvasModule" Type="Self.CanvasModule" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasModuleItem" Type="Self.CanvasModuleItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasModule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasModuleItem">
+        <PropertyRef Name="canvasmodule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasSection_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasSection" Type="Self.CanvasSection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasSection">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasSectionEnrollment_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1" />
+    <End Role="CanvasSectionEnrollment" Type="Self.CanvasSectionEnrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasSectionEnrollment">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasSectionEnrollment_CanvasRole">
+    <End Role="CanvasRole" Type="Self.CanvasRole" Multiplicity="0..1" />
+    <End Role="CanvasSectionEnrollment" Type="Self.CanvasSectionEnrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasRole">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasSectionEnrollment">
+        <PropertyRef Name="canvasrole_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasSectionEnrollment_CanvasSection">
+    <End Role="CanvasSection" Type="Self.CanvasSection" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasSectionEnrollment" Type="Self.CanvasSectionEnrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasSection">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasSectionEnrollment">
+        <PropertyRef Name="canvassection_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasSectionEnrollment_CanvasUser">
+    <End Role="CanvasUser" Type="Self.CanvasUser" Multiplicity="0..1" />
+    <End Role="CanvasSectionEnrollment" Type="Self.CanvasSectionEnrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasUser">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasSectionEnrollment">
+        <PropertyRef Name="canvasuser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMAnatomyPresentation_CanvasAssignment">
+    <End Role="CanvasAssignment" Type="Self.CanvasAssignment" Multiplicity="1" />
+    <End Role="SOMAnatomyPresentation" Type="Self.SOMAnatomyPresentation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasAssignment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMAnatomyPresentation">
+        <PropertyRef Name="canvasAssignment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMAnatomyPresentation_CanvasGroup">
+    <End Role="CanvasGroup" Type="Self.CanvasGroup" Multiplicity="1" />
+    <End Role="SOMAnatomyPresentation" Type="Self.SOMAnatomyPresentation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMAnatomyPresentation">
+        <PropertyRef Name="canvasGroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMAnatomyPresentationMember_SOMAnatomyPresentation">
+    <End Role="SOMAnatomyPresentation" Type="Self.SOMAnatomyPresentation" Multiplicity="1" />
+    <End Role="SOMAnatomyPresentationMember" Type="Self.SOMAnatomyPresentationMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMAnatomyPresentation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMAnatomyPresentationMember">
+        <PropertyRef Name="somAnatomyPresentation_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMCourseClassYear_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1" />
+    <End Role="SOMCourseClassYear" Type="Self.SOMCourseClassYear" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMCourseClassYear">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMCourseHyperlink_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1" />
+    <End Role="SOMCourseHyperlink" Type="Self.SOMCourseHyperlink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMCourseHyperlink">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMCourseHyperlink_SOMSectionBlock">
+    <End Role="SOMSectionBlock" Type="Self.SOMSectionBlock" Multiplicity="0..1" />
+    <End Role="SOMCourseHyperlink" Type="Self.SOMCourseHyperlink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionBlock">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMCourseHyperlink">
+        <PropertyRef Name="somsectionblock_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMFCMGrading_CanvasGroupCategory">
+    <End Role="CanvasGroupCategory" Type="Self.CanvasGroupCategory" Multiplicity="0..1" />
+    <End Role="SOMFCMGrading" Type="Self.SOMFCMGrading" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroupCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMFCMGrading">
+        <PropertyRef Name="canvasGroupCategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMFCMGradingByGroup_CanvasGroup">
+    <End Role="CanvasGroup" Type="Self.CanvasGroup" Multiplicity="1" />
+    <End Role="SOMFCMGradingGroup" Type="Self.SOMFCMGradingGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMFCMGradingGroup">
+        <PropertyRef Name="canvasGroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMFCMGradingByGroup_SOMFCMGrading">
+    <End Role="SOMFCMGrading" Type="Self.SOMFCMGrading" Multiplicity="1" />
+    <End Role="SOMFCMGradingGroup" Type="Self.SOMFCMGradingGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMFCMGrading">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMFCMGradingGroup">
+        <PropertyRef Name="somFCMGrading_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMFCMGradingIndividual_SOMFCMGradingGroup">
+    <End Role="SOMFCMGradingGroup" Type="Self.SOMFCMGradingGroup" Multiplicity="1" />
+    <End Role="SOMFCMGradingIndividual" Type="Self.SOMFCMGradingIndividual" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMFCMGradingGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMFCMGradingIndividual">
+        <PropertyRef Name="SOMFCMGradingGroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMModuleFaculty_CanvasModule">
+    <End Role="CanvasModule" Type="Self.CanvasModule" Multiplicity="0..1" />
+    <End Role="zSOMModuleFaculty" Type="Self.zSOMModuleFaculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasModule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zSOMModuleFaculty">
+        <PropertyRef Name="canvasmodule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMModuleFaculty_CanvasUser">
+    <End Role="CanvasUser" Type="Self.CanvasUser" Multiplicity="0..1" />
+    <End Role="zSOMModuleFaculty" Type="Self.zSOMModuleFaculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasUser">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zSOMModuleFaculty">
+        <PropertyRef Name="canvasuser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMModuleFaculty_CanvasUser1">
+    <End Role="CanvasUser" Type="Self.CanvasUser" Multiplicity="0..1" />
+    <End Role="zSOMModuleFaculty" Type="Self.zSOMModuleFaculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasUser">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zSOMModuleFaculty">
+        <PropertyRef Name="canvasuser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMModuleFaculty_SOMFacultyRole">
+    <End Role="SOMFacultyRole" Type="Self.SOMFacultyRole" Multiplicity="1" />
+    <End Role="zSOMModuleFaculty" Type="Self.zSOMModuleFaculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMFacultyRole">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zSOMModuleFaculty">
+        <PropertyRef Name="somfacultyrolte_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFaculty_CanvasModule">
+    <End Role="CanvasModule" Type="Self.CanvasModule" Multiplicity="0..1" />
+    <End Role="SOMSectionFaculty" Type="Self.SOMSectionFaculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasModule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFaculty">
+        <PropertyRef Name="canvasmodule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFaculty_SOMSectionTeam">
+    <End Role="SOMSectionTeam" Type="Self.SOMSectionTeam" Multiplicity="0..1" />
+    <End Role="SOMSectionFaculty" Type="Self.SOMSectionFaculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionTeam">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFaculty">
+        <PropertyRef Name="somsectionteam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFacultyFeedback_SOMSectionFacultyFeedback">
+    <End Role="SOMSectionFaculty" Type="Self.SOMSectionFaculty" Multiplicity="0..1" />
+    <End Role="SOMSectionFacultyFeedback" Type="Self.SOMSectionFacultyFeedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionFaculty">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFacultyFeedback">
+        <PropertyRef Name="somsectionfaculty_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFacultyFile_CanvasModule">
+    <End Role="CanvasModule" Type="Self.CanvasModule" Multiplicity="0..1" />
+    <End Role="SOMSectionFacultyFile" Type="Self.SOMSectionFacultyFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasModule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFacultyFile">
+        <PropertyRef Name="canvasmodule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFacultyFile_SOMCourseClassYear">
+    <End Role="SOMCourseClassYear" Type="Self.SOMCourseClassYear" Multiplicity="0..1" />
+    <End Role="SOMSectionFacultyFile" Type="Self.SOMSectionFacultyFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMCourseClassYear">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFacultyFile">
+        <PropertyRef Name="somcourseclassyear_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFacultyFile_SOMSectionFacultyFileType">
+    <End Role="SOMSectionFacultyFileType" Type="Self.SOMSectionFacultyFileType" Multiplicity="0..1" />
+    <End Role="SOMSectionFacultyFile" Type="Self.SOMSectionFacultyFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionFacultyFileType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFacultyFile">
+        <PropertyRef Name="somsectionfacultyfiletype_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFacultyNote_SOMSectionFaculty">
+    <End Role="SOMSectionFaculty" Type="Self.SOMSectionFaculty" Multiplicity="0..1" />
+    <End Role="SOMSectionFacultyNote" Type="Self.SOMSectionFacultyNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionFaculty">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFacultyNote">
+        <PropertyRef Name="somsectionfaculty_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionMember_CanvasRole">
+    <End Role="CanvasRole" Type="Self.CanvasRole" Multiplicity="0..1" />
+    <End Role="SOMSectionMember" Type="Self.SOMSectionMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasRole">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionMember">
+        <PropertyRef Name="canvasrole_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionMember_SOMSectionTeam1">
+    <End Role="SOMSectionTeam" Type="Self.SOMSectionTeam" Multiplicity="0..1" />
+    <End Role="SOMSectionMember" Type="Self.SOMSectionMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionTeam">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionMember">
+        <PropertyRef Name="somsectionteam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionTeam_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1" />
+    <End Role="SOMSectionTeam" Type="Self.SOMSectionTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionTeam">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionTeam_CanvasGroup">
+    <End Role="CanvasGroup" Type="Self.CanvasGroup" Multiplicity="0..1" />
+    <End Role="SOMSectionTeam" Type="Self.SOMSectionTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionTeam">
+        <PropertyRef Name="canvasgroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionTeam_CanvasSection">
+    <End Role="CanvasSection" Type="Self.CanvasSection" Multiplicity="0..1" />
+    <End Role="SOMSectionTeam" Type="Self.SOMSectionTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasSection">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionTeam">
+        <PropertyRef Name="canvassection_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionTeam_SOMSectionBlock">
+    <End Role="SOMSectionBlock" Type="Self.SOMSectionBlock" Multiplicity="1" />
+    <End Role="SOMSectionTeam" Type="Self.SOMSectionTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionBlock">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionTeam">
+        <PropertyRef Name="somsectionblock_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionWeek_SOMSectionWeek">
+    <End Role="SOMSectionWeek" Type="Self.SOMSectionWeek" Multiplicity="1" />
+    <End Role="SOMSectionWeek1" Type="Self.SOMSectionWeek" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionWeek">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionWeek1">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSISCourseBlock_SOMSectionBlock">
+    <End Role="SOMSectionBlock" Type="Self.SOMSectionBlock" Multiplicity="0..1" />
+    <End Role="SOMSISCourseBlock" Type="Self.SOMSISCourseBlock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionBlock">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSISCourseBlock">
+        <PropertyRef Name="somsectionblock_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CanvasAPIModelStoreContainer">
+    <EntitySet Name="CalendarEvents" EntityType="Self.CalendarEvents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CalendarFaculty" EntityType="Self.CalendarFaculty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CalendarFeeds" EntityType="Self.CalendarFeeds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CalendarFeedsBkup8252021" EntityType="Self.CalendarFeedsBkup8252021" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasAssignment" EntityType="Self.CanvasAssignment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasAssignmentGroup" EntityType="Self.CanvasAssignmentGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasAssignmentOverride" EntityType="Self.CanvasAssignmentOverride" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasCourse" EntityType="Self.CanvasCourse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasDiscussionTopics" EntityType="Self.CanvasDiscussionTopics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasGroup" EntityType="Self.CanvasGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasGroupCategory" EntityType="Self.CanvasGroupCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasGroupMember" EntityType="Self.CanvasGroupMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasModule" EntityType="Self.CanvasModule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasModuleItem" EntityType="Self.CanvasModuleItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasRole" EntityType="Self.CanvasRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasSection" EntityType="Self.CanvasSection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasSectionEnrollment" EntityType="Self.CanvasSectionEnrollment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CanvasUser" EntityType="Self.CanvasUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SelfSchedulingCourses" EntityType="Self.SelfSchedulingCourses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMAnatomyPresentation" EntityType="Self.SOMAnatomyPresentation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMAnatomyPresentationMember" EntityType="Self.SOMAnatomyPresentationMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMCourseClassYear" EntityType="Self.SOMCourseClassYear" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMCourseHyperlink" EntityType="Self.SOMCourseHyperlink" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMFacultyRole" EntityType="Self.SOMFacultyRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMFCMGrading" EntityType="Self.SOMFCMGrading" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMFCMGradingGroup" EntityType="Self.SOMFCMGradingGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMFCMGradingIndividual" EntityType="Self.SOMFCMGradingIndividual" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMSectionBlock" EntityType="Self.SOMSectionBlock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMSectionFaculty" EntityType="Self.SOMSectionFaculty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMSectionFacultyFeedback" EntityType="Self.SOMSectionFacultyFeedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMSectionFacultyFile" EntityType="Self.SOMSectionFacultyFile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMSectionFacultyFileType" EntityType="Self.SOMSectionFacultyFileType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMSectionFacultyNote" EntityType="Self.SOMSectionFacultyNote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMSectionMember" EntityType="Self.SOMSectionMember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMSectionTeam" EntityType="Self.SOMSectionTeam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMSectionWeek" EntityType="Self.SOMSectionWeek" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMSectionWeekSpecial" EntityType="Self.SOMSectionWeekSpecial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMSISCourseBlock" EntityType="Self.SOMSISCourseBlock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMStudentFileResources" EntityType="Self.SOMStudentFileResources" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tmpGroups" EntityType="Self.tmpGroups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tmpGroupsMedium" EntityType="Self.tmpGroupsMedium" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tmpGroupsMediumSplit" EntityType="Self.tmpGroupsMediumSplit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tmpGroupsSwap" EntityType="Self.tmpGroupsSwap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserCalendars" EntityType="Self.UserCalendars" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="zSOMModuleFaculty" EntityType="Self.zSOMModuleFaculty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="zSOMSectionTeamCourse" EntityType="Self.zSOMSectionTeamCourse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOMAnatomyPresentationBak" EntityType="Self.SOMAnatomyPresentationBak" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[SOMAnatomyPresentationBak].[id] AS [id], 
+[SOMAnatomyPresentationBak].[canvasAssignment_id] AS [canvasAssignment_id], 
+[SOMAnatomyPresentationBak].[canvasGroup_id] AS [canvasGroup_id], 
+[SOMAnatomyPresentationBak].[presentToGroup] AS [presentToGroup], 
+[SOMAnatomyPresentationBak].[presentToCanvasGroup_id] AS [presentToCanvasGroup_id]
+FROM [dbo].[SOMAnatomyPresentationBak] AS [SOMAnatomyPresentationBak]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SOMAnatomyPresentationMemberBak" EntityType="Self.SOMAnatomyPresentationMemberBak" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[SOMAnatomyPresentationMemberBak].[id] AS [id], 
+[SOMAnatomyPresentationMemberBak].[somAnatomyPresentation_id] AS [somAnatomyPresentation_id], 
+[SOMAnatomyPresentationMemberBak].[case_id] AS [case_id]
+FROM [dbo].[SOMAnatomyPresentationMemberBak] AS [SOMAnatomyPresentationMemberBak]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_AdvisorySociety" EntityType="Self.v_AdvisorySociety" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_AdvisorySociety].[GroupId] AS [GroupId], 
+[v_AdvisorySociety].[Society_Name] AS [Society_Name], 
+[v_AdvisorySociety].[Advisor_Days] AS [Advisor_Days], 
+[v_AdvisorySociety].[Advisor_Email] AS [Advisor_Email], 
+[v_AdvisorySociety].[Advisor_ID] AS [Advisor_ID], 
+[v_AdvisorySociety].[Advisor_Years] AS [Advisor_Years], 
+[v_AdvisorySociety].[Advisor_Address] AS [Advisor_Address], 
+[v_AdvisorySociety].[Advisor_phone] AS [Advisor_phone]
+FROM [dbo].[v_AdvisorySociety] AS [v_AdvisorySociety]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_CourseFeed" EntityType="Self.v_CourseFeed" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_CourseFeed].[Crse_ID] AS [Crse_ID], 
+[v_CourseFeed].[class_nbr] AS [class_nbr], 
+[v_CourseFeed].[Strm] AS [Strm], 
+[v_CourseFeed].[subject] AS [subject], 
+[v_CourseFeed].[catalog_nbr] AS [catalog_nbr], 
+[v_CourseFeed].[ayear] AS [ayear], 
+[v_CourseFeed].[course_title] AS [course_title], 
+[v_CourseFeed].[start_dt] AS [start_dt], 
+[v_CourseFeed].[end_dt] AS [end_dt], 
+[v_CourseFeed].[course_type] AS [course_type]
+FROM [dbo].[v_CourseFeed] AS [v_CourseFeed]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_Ethnicity" EntityType="Self.v_Ethnicity" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_Ethnicity].[SetID] AS [SetID], 
+[v_Ethnicity].[Ethnic_Grp_CD] AS [Ethnic_Grp_CD], 
+[v_Ethnicity].[EffDt] AS [EffDt], 
+[v_Ethnicity].[Status] AS [Status], 
+[v_Ethnicity].[Descr] AS [Descr], 
+[v_Ethnicity].[Short_Descr] AS [Short_Descr], 
+[v_Ethnicity].[isminority] AS [isminority]
+FROM [dbo].[v_Ethnicity] AS [v_Ethnicity]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_FacultySom" EntityType="Self.v_FacultySom" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_FacultySom].[ln] AS [ln], 
+[v_FacultySom].[fn] AS [fn], 
+[v_FacultySom].[mn] AS [mn], 
+[v_FacultySom].[emplid] AS [emplid], 
+[v_FacultySom].[email_address] AS [email_address], 
+[v_FacultySom].[case_id] AS [case_id]
+FROM [dbo].[v_FacultySom] AS [v_FacultySom]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_FileTable" EntityType="Self.v_FileTable" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_FileTable].[stream_id] AS [stream_id], 
+[v_FileTable].[name] AS [name], 
+[v_FileTable].[file_stream] AS [file_stream], 
+[v_FileTable].[is_directory] AS [is_directory], 
+[v_FileTable].[FullPath] AS [FullPath]
+FROM [dbo].[v_FileTable] AS [v_FileTable]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_FileTable_HierarchyIDs" EntityType="Self.v_FileTable_HierarchyIDs" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_FileTable_HierarchyIDs].[stream_id] AS [stream_id], 
+[v_FileTable_HierarchyIDs].[name] AS [name], 
+[v_FileTable_HierarchyIDs].[file_stream] AS [file_stream], 
+[v_FileTable_HierarchyIDs].[is_directory] AS [is_directory], 
+[v_FileTable_HierarchyIDs].[FullPath] AS [FullPath]
+FROM [dbo].[v_FileTable_HierarchyIDs] AS [v_FileTable_HierarchyIDs]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_FileTable_ParentPathLocator" EntityType="Self.v_FileTable_ParentPathLocator" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_FileTable_ParentPathLocator].[stream_id] AS [stream_id], 
+[v_FileTable_ParentPathLocator].[name] AS [name], 
+[v_FileTable_ParentPathLocator].[file_stream] AS [file_stream], 
+[v_FileTable_ParentPathLocator].[is_directory] AS [is_directory]
+FROM [dbo].[v_FileTable_ParentPathLocator] AS [v_FileTable_ParentPathLocator]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_StudentCoreBlockEnrollment" EntityType="Self.v_StudentCoreBlockEnrollment" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_StudentCoreBlockEnrollment].[emaddr] AS [emaddr], 
+[v_StudentCoreBlockEnrollment].[Sex] AS [Sex], 
+[v_StudentCoreBlockEnrollment].[firstName] AS [firstName], 
+[v_StudentCoreBlockEnrollment].[lastName] AS [lastName], 
+[v_StudentCoreBlockEnrollment].[ayear] AS [ayear], 
+[v_StudentCoreBlockEnrollment].[block_id] AS [block_id], 
+[v_StudentCoreBlockEnrollment].[coreblocknum] AS [coreblocknum], 
+[v_StudentCoreBlockEnrollment].[coreblockname] AS [coreblockname], 
+[v_StudentCoreBlockEnrollment].[session_id] AS [session_id]
+FROM [dbo].[v_StudentCoreBlockEnrollment] AS [v_StudentCoreBlockEnrollment]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_StudentGroups" EntityType="Self.v_StudentGroups" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_StudentGroups].[Emplid] AS [Emplid], 
+[v_StudentGroups].[seyear] AS [seyear], 
+[v_StudentGroups].[blockid] AS [blockid], 
+[v_StudentGroups].[schtype] AS [schtype], 
+[v_StudentGroups].[groupid] AS [groupid], 
+[v_StudentGroups].[blockname] AS [blockname], 
+[v_StudentGroups].[gender_identity] AS [gender_identity], 
+[v_StudentGroups].[gender_pronoun] AS [gender_pronoun]
+FROM [dbo].[v_StudentGroups] AS [v_StudentGroups]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_studentsAll" EntityType="Self.v_studentsAll" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_studentsAll].[Emplid] AS [Emplid], 
+[v_studentsAll].[Last_Name] AS [Last_Name], 
+[v_studentsAll].[First_Name] AS [First_Name], 
+[v_studentsAll].[Middle_Name] AS [Middle_Name], 
+[v_studentsAll].[Sex] AS [Sex], 
+[v_studentsAll].[Ethnic_Grp_CD] AS [Ethnic_Grp_CD], 
+[v_studentsAll].[BIRTHDATE] AS [BIRTHDATE], 
+[v_studentsAll].[studentname] AS [studentname], 
+[v_studentsAll].[Email_Addr] AS [Email_Addr], 
+[v_studentsAll].[emaddr] AS [emaddr], 
+[v_studentsAll].[mdyr] AS [mdyr], 
+[v_studentsAll].[gyr] AS [gyr], 
+[v_studentsAll].[campuscode] AS [campuscode], 
+[v_studentsAll].[Acad_Prog] AS [Acad_Prog], 
+[v_studentsAll].[desk] AS [desk], 
+[v_studentsAll].[advisor_name] AS [advisor_name], 
+[v_studentsAll].[advisor_email] AS [advisor_email], 
+[v_studentsAll].[advisor_campus_id] AS [advisor_campus_id], 
+[v_studentsAll].[Prog_status] AS [Prog_status], 
+[v_studentsAll].[CW_PREF_FIRST_NAME] AS [CW_PREF_FIRST_NAME], 
+[v_studentsAll].[reduced_fee] AS [reduced_fee], 
+[v_studentsAll].[gender_identity] AS [gender_identity], 
+[v_studentsAll].[gender_pronoun] AS [gender_pronoun]
+FROM [dbo].[v_studentsAll] AS [v_studentsAll]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_StudentsSOM" EntityType="Self.v_StudentsSOM" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_StudentsSOM].[case_id] AS [case_id], 
+[v_StudentsSOM].[Last_Name] AS [Last_Name], 
+[v_StudentsSOM].[First_Name] AS [First_Name], 
+[v_StudentsSOM].[Middle_Name] AS [Middle_Name], 
+[v_StudentsSOM].[CW_PREF_FIRST_NAME] AS [CW_PREF_FIRST_NAME], 
+[v_StudentsSOM].[gyr] AS [gyr], 
+[v_StudentsSOM].[seyear] AS [seyear], 
+[v_StudentsSOM].[mdyr] AS [mdyr], 
+[v_StudentsSOM].[campuscode] AS [campuscode], 
+[v_StudentsSOM].[stpict] AS [stpict], 
+[v_StudentsSOM].[advisor_name] AS [advisor_name], 
+[v_StudentsSOM].[advisor_email] AS [advisor_email], 
+[v_StudentsSOM].[advisor_campus_id] AS [advisor_campus_id], 
+[v_StudentsSOM].[advisor_society] AS [advisor_society], 
+[v_StudentsSOM].[advisor_society_id] AS [advisor_society_id], 
+[v_StudentsSOM].[Emplid] AS [Emplid], 
+[v_StudentsSOM].[desk] AS [desk], 
+[v_StudentsSOM].[Acad_Prog] AS [Acad_Prog], 
+[v_StudentsSOM].[Prog_status] AS [Prog_status], 
+[v_StudentsSOM].[Sex] AS [Sex], 
+[v_StudentsSOM].[BIRTHDATE] AS [BIRTHDATE], 
+[v_StudentsSOM].[dcode] AS [dcode], 
+[v_StudentsSOM].[stsound] AS [stsound], 
+[v_StudentsSOM].[Phone] AS [Phone], 
+[v_StudentsSOM].[Extension] AS [Extension], 
+[v_StudentsSOM].[aamc_id] AS [aamc_id], 
+[v_StudentsSOM].[ethnicity] AS [ethnicity], 
+[v_StudentsSOM].[Email_Addr] AS [Email_Addr], 
+[v_StudentsSOM].[gender_identity] AS [gender_identity], 
+[v_StudentsSOM].[gender_pronoun] AS [gender_pronoun]
+FROM [dbo].[v_StudentsSOM] AS [v_StudentsSOM]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_StudentsSOMwithReducedFee" EntityType="Self.v_StudentsSOMwithReducedFee" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_StudentsSOMwithReducedFee].[case_id] AS [case_id], 
+[v_StudentsSOMwithReducedFee].[Last_Name] AS [Last_Name], 
+[v_StudentsSOMwithReducedFee].[First_Name] AS [First_Name], 
+[v_StudentsSOMwithReducedFee].[Middle_Name] AS [Middle_Name], 
+[v_StudentsSOMwithReducedFee].[CW_PREF_FIRST_NAME] AS [CW_PREF_FIRST_NAME], 
+[v_StudentsSOMwithReducedFee].[gyr] AS [gyr], 
+[v_StudentsSOMwithReducedFee].[seyear] AS [seyear], 
+[v_StudentsSOMwithReducedFee].[mdyr] AS [mdyr], 
+[v_StudentsSOMwithReducedFee].[campuscode] AS [campuscode], 
+[v_StudentsSOMwithReducedFee].[stpict] AS [stpict], 
+[v_StudentsSOMwithReducedFee].[advisor_name] AS [advisor_name], 
+[v_StudentsSOMwithReducedFee].[advisor_email] AS [advisor_email], 
+[v_StudentsSOMwithReducedFee].[advisor_campus_id] AS [advisor_campus_id], 
+[v_StudentsSOMwithReducedFee].[advisor_society] AS [advisor_society], 
+[v_StudentsSOMwithReducedFee].[advisor_society_id] AS [advisor_society_id], 
+[v_StudentsSOMwithReducedFee].[Emplid] AS [Emplid], 
+[v_StudentsSOMwithReducedFee].[desk] AS [desk], 
+[v_StudentsSOMwithReducedFee].[Acad_Prog] AS [Acad_Prog], 
+[v_StudentsSOMwithReducedFee].[Prog_status] AS [Prog_status], 
+[v_StudentsSOMwithReducedFee].[Sex] AS [Sex], 
+[v_StudentsSOMwithReducedFee].[BIRTHDATE] AS [BIRTHDATE], 
+[v_StudentsSOMwithReducedFee].[dcode] AS [dcode], 
+[v_StudentsSOMwithReducedFee].[stsound] AS [stsound], 
+[v_StudentsSOMwithReducedFee].[Phone] AS [Phone], 
+[v_StudentsSOMwithReducedFee].[Extension] AS [Extension], 
+[v_StudentsSOMwithReducedFee].[aamc_id] AS [aamc_id], 
+[v_StudentsSOMwithReducedFee].[ethnicity] AS [ethnicity], 
+[v_StudentsSOMwithReducedFee].[Email_Addr] AS [Email_Addr], 
+[v_StudentsSOMwithReducedFee].[gender_identity] AS [gender_identity], 
+[v_StudentsSOMwithReducedFee].[gender_pronoun] AS [gender_pronoun]
+FROM [dbo].[v_StudentsSOMwithReducedFee] AS [v_StudentsSOMwithReducedFee]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="zv_CourseFeed" EntityType="Self.zv_CourseFeed" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[zv_CourseFeed].[Crse_ID] AS [Crse_ID], 
+[zv_CourseFeed].[class_nbr] AS [class_nbr], 
+[zv_CourseFeed].[Strm] AS [Strm], 
+[zv_CourseFeed].[subject] AS [subject], 
+[zv_CourseFeed].[catalog_nbr] AS [catalog_nbr], 
+[zv_CourseFeed].[ayear] AS [ayear], 
+[zv_CourseFeed].[course_title] AS [course_title], 
+[zv_CourseFeed].[start_dt] AS [start_dt], 
+[zv_CourseFeed].[end_dt] AS [end_dt], 
+[zv_CourseFeed].[course_type] AS [course_type]
+FROM [dbo].[zv_CourseFeed] AS [zv_CourseFeed]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_CanvasAssignment_CanvasAssignmentGroup" Association="Self.FK_CanvasAssignment_CanvasAssignmentGroup">
+      <End Role="CanvasAssignmentGroup" EntitySet="CanvasAssignmentGroup" />
+      <End Role="CanvasAssignment" EntitySet="CanvasAssignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasAssignment_CanvasCourse" Association="Self.FK_CanvasAssignment_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourse" />
+      <End Role="CanvasAssignment" EntitySet="CanvasAssignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasAssignment_CanvasGroupCategory" Association="Self.FK_CanvasAssignment_CanvasGroupCategory">
+      <End Role="CanvasGroupCategory" EntitySet="CanvasGroupCategory" />
+      <End Role="CanvasAssignment" EntitySet="CanvasAssignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasAssignmentOverride_CanvasAssignment" Association="Self.FK_CanvasAssignmentOverride_CanvasAssignment">
+      <End Role="CanvasAssignment" EntitySet="CanvasAssignment" />
+      <End Role="CanvasAssignmentOverride" EntitySet="CanvasAssignmentOverride" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasAssignmentOverride_CanvasGroup" Association="Self.FK_CanvasAssignmentOverride_CanvasGroup">
+      <End Role="CanvasGroup" EntitySet="CanvasGroup" />
+      <End Role="CanvasAssignmentOverride" EntitySet="CanvasAssignmentOverride" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasAssignmentOverride_CanvasSection" Association="Self.FK_CanvasAssignmentOverride_CanvasSection">
+      <End Role="CanvasSection" EntitySet="CanvasSection" />
+      <End Role="CanvasAssignmentOverride" EntitySet="CanvasAssignmentOverride" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasGroup_CanvasGroupCategory" Association="Self.FK_CanvasGroup_CanvasGroupCategory">
+      <End Role="CanvasGroupCategory" EntitySet="CanvasGroupCategory" />
+      <End Role="CanvasGroup" EntitySet="CanvasGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasGroupCategory_CanvasCourse" Association="Self.FK_CanvasGroupCategory_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourse" />
+      <End Role="CanvasGroupCategory" EntitySet="CanvasGroupCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasGroupMember_CanvasGroup" Association="Self.FK_CanvasGroupMember_CanvasGroup">
+      <End Role="CanvasGroup" EntitySet="CanvasGroup" />
+      <End Role="CanvasGroupMember" EntitySet="CanvasGroupMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasGroupMember_CanvasUser" Association="Self.FK_CanvasGroupMember_CanvasUser">
+      <End Role="CanvasUser" EntitySet="CanvasUser" />
+      <End Role="CanvasGroupMember" EntitySet="CanvasGroupMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasModule_CanvasCourse" Association="Self.FK_CanvasModule_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourse" />
+      <End Role="CanvasModule" EntitySet="CanvasModule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasModuleItem_CanvasModule" Association="Self.FK_CanvasModuleItem_CanvasModule">
+      <End Role="CanvasModule" EntitySet="CanvasModule" />
+      <End Role="CanvasModuleItem" EntitySet="CanvasModuleItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasSection_CanvasCourse" Association="Self.FK_CanvasSection_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourse" />
+      <End Role="CanvasSection" EntitySet="CanvasSection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasSectionEnrollment_CanvasCourse" Association="Self.FK_CanvasSectionEnrollment_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourse" />
+      <End Role="CanvasSectionEnrollment" EntitySet="CanvasSectionEnrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasSectionEnrollment_CanvasRole" Association="Self.FK_CanvasSectionEnrollment_CanvasRole">
+      <End Role="CanvasRole" EntitySet="CanvasRole" />
+      <End Role="CanvasSectionEnrollment" EntitySet="CanvasSectionEnrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasSectionEnrollment_CanvasSection" Association="Self.FK_CanvasSectionEnrollment_CanvasSection">
+      <End Role="CanvasSection" EntitySet="CanvasSection" />
+      <End Role="CanvasSectionEnrollment" EntitySet="CanvasSectionEnrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasSectionEnrollment_CanvasUser" Association="Self.FK_CanvasSectionEnrollment_CanvasUser">
+      <End Role="CanvasUser" EntitySet="CanvasUser" />
+      <End Role="CanvasSectionEnrollment" EntitySet="CanvasSectionEnrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMAnatomyPresentation_CanvasAssignment" Association="Self.FK_SOMAnatomyPresentation_CanvasAssignment">
+      <End Role="CanvasAssignment" EntitySet="CanvasAssignment" />
+      <End Role="SOMAnatomyPresentation" EntitySet="SOMAnatomyPresentation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMAnatomyPresentation_CanvasGroup" Association="Self.FK_SOMAnatomyPresentation_CanvasGroup">
+      <End Role="CanvasGroup" EntitySet="CanvasGroup" />
+      <End Role="SOMAnatomyPresentation" EntitySet="SOMAnatomyPresentation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMAnatomyPresentationMember_SOMAnatomyPresentation" Association="Self.FK_SOMAnatomyPresentationMember_SOMAnatomyPresentation">
+      <End Role="SOMAnatomyPresentation" EntitySet="SOMAnatomyPresentation" />
+      <End Role="SOMAnatomyPresentationMember" EntitySet="SOMAnatomyPresentationMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMCourseClassYear_CanvasCourse" Association="Self.FK_SOMCourseClassYear_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourse" />
+      <End Role="SOMCourseClassYear" EntitySet="SOMCourseClassYear" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMCourseHyperlink_CanvasCourse" Association="Self.FK_SOMCourseHyperlink_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourse" />
+      <End Role="SOMCourseHyperlink" EntitySet="SOMCourseHyperlink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMCourseHyperlink_SOMSectionBlock" Association="Self.FK_SOMCourseHyperlink_SOMSectionBlock">
+      <End Role="SOMSectionBlock" EntitySet="SOMSectionBlock" />
+      <End Role="SOMCourseHyperlink" EntitySet="SOMCourseHyperlink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMFCMGrading_CanvasGroupCategory" Association="Self.FK_SOMFCMGrading_CanvasGroupCategory">
+      <End Role="CanvasGroupCategory" EntitySet="CanvasGroupCategory" />
+      <End Role="SOMFCMGrading" EntitySet="SOMFCMGrading" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMFCMGradingByGroup_CanvasGroup" Association="Self.FK_SOMFCMGradingByGroup_CanvasGroup">
+      <End Role="CanvasGroup" EntitySet="CanvasGroup" />
+      <End Role="SOMFCMGradingGroup" EntitySet="SOMFCMGradingGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMFCMGradingByGroup_SOMFCMGrading" Association="Self.FK_SOMFCMGradingByGroup_SOMFCMGrading">
+      <End Role="SOMFCMGrading" EntitySet="SOMFCMGrading" />
+      <End Role="SOMFCMGradingGroup" EntitySet="SOMFCMGradingGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMFCMGradingIndividual_SOMFCMGradingGroup" Association="Self.FK_SOMFCMGradingIndividual_SOMFCMGradingGroup">
+      <End Role="SOMFCMGradingGroup" EntitySet="SOMFCMGradingGroup" />
+      <End Role="SOMFCMGradingIndividual" EntitySet="SOMFCMGradingIndividual" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMModuleFaculty_CanvasModule" Association="Self.FK_SOMModuleFaculty_CanvasModule">
+      <End Role="CanvasModule" EntitySet="CanvasModule" />
+      <End Role="zSOMModuleFaculty" EntitySet="zSOMModuleFaculty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMModuleFaculty_CanvasUser" Association="Self.FK_SOMModuleFaculty_CanvasUser">
+      <End Role="CanvasUser" EntitySet="CanvasUser" />
+      <End Role="zSOMModuleFaculty" EntitySet="zSOMModuleFaculty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMModuleFaculty_CanvasUser1" Association="Self.FK_SOMModuleFaculty_CanvasUser1">
+      <End Role="CanvasUser" EntitySet="CanvasUser" />
+      <End Role="zSOMModuleFaculty" EntitySet="zSOMModuleFaculty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMModuleFaculty_SOMFacultyRole" Association="Self.FK_SOMModuleFaculty_SOMFacultyRole">
+      <End Role="SOMFacultyRole" EntitySet="SOMFacultyRole" />
+      <End Role="zSOMModuleFaculty" EntitySet="zSOMModuleFaculty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFaculty_CanvasModule" Association="Self.FK_SOMSectionFaculty_CanvasModule">
+      <End Role="CanvasModule" EntitySet="CanvasModule" />
+      <End Role="SOMSectionFaculty" EntitySet="SOMSectionFaculty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFaculty_SOMSectionTeam" Association="Self.FK_SOMSectionFaculty_SOMSectionTeam">
+      <End Role="SOMSectionTeam" EntitySet="SOMSectionTeam" />
+      <End Role="SOMSectionFaculty" EntitySet="SOMSectionFaculty" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFacultyFeedback_SOMSectionFacultyFeedback" Association="Self.FK_SOMSectionFacultyFeedback_SOMSectionFacultyFeedback">
+      <End Role="SOMSectionFaculty" EntitySet="SOMSectionFaculty" />
+      <End Role="SOMSectionFacultyFeedback" EntitySet="SOMSectionFacultyFeedback" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFacultyFile_CanvasModule" Association="Self.FK_SOMSectionFacultyFile_CanvasModule">
+      <End Role="CanvasModule" EntitySet="CanvasModule" />
+      <End Role="SOMSectionFacultyFile" EntitySet="SOMSectionFacultyFile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFacultyFile_SOMCourseClassYear" Association="Self.FK_SOMSectionFacultyFile_SOMCourseClassYear">
+      <End Role="SOMCourseClassYear" EntitySet="SOMCourseClassYear" />
+      <End Role="SOMSectionFacultyFile" EntitySet="SOMSectionFacultyFile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFacultyFile_SOMSectionFacultyFileType" Association="Self.FK_SOMSectionFacultyFile_SOMSectionFacultyFileType">
+      <End Role="SOMSectionFacultyFileType" EntitySet="SOMSectionFacultyFileType" />
+      <End Role="SOMSectionFacultyFile" EntitySet="SOMSectionFacultyFile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFacultyNote_SOMSectionFaculty" Association="Self.FK_SOMSectionFacultyNote_SOMSectionFaculty">
+      <End Role="SOMSectionFaculty" EntitySet="SOMSectionFaculty" />
+      <End Role="SOMSectionFacultyNote" EntitySet="SOMSectionFacultyNote" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionMember_CanvasRole" Association="Self.FK_SOMSectionMember_CanvasRole">
+      <End Role="CanvasRole" EntitySet="CanvasRole" />
+      <End Role="SOMSectionMember" EntitySet="SOMSectionMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionMember_SOMSectionTeam1" Association="Self.FK_SOMSectionMember_SOMSectionTeam1">
+      <End Role="SOMSectionTeam" EntitySet="SOMSectionTeam" />
+      <End Role="SOMSectionMember" EntitySet="SOMSectionMember" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionTeam_CanvasCourse" Association="Self.FK_SOMSectionTeam_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourse" />
+      <End Role="SOMSectionTeam" EntitySet="SOMSectionTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionTeam_CanvasGroup" Association="Self.FK_SOMSectionTeam_CanvasGroup">
+      <End Role="CanvasGroup" EntitySet="CanvasGroup" />
+      <End Role="SOMSectionTeam" EntitySet="SOMSectionTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionTeam_CanvasSection" Association="Self.FK_SOMSectionTeam_CanvasSection">
+      <End Role="CanvasSection" EntitySet="CanvasSection" />
+      <End Role="SOMSectionTeam" EntitySet="SOMSectionTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionTeam_SOMSectionBlock" Association="Self.FK_SOMSectionTeam_SOMSectionBlock">
+      <End Role="SOMSectionBlock" EntitySet="SOMSectionBlock" />
+      <End Role="SOMSectionTeam" EntitySet="SOMSectionTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionWeek_SOMSectionWeek" Association="Self.FK_SOMSectionWeek_SOMSectionWeek">
+      <End Role="SOMSectionWeek" EntitySet="SOMSectionWeek" />
+      <End Role="SOMSectionWeek1" EntitySet="SOMSectionWeek" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSISCourseBlock_SOMSectionBlock" Association="Self.FK_SOMSISCourseBlock_SOMSectionBlock">
+      <End Role="SOMSectionBlock" EntitySet="SOMSectionBlock" />
+      <End Role="SOMSISCourseBlock" EntitySet="SOMSISCourseBlock" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,1756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CanvasAPIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CalendarEvent">
+    <Key>
+      <PropertyRef Name="UniqueId" />
+    </Key>
+    <Property Name="UniqueId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CanvasUserID" Type="Int32" />
+    <Property Name="CanvasCalendarEventID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="StartAt" Type="DateTime" Precision="7" />
+    <Property Name="EndAt" Type="DateTime" Precision="7" />
+    <Property Name="GoogleCalendarEventID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="7" />
+    <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CalendarFaculty">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="case_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CalendarFeed">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="case_id" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="prev_calendar_data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="canvas_user_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CalendarFeedsBkup8252021">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="case_id" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="prev_calendar_data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="canvas_user_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CanvasAssignment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="canvasassignmentgroup_id" Type="Int32" />
+    <Property Name="canvasgroupcategory_id" Type="Int32" />
+    <Property Name="canvascourse_id" Type="Int32" />
+    <Property Name="grade_group_students_individually" Type="Boolean" />
+    <Property Name="isDeleted" Type="Boolean" />
+    <NavigationProperty Name="CanvasAssignmentGroup" Relationship="Self.FK_CanvasAssignment_CanvasAssignmentGroup" FromRole="CanvasAssignment" ToRole="CanvasAssignmentGroup" />
+    <NavigationProperty Name="CanvasCourse" Relationship="Self.FK_CanvasAssignment_CanvasCourse" FromRole="CanvasAssignment" ToRole="CanvasCourse" />
+    <NavigationProperty Name="CanvasGroupCategory" Relationship="Self.FK_CanvasAssignment_CanvasGroupCategory" FromRole="CanvasAssignment" ToRole="CanvasGroupCategory" />
+    <NavigationProperty Name="CanvasAssignmentOverrides" Relationship="Self.FK_CanvasAssignmentOverride_CanvasAssignment" FromRole="CanvasAssignment" ToRole="CanvasAssignmentOverride" />
+    <NavigationProperty Name="SOMAnatomyPresentations" Relationship="Self.FK_SOMAnatomyPresentation_CanvasAssignment" FromRole="CanvasAssignment" ToRole="SOMAnatomyPresentation" />
+  </EntityType>
+  <EntityType Name="CanvasAssignmentGroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="assignments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CanvasAssignments" Relationship="Self.FK_CanvasAssignment_CanvasAssignmentGroup" FromRole="CanvasAssignmentGroup" ToRole="CanvasAssignment" />
+  </EntityType>
+  <EntityType Name="CanvasAssignmentOverride">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="canvasassignment_id" Type="Int32" Nullable="false" />
+    <Property Name="canvasgroup_id" Type="Int32" />
+    <Property Name="canvassection_id" Type="Int32" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="due_at" Type="DateTime" Precision="3" />
+    <Property Name="unlock_at" Type="DateTime" Precision="3" />
+    <Property Name="lock_at" Type="DateTime" Precision="3" />
+    <Property Name="canvasstudent_ids" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CanvasAssignment" Relationship="Self.FK_CanvasAssignmentOverride_CanvasAssignment" FromRole="CanvasAssignmentOverride" ToRole="CanvasAssignment" />
+    <NavigationProperty Name="CanvasGroup" Relationship="Self.FK_CanvasAssignmentOverride_CanvasGroup" FromRole="CanvasAssignmentOverride" ToRole="CanvasGroup" />
+    <NavigationProperty Name="CanvasSection" Relationship="Self.FK_CanvasAssignmentOverride_CanvasSection" FromRole="CanvasAssignmentOverride" ToRole="CanvasSection" />
+  </EntityType>
+  <EntityType Name="CanvasCourse">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="enrollmentterm_id" Type="Int32" />
+    <Property Name="start_at" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="end_at" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sis_course_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="account_id" Type="Int32" />
+    <Property Name="is_public" Type="Boolean" />
+    <Property Name="workflow_state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CanvasAssignments" Relationship="Self.FK_CanvasAssignment_CanvasCourse" FromRole="CanvasCourse" ToRole="CanvasAssignment" />
+    <NavigationProperty Name="CanvasGroupCategories" Relationship="Self.FK_CanvasGroupCategory_CanvasCourse" FromRole="CanvasCourse" ToRole="CanvasGroupCategory" />
+    <NavigationProperty Name="CanvasModules" Relationship="Self.FK_CanvasModule_CanvasCourse" FromRole="CanvasCourse" ToRole="CanvasModule" />
+    <NavigationProperty Name="CanvasSections" Relationship="Self.FK_CanvasSection_CanvasCourse" FromRole="CanvasCourse" ToRole="CanvasSection" />
+    <NavigationProperty Name="CanvasSectionEnrollments" Relationship="Self.FK_CanvasSectionEnrollment_CanvasCourse" FromRole="CanvasCourse" ToRole="CanvasSectionEnrollment" />
+    <NavigationProperty Name="SOMCourseClassYears" Relationship="Self.FK_SOMCourseClassYear_CanvasCourse" FromRole="CanvasCourse" ToRole="SOMCourseClassYear" />
+    <NavigationProperty Name="SOMCourseHyperlinks" Relationship="Self.FK_SOMCourseHyperlink_CanvasCourse" FromRole="CanvasCourse" ToRole="SOMCourseHyperlink" />
+    <NavigationProperty Name="SOMSectionTeams" Relationship="Self.FK_SOMSectionTeam_CanvasCourse" FromRole="CanvasCourse" ToRole="SOMSectionTeam" />
+  </EntityType>
+  <EntityType Name="CanvasDiscussionTopic">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="canvasgroup_id" Type="Int32" />
+    <Property Name="title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="assignment_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CanvasGroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="canvasgroupcategory_id" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="member_count" Type="Int32" />
+    <Property Name="unique_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="CanvasAssignmentOverrides" Relationship="Self.FK_CanvasAssignmentOverride_CanvasGroup" FromRole="CanvasGroup" ToRole="CanvasAssignmentOverride" />
+    <NavigationProperty Name="CanvasGroupCategory" Relationship="Self.FK_CanvasGroup_CanvasGroupCategory" FromRole="CanvasGroup" ToRole="CanvasGroupCategory" />
+    <NavigationProperty Name="CanvasGroupMembers" Relationship="Self.FK_CanvasGroupMember_CanvasGroup" FromRole="CanvasGroup" ToRole="CanvasGroupMember" />
+    <NavigationProperty Name="SOMAnatomyPresentations" Relationship="Self.FK_SOMAnatomyPresentation_CanvasGroup" FromRole="CanvasGroup" ToRole="SOMAnatomyPresentation" />
+    <NavigationProperty Name="SOMFCMGradingGroups" Relationship="Self.FK_SOMFCMGradingByGroup_CanvasGroup" FromRole="CanvasGroup" ToRole="SOMFCMGradingGroup" />
+    <NavigationProperty Name="SOMSectionTeams" Relationship="Self.FK_SOMSectionTeam_CanvasGroup" FromRole="CanvasGroup" ToRole="SOMSectionTeam" />
+  </EntityType>
+  <EntityType Name="CanvasGroupCategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="canvascourse_id" Type="Int32" />
+    <NavigationProperty Name="CanvasAssignments" Relationship="Self.FK_CanvasAssignment_CanvasGroupCategory" FromRole="CanvasGroupCategory" ToRole="CanvasAssignment" />
+    <NavigationProperty Name="CanvasCourse" Relationship="Self.FK_CanvasGroupCategory_CanvasCourse" FromRole="CanvasGroupCategory" ToRole="CanvasCourse" />
+    <NavigationProperty Name="CanvasGroups" Relationship="Self.FK_CanvasGroup_CanvasGroupCategory" FromRole="CanvasGroupCategory" ToRole="CanvasGroup" />
+    <NavigationProperty Name="SOMFCMGradings" Relationship="Self.FK_SOMFCMGrading_CanvasGroupCategory" FromRole="CanvasGroupCategory" ToRole="SOMFCMGrading" />
+  </EntityType>
+  <EntityType Name="CanvasGroupMember">
+    <Key>
+      <PropertyRef Name="unique_id_key" />
+    </Key>
+    <Property Name="id" Type="Int32" />
+    <Property Name="canvasgroup_id" Type="Int32" />
+    <Property Name="canvasuser_id" Type="Int32" />
+    <Property Name="unique_id_key" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="CanvasGroup" Relationship="Self.FK_CanvasGroupMember_CanvasGroup" FromRole="CanvasGroupMember" ToRole="CanvasGroup" />
+    <NavigationProperty Name="CanvasUser" Relationship="Self.FK_CanvasGroupMember_CanvasUser" FromRole="CanvasGroupMember" ToRole="CanvasUser" />
+  </EntityType>
+  <EntityType Name="CanvasModule">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="canvascourse_id" Type="Int32" />
+    <Property Name="unlock_at" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="start_at" Type="DateTime" Precision="3" />
+    <Property Name="end_at" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CanvasCourse" Relationship="Self.FK_CanvasModule_CanvasCourse" FromRole="CanvasModule" ToRole="CanvasCourse" />
+    <NavigationProperty Name="CanvasModuleItems" Relationship="Self.FK_CanvasModuleItem_CanvasModule" FromRole="CanvasModule" ToRole="CanvasModuleItem" />
+    <NavigationProperty Name="zSOMModuleFaculties" Relationship="Self.FK_SOMModuleFaculty_CanvasModule" FromRole="CanvasModule" ToRole="zSOMModuleFaculty" />
+    <NavigationProperty Name="SOMSectionFaculties" Relationship="Self.FK_SOMSectionFaculty_CanvasModule" FromRole="CanvasModule" ToRole="SOMSectionFaculty" />
+    <NavigationProperty Name="SOMSectionFacultyFiles" Relationship="Self.FK_SOMSectionFacultyFile_CanvasModule" FromRole="CanvasModule" ToRole="SOMSectionFacultyFile" />
+  </EntityType>
+  <EntityType Name="CanvasModuleItem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="canvasmodule_id" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="content_id" Type="Int32" />
+    <Property Name="due_at" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CanvasModule" Relationship="Self.FK_CanvasModuleItem_CanvasModule" FromRole="CanvasModuleItem" ToRole="CanvasModule" />
+  </EntityType>
+  <EntityType Name="CanvasRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CanvasSectionEnrollments" Relationship="Self.FK_CanvasSectionEnrollment_CanvasRole" FromRole="CanvasRole" ToRole="CanvasSectionEnrollment" />
+    <NavigationProperty Name="SOMSectionMembers" Relationship="Self.FK_SOMSectionMember_CanvasRole" FromRole="CanvasRole" ToRole="SOMSectionMember" />
+  </EntityType>
+  <EntityType Name="CanvasSection">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="canvascourse_id" Type="Int32" />
+    <Property Name="start_at" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="end_at" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="total_students" Type="Int32" />
+    <NavigationProperty Name="CanvasAssignmentOverrides" Relationship="Self.FK_CanvasAssignmentOverride_CanvasSection" FromRole="CanvasSection" ToRole="CanvasAssignmentOverride" />
+    <NavigationProperty Name="CanvasCourse" Relationship="Self.FK_CanvasSection_CanvasCourse" FromRole="CanvasSection" ToRole="CanvasCourse" />
+    <NavigationProperty Name="CanvasSectionEnrollments" Relationship="Self.FK_CanvasSectionEnrollment_CanvasSection" FromRole="CanvasSection" ToRole="CanvasSectionEnrollment" />
+    <NavigationProperty Name="SOMSectionTeams" Relationship="Self.FK_SOMSectionTeam_CanvasSection" FromRole="CanvasSection" ToRole="SOMSectionTeam" />
+  </EntityType>
+  <EntityType Name="CanvasSectionEnrollment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="canvascourse_id" Type="Int32" />
+    <Property Name="enrollment_state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="limit_prev" Type="Boolean" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="canvasuser_id" Type="Int32" />
+    <Property Name="canvasrole_id" Type="Int32" />
+    <Property Name="start_at" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="end_at" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="canvassection_id" Type="Int32" />
+    <NavigationProperty Name="CanvasCourse" Relationship="Self.FK_CanvasSectionEnrollment_CanvasCourse" FromRole="CanvasSectionEnrollment" ToRole="CanvasCourse" />
+    <NavigationProperty Name="CanvasRole" Relationship="Self.FK_CanvasSectionEnrollment_CanvasRole" FromRole="CanvasSectionEnrollment" ToRole="CanvasRole" />
+    <NavigationProperty Name="CanvasSection" Relationship="Self.FK_CanvasSectionEnrollment_CanvasSection" FromRole="CanvasSectionEnrollment" ToRole="CanvasSection" />
+    <NavigationProperty Name="CanvasUser" Relationship="Self.FK_CanvasSectionEnrollment_CanvasUser" FromRole="CanvasSectionEnrollment" ToRole="CanvasUser" />
+  </EntityType>
+  <EntityType Name="CanvasUser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="case_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="sortable_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="short_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CanvasGroupMembers" Relationship="Self.FK_CanvasGroupMember_CanvasUser" FromRole="CanvasUser" ToRole="CanvasGroupMember" />
+    <NavigationProperty Name="CanvasSectionEnrollments" Relationship="Self.FK_CanvasSectionEnrollment_CanvasUser" FromRole="CanvasUser" ToRole="CanvasSectionEnrollment" />
+    <NavigationProperty Name="zSOMModuleFaculties" Relationship="Self.FK_SOMModuleFaculty_CanvasUser" FromRole="CanvasUser" ToRole="zSOMModuleFaculty" />
+    <NavigationProperty Name="zSOMModuleFaculties1" Relationship="Self.FK_SOMModuleFaculty_CanvasUser1" FromRole="CanvasUser" ToRole="zSOMModuleFaculty" />
+  </EntityType>
+  <EntityType Name="SelfSchedulingCours">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="acadyear" Type="Int32" />
+    <Property Name="acadlevel" Type="Int32" />
+    <Property Name="canvasCourseId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SOMAnatomyPresentation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="canvasAssignment_id" Type="Int32" Nullable="false" />
+    <Property Name="canvasGroup_id" Type="Int32" Nullable="false" />
+    <Property Name="presentToGroup" Type="Int32" />
+    <Property Name="presentToCanvasGroup_id" Type="Int32" />
+    <NavigationProperty Name="CanvasAssignment" Relationship="Self.FK_SOMAnatomyPresentation_CanvasAssignment" FromRole="SOMAnatomyPresentation" ToRole="CanvasAssignment" />
+    <NavigationProperty Name="CanvasGroup" Relationship="Self.FK_SOMAnatomyPresentation_CanvasGroup" FromRole="SOMAnatomyPresentation" ToRole="CanvasGroup" />
+    <NavigationProperty Name="SOMAnatomyPresentationMembers" Relationship="Self.FK_SOMAnatomyPresentationMember_SOMAnatomyPresentation" FromRole="SOMAnatomyPresentation" ToRole="SOMAnatomyPresentationMember" />
+  </EntityType>
+  <EntityType Name="SOMAnatomyPresentationMember">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="somAnatomyPresentation_id" Type="Int32" Nullable="false" />
+    <Property Name="case_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SOMAnatomyPresentation" Relationship="Self.FK_SOMAnatomyPresentationMember_SOMAnatomyPresentation" FromRole="SOMAnatomyPresentationMember" ToRole="SOMAnatomyPresentation" />
+  </EntityType>
+  <EntityType Name="SOMCourseClassYear">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="canvascourse_id" Type="Int32" />
+    <Property Name="seyear" Type="Int32" />
+    <Property Name="gyr" Type="Int32" />
+    <Property Name="courseavailto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="somsectionblock_id" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="weekmid" Type="Int32" />
+    <Property Name="weekend" Type="Int32" />
+    <Property Name="weektotal" Type="Int32" />
+    <Property Name="startdate" Type="DateTime" Precision="3" />
+    <Property Name="enddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CanvasCourse" Relationship="Self.FK_SOMCourseClassYear_CanvasCourse" FromRole="SOMCourseClassYear" ToRole="CanvasCourse" />
+    <NavigationProperty Name="SOMSectionFacultyFiles" Relationship="Self.FK_SOMSectionFacultyFile_SOMCourseClassYear" FromRole="SOMCourseClassYear" ToRole="SOMSectionFacultyFile" />
+  </EntityType>
+  <EntityType Name="SOMCourseHyperlink">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="canvascourse_id" Type="Int32" />
+    <Property Name="somsectionblock_id" Type="Int32" />
+    <Property Name="title" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CanvasCourse" Relationship="Self.FK_SOMCourseHyperlink_CanvasCourse" FromRole="SOMCourseHyperlink" ToRole="CanvasCourse" />
+    <NavigationProperty Name="SOMSectionBlock" Relationship="Self.FK_SOMCourseHyperlink_SOMSectionBlock" FromRole="SOMCourseHyperlink" ToRole="SOMSectionBlock" />
+  </EntityType>
+  <EntityType Name="SOMFacultyRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="zSOMModuleFaculties" Relationship="Self.FK_SOMModuleFaculty_SOMFacultyRole" FromRole="SOMFacultyRole" ToRole="zSOMModuleFaculty" />
+  </EntityType>
+  <EntityType Name="SOMFCMGrading">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="recnumSch" Type="Int32" Nullable="false" />
+    <Property Name="canvasGroupCategory_id" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gradeBy" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="accessLog" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CanvasGroupCategory" Relationship="Self.FK_SOMFCMGrading_CanvasGroupCategory" FromRole="SOMFCMGrading" ToRole="CanvasGroupCategory" />
+    <NavigationProperty Name="SOMFCMGradingGroups" Relationship="Self.FK_SOMFCMGradingByGroup_SOMFCMGrading" FromRole="SOMFCMGrading" ToRole="SOMFCMGradingGroup" />
+  </EntityType>
+  <EntityType Name="SOMFCMGradingGroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="somFCMGrading_id" Type="Int32" Nullable="false" />
+    <Property Name="canvasGroup_id" Type="Int32" Nullable="false" />
+    <Property Name="graderId1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="graderId2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="accessLog" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CanvasGroup" Relationship="Self.FK_SOMFCMGradingByGroup_CanvasGroup" FromRole="SOMFCMGradingGroup" ToRole="CanvasGroup" />
+    <NavigationProperty Name="SOMFCMGrading" Relationship="Self.FK_SOMFCMGradingByGroup_SOMFCMGrading" FromRole="SOMFCMGradingGroup" ToRole="SOMFCMGrading" />
+    <NavigationProperty Name="SOMFCMGradingIndividuals" Relationship="Self.FK_SOMFCMGradingIndividual_SOMFCMGradingGroup" FromRole="SOMFCMGradingGroup" ToRole="SOMFCMGradingIndividual" />
+  </EntityType>
+  <EntityType Name="SOMFCMGradingIndividual">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SOMFCMGradingGroup_id" Type="Int32" Nullable="false" />
+    <Property Name="case_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="graderId1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="graderId2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="accessLog" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SOMFCMGradingGroup" Relationship="Self.FK_SOMFCMGradingIndividual_SOMFCMGradingGroup" FromRole="SOMFCMGradingIndividual" ToRole="SOMFCMGradingGroup" />
+  </EntityType>
+  <EntityType Name="SOMSectionBlock">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="avail_to" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="random" Type="Boolean" />
+    <Property Name="cwru_only" Type="Boolean" />
+    <Property Name="is_section" Type="Boolean" />
+    <Property Name="is_group" Type="Boolean" />
+    <NavigationProperty Name="SOMCourseHyperlinks" Relationship="Self.FK_SOMCourseHyperlink_SOMSectionBlock" FromRole="SOMSectionBlock" ToRole="SOMCourseHyperlink" />
+    <NavigationProperty Name="SOMSectionTeams" Relationship="Self.FK_SOMSectionTeam_SOMSectionBlock" FromRole="SOMSectionBlock" ToRole="SOMSectionTeam" />
+    <NavigationProperty Name="SOMSISCourseBlocks" Relationship="Self.FK_SOMSISCourseBlock_SOMSectionBlock" FromRole="SOMSectionBlock" ToRole="SOMSISCourseBlock" />
+  </EntityType>
+  <EntityType Name="SOMSectionFaculty">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="somsectionteam_id" Type="Int32" />
+    <Property Name="canvasmodule_id" Type="Int32" />
+    <Property Name="somsectionweek_weekid" Type="Int32" />
+    <Property Name="faculty_id" Type="Int32" />
+    <Property Name="facultyrole_id" Type="Int32" />
+    <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_date" Type="DateTime" Precision="3" />
+    <Property Name="seyear_old" Type="Int32" />
+    <Property Name="bcode_old" Type="Int32" />
+    <Property Name="gid_old" Type="Int32" />
+    <Property Name="wtcode_old" Type="Int32" />
+    <Property Name="schtype_old" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="roleid_old" Type="Int32" />
+    <NavigationProperty Name="CanvasModule" Relationship="Self.FK_SOMSectionFaculty_CanvasModule" FromRole="SOMSectionFaculty" ToRole="CanvasModule" />
+    <NavigationProperty Name="SOMSectionTeam" Relationship="Self.FK_SOMSectionFaculty_SOMSectionTeam" FromRole="SOMSectionFaculty" ToRole="SOMSectionTeam" />
+    <NavigationProperty Name="SOMSectionFacultyFeedbacks" Relationship="Self.FK_SOMSectionFacultyFeedback_SOMSectionFacultyFeedback" FromRole="SOMSectionFaculty" ToRole="SOMSectionFacultyFeedback" />
+    <NavigationProperty Name="SOMSectionFacultyNotes" Relationship="Self.FK_SOMSectionFacultyNote_SOMSectionFaculty" FromRole="SOMSectionFaculty" ToRole="SOMSectionFacultyNote" />
+  </EntityType>
+  <EntityType Name="SOMSectionFacultyFeedback">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="somsectionfaculty_id" Type="Int32" />
+    <Property Name="filename" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="faculty_id" Type="Int32" />
+    <Property Name="isproblem" Type="Boolean" />
+    <Property Name="goal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="learingnobjective" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fieldvalue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="resources" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="guide" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_date" Type="DateTime" Precision="3" />
+    <Property Name="seyear_old" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="bcode_old" Type="Int32" />
+    <Property Name="wtcode_old" Type="Int32" />
+    <Property Name="problem_old" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="SOMSectionFaculty" Relationship="Self.FK_SOMSectionFacultyFeedback_SOMSectionFacultyFeedback" FromRole="SOMSectionFacultyFeedback" ToRole="SOMSectionFaculty" />
+  </EntityType>
+  <EntityType Name="SOMSectionFacultyFile">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="somcourseclassyear_id" Type="Int32" />
+    <Property Name="canvasmodule_id" Type="Int32" />
+    <Property Name="somsectionweek_weekid" Type="Int32" />
+    <Property Name="somsectionfacultyfiletype_id" Type="Int32" />
+    <Property Name="link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_date" Type="DateTime" Precision="3" />
+    <Property Name="seyear_old" Type="Int32" />
+    <Property Name="bcode_old" Type="Int32" />
+    <Property Name="wtcode_old" Type="Int32" />
+    <Property Name="iqfileid_old" Type="Int32" />
+    <Property Name="fid_old" Type="Int32" />
+    <NavigationProperty Name="CanvasModule" Relationship="Self.FK_SOMSectionFacultyFile_CanvasModule" FromRole="SOMSectionFacultyFile" ToRole="CanvasModule" />
+    <NavigationProperty Name="SOMCourseClassYear" Relationship="Self.FK_SOMSectionFacultyFile_SOMCourseClassYear" FromRole="SOMSectionFacultyFile" ToRole="SOMCourseClassYear" />
+    <NavigationProperty Name="SOMSectionFacultyFileType" Relationship="Self.FK_SOMSectionFacultyFile_SOMSectionFacultyFileType" FromRole="SOMSectionFacultyFile" ToRole="SOMSectionFacultyFileType" />
+  </EntityType>
+  <EntityType Name="SOMSectionFacultyFileType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="code" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SOMSectionFacultyFiles" Relationship="Self.FK_SOMSectionFacultyFile_SOMSectionFacultyFileType" FromRole="SOMSectionFacultyFileType" ToRole="SOMSectionFacultyFile" />
+  </EntityType>
+  <EntityType Name="SOMSectionFacultyNote">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="somsectionfaculty_id" Type="Int32" />
+    <Property Name="case_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_date" Type="DateTime" Precision="3" />
+    <Property Name="seyear_old" Type="Int32" />
+    <Property Name="bcode_old" Type="Int32" />
+    <Property Name="gid_old" Type="Int32" />
+    <Property Name="fcode_old" Type="Int32" />
+    <Property Name="wtcode_old" Type="Int32" />
+    <Property Name="schtype_old" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SOMSectionFaculty" Relationship="Self.FK_SOMSectionFacultyNote_SOMSectionFaculty" FromRole="SOMSectionFacultyNote" ToRole="SOMSectionFaculty" />
+  </EntityType>
+  <EntityType Name="SOMSectionMember">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="somsectionteam_id" Type="Int32" />
+    <Property Name="case_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="canvasrole_id" Type="Int32" />
+    <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CanvasRole" Relationship="Self.FK_SOMSectionMember_CanvasRole" FromRole="SOMSectionMember" ToRole="CanvasRole" />
+    <NavigationProperty Name="SOMSectionTeam" Relationship="Self.FK_SOMSectionMember_SOMSectionTeam1" FromRole="SOMSectionMember" ToRole="SOMSectionTeam" />
+  </EntityType>
+  <EntityType Name="SOMSectionTeam">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="somsectionblock_id" Type="Int32" Nullable="false" />
+    <Property Name="grpid" Type="Int32" Nullable="false" />
+    <Property Name="canvascourse_id" Type="Int32" />
+    <Property Name="canvassection_id" Type="Int32" />
+    <Property Name="canvasgroup_id" Type="Int32" />
+    <Property Name="section_release" Type="Boolean" />
+    <Property Name="group_release" Type="Boolean" />
+    <Property Name="section_release_date" Type="DateTime" Precision="3" />
+    <Property Name="group_release_date" Type="DateTime" Precision="3" />
+    <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CanvasCourse" Relationship="Self.FK_SOMSectionTeam_CanvasCourse" FromRole="SOMSectionTeam" ToRole="CanvasCourse" />
+    <NavigationProperty Name="CanvasGroup" Relationship="Self.FK_SOMSectionTeam_CanvasGroup" FromRole="SOMSectionTeam" ToRole="CanvasGroup" />
+    <NavigationProperty Name="CanvasSection" Relationship="Self.FK_SOMSectionTeam_CanvasSection" FromRole="SOMSectionTeam" ToRole="CanvasSection" />
+    <NavigationProperty Name="SOMSectionBlock" Relationship="Self.FK_SOMSectionTeam_SOMSectionBlock" FromRole="SOMSectionTeam" ToRole="SOMSectionBlock" />
+    <NavigationProperty Name="SOMSectionFaculties" Relationship="Self.FK_SOMSectionFaculty_SOMSectionTeam" FromRole="SOMSectionTeam" ToRole="SOMSectionFaculty" />
+    <NavigationProperty Name="SOMSectionMembers" Relationship="Self.FK_SOMSectionMember_SOMSectionTeam1" FromRole="SOMSectionTeam" ToRole="SOMSectionMember" />
+  </EntityType>
+  <EntityType Name="SOMSectionWeek">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="canvascourse_id" Type="Int32" />
+    <Property Name="weeknumber" Type="Int32" />
+    <Property Name="weekid" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="weekstart" Type="DateTime" Precision="3" />
+    <Property Name="weekend" Type="DateTime" Precision="3" />
+    <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_date" Type="DateTime" Precision="3" />
+    <Property Name="wnumcal_old" Type="Int32" />
+    <Property Name="wtcode_old" Type="Int32" />
+    <NavigationProperty Name="SOMSectionWeek1" Relationship="Self.FK_SOMSectionWeek_SOMSectionWeek" FromRole="SOMSectionWeek" ToRole="SOMSectionWeek1" />
+    <NavigationProperty Name="SOMSectionWeek2" Relationship="Self.FK_SOMSectionWeek_SOMSectionWeek" FromRole="SOMSectionWeek1" ToRole="SOMSectionWeek" />
+  </EntityType>
+  <EntityType Name="SOMSectionWeekSpecial">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gyr" Type="Int32" />
+    <Property Name="weeknumber" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="weekstart" Type="DateTime" Precision="3" />
+    <Property Name="weekend" Type="DateTime" Precision="3" />
+    <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_date" Type="DateTime" Precision="3" />
+    <Property Name="wnumcal_old" Type="Int32" />
+    <Property Name="wtcode_old" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SOMSISCourseBlock">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sissubject" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="siscatalog_nbr" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="somsectionblock_id" Type="Int32" />
+    <Property Name="ayearsubtract" Type="Int32" />
+    <Property Name="gyradd" Type="Int32" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="canvascourse_code" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="canvascourse_name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="canvasuser_role" Type="Int32" />
+    <Property Name="somuser_role" Type="Int32" />
+    <NavigationProperty Name="SOMSectionBlock" Relationship="Self.FK_SOMSISCourseBlock_SOMSectionBlock" FromRole="SOMSISCourseBlock" ToRole="SOMSectionBlock" />
+  </EntityType>
+  <EntityType Name="SOMStudentFileResource">
+    <Key>
+      <PropertyRef Name="case_id" />
+    </Key>
+    <Property Name="case_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="picturesmstream_id" Type="Guid" />
+    <Property Name="picturelgstream_id" Type="Guid" />
+    <Property Name="soundstream_id" Type="Guid" />
+    <Property Name="soundstream" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="picturesmfilestream" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="picturelgfilestream" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tmpGroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gyr" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="somsectionblock_id" Type="Int32" />
+    <Property Name="randnum" Type="Double" Nullable="false" />
+    <Property Name="canvasuser_id" Type="Int32" />
+    <Property Name="case_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sex" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="is_minority" Type="Boolean" Nullable="false" />
+    <Property Name="ethnicity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="advisor_email" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tmpGroupsMedium">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="canvascourse_id" Type="Int32" />
+    <Property Name="somsectionblock_id" Type="Int32" Nullable="false" />
+    <Property Name="groupcategoryname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="grpcode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="grpid" Type="Int32" Nullable="false" />
+    <Property Name="iqgrpid1" Type="Int32" />
+    <Property Name="iqgrpid2" Type="Int32" />
+    <Property Name="iqgrpid3" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tmpGroupsMediumSplit">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="canvascourse_id" Type="Int32" Nullable="false" />
+    <Property Name="somsectionblock_id" Type="Int32" Nullable="false" />
+    <Property Name="groupcategoryname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="case_id" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="canvasuser_id" Type="Int32" />
+    <Property Name="grpid" Type="Int32" Nullable="false" />
+    <Property Name="grpcode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tmpGroupsSwap">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="case_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="teamid" Type="Int32" />
+    <Property Name="pteamid" Type="Int32" />
+    <Property Name="nteamid" Type="Int32" />
+    <Property Name="grpid" Type="Int32" />
+    <Property Name="pgrpid" Type="Int32" />
+    <Property Name="ngrpid" Type="Int32" />
+    <Property Name="memberid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UserCalendar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CanvasUserId" Type="Int32" />
+    <Property Name="GoogleCalendarId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="zSOMModuleFaculty">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="canvasmodule_id" Type="Int32" />
+    <Property Name="canvasuser_id" Type="Int32" />
+    <Property Name="somfacultyrolte_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CanvasModule" Relationship="Self.FK_SOMModuleFaculty_CanvasModule" FromRole="zSOMModuleFaculty" ToRole="CanvasModule" />
+    <NavigationProperty Name="CanvasUser" Relationship="Self.FK_SOMModuleFaculty_CanvasUser" FromRole="zSOMModuleFaculty" ToRole="CanvasUser" />
+    <NavigationProperty Name="CanvasUser1" Relationship="Self.FK_SOMModuleFaculty_CanvasUser1" FromRole="zSOMModuleFaculty" ToRole="CanvasUser" />
+    <NavigationProperty Name="SOMFacultyRole" Relationship="Self.FK_SOMModuleFaculty_SOMFacultyRole" FromRole="zSOMModuleFaculty" ToRole="SOMFacultyRole" />
+  </EntityType>
+  <EntityType Name="zSOMSectionTeamCourse">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="somsectionteam_id" Type="Int32" />
+    <Property Name="canvascourse_id" Type="Int32" />
+    <Property Name="canvassection_id" Type="Int32" />
+    <Property Name="canvasgroup_id" Type="Int32" />
+    <Property Name="section_release" Type="Boolean" />
+    <Property Name="group_release" Type="Boolean" />
+    <Property Name="section_release_date" Type="DateTime" Precision="3" />
+    <Property Name="group_release_date" Type="DateTime" Precision="3" />
+    <Property Name="user_login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SOMAnatomyPresentationBak">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="canvasAssignment_id" />
+      <PropertyRef Name="canvasGroup_id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="canvasAssignment_id" Type="Int32" Nullable="false" />
+    <Property Name="canvasGroup_id" Type="Int32" Nullable="false" />
+    <Property Name="presentToGroup" Type="Int32" />
+    <Property Name="presentToCanvasGroup_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SOMAnatomyPresentationMemberBak">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="somAnatomyPresentation_id" />
+      <PropertyRef Name="case_id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="somAnatomyPresentation_id" Type="Int32" Nullable="false" />
+    <Property Name="case_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="v_AdvisorySociety">
+    <Key>
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+    <Property Name="Society_Name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_Days" Type="Int32" />
+    <Property Name="Advisor_Email" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_ID" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_Years" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_Address" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="Advisor_phone" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="v_CourseFeed">
+    <Key>
+      <PropertyRef Name="Crse_ID" />
+      <PropertyRef Name="class_nbr" />
+      <PropertyRef Name="ayear" />
+      <PropertyRef Name="start_dt" />
+      <PropertyRef Name="end_dt" />
+    </Key>
+    <Property Name="Crse_ID" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="class_nbr" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="Strm" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="subject" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="catalog_nbr" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ayear" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="course_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="start_dt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="end_dt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="course_type" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="v_Ethnicity">
+    <Key>
+      <PropertyRef Name="Ethnic_Grp_CD" />
+      <PropertyRef Name="Status" />
+    </Key>
+    <Property Name="SetID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Ethnic_Grp_CD" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EffDt" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Descr" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Short_Descr" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="isminority" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="v_FacultySom">
+    <Key>
+      <PropertyRef Name="ln" />
+      <PropertyRef Name="fn" />
+    </Key>
+    <Property Name="ln" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fn" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="mn" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="emplid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="email_address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="case_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_FileTable">
+    <Key>
+      <PropertyRef Name="stream_id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="is_directory" />
+    </Key>
+    <Property Name="stream_id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="file_stream" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="is_directory" Type="Boolean" Nullable="false" />
+    <Property Name="FullPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_FileTable_HierarchyIDs">
+    <Key>
+      <PropertyRef Name="stream_id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="is_directory" />
+    </Key>
+    <Property Name="stream_id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="file_stream" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="is_directory" Type="Boolean" Nullable="false" />
+    <Property Name="FullPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_FileTable_ParentPathLocator">
+    <Key>
+      <PropertyRef Name="stream_id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="is_directory" />
+    </Key>
+    <Property Name="stream_id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="file_stream" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="is_directory" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="v_StudentCoreBlockEnrollment">
+    <Key>
+      <PropertyRef Name="ayear" />
+      <PropertyRef Name="block_id" />
+      <PropertyRef Name="session_id" />
+    </Key>
+    <Property Name="emaddr" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="firstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ayear" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="block_id" Type="Int32" Nullable="false" />
+    <Property Name="coreblocknum" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="coreblockname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="session_id" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="v_StudentGroups">
+    <Key>
+      <PropertyRef Name="Emplid" />
+      <PropertyRef Name="seyear" />
+      <PropertyRef Name="blockid" />
+      <PropertyRef Name="schtype" />
+      <PropertyRef Name="groupid" />
+    </Key>
+    <Property Name="Emplid" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="seyear" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="blockid" Type="Int32" Nullable="false" />
+    <Property Name="schtype" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="groupid" Type="Int32" Nullable="false" />
+    <Property Name="blockname" Type="String" MaxLength="111" FixedLength="false" Unicode="true" />
+    <Property Name="gender_identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gender_pronoun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="v_studentsAll">
+    <Key>
+      <PropertyRef Name="Emplid" />
+      <PropertyRef Name="reduced_fee" />
+    </Key>
+    <Property Name="Emplid" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="First_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Middle_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Ethnic_Grp_CD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BIRTHDATE" Type="DateTime" Precision="3" />
+    <Property Name="studentname" Type="String" MaxLength="98" FixedLength="false" Unicode="false" />
+    <Property Name="Email_Addr" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="emaddr" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="mdyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="gyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="campuscode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Acad_Prog" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="desk" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_name" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_email" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_campus_id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="Prog_status" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="CW_PREF_FIRST_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="reduced_fee" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gender_identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gender_pronoun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="v_StudentsSOM">
+    <Key>
+      <PropertyRef Name="gyr" />
+      <PropertyRef Name="Emplid" />
+    </Key>
+    <Property Name="case_id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="First_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Middle_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="CW_PREF_FIRST_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="gyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="seyear" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="mdyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="campuscode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="stpict" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_name" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_email" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_campus_id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_society" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_society_id" Type="Int32" />
+    <Property Name="Emplid" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="desk" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Acad_Prog" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Prog_status" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="BIRTHDATE" Type="DateTime" Precision="3" />
+    <Property Name="dcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="stsound" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="24" FixedLength="true" Unicode="false" />
+    <Property Name="Extension" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="aamc_id" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ethnicity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email_Addr" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="gender_identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gender_pronoun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="v_StudentsSOMwithReducedFee">
+    <Key>
+      <PropertyRef Name="gyr" />
+      <PropertyRef Name="Emplid" />
+    </Key>
+    <Property Name="case_id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="First_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Middle_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="CW_PREF_FIRST_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="gyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="seyear" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="mdyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="campuscode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="stpict" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_name" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_email" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_campus_id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_society" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_society_id" Type="Int32" />
+    <Property Name="Emplid" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="desk" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Acad_Prog" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Prog_status" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="BIRTHDATE" Type="DateTime" Precision="3" />
+    <Property Name="dcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="stsound" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="24" FixedLength="true" Unicode="false" />
+    <Property Name="Extension" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="aamc_id" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ethnicity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email_Addr" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="gender_identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gender_pronoun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="zv_CourseFeed">
+    <Key>
+      <PropertyRef Name="Crse_ID" />
+      <PropertyRef Name="class_nbr" />
+      <PropertyRef Name="ayear" />
+      <PropertyRef Name="start_dt" />
+      <PropertyRef Name="end_dt" />
+    </Key>
+    <Property Name="Crse_ID" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="class_nbr" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="Strm" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="subject" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="catalog_nbr" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ayear" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="course_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="start_dt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="end_dt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="course_type" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_CanvasAssignment_CanvasAssignmentGroup">
+    <End Role="CanvasAssignmentGroup" Type="Self.CanvasAssignmentGroup" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasAssignment" Type="Self.CanvasAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasAssignmentGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasAssignment">
+        <PropertyRef Name="canvasassignmentgroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasAssignment_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasAssignment" Type="Self.CanvasAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasAssignment">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasAssignment_CanvasGroupCategory">
+    <End Role="CanvasGroupCategory" Type="Self.CanvasGroupCategory" Multiplicity="0..1" />
+    <End Role="CanvasAssignment" Type="Self.CanvasAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroupCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasAssignment">
+        <PropertyRef Name="canvasgroupcategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasAssignmentOverride_CanvasAssignment">
+    <End Role="CanvasAssignment" Type="Self.CanvasAssignment" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasAssignmentOverride" Type="Self.CanvasAssignmentOverride" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasAssignment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasAssignmentOverride">
+        <PropertyRef Name="canvasassignment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMAnatomyPresentation_CanvasAssignment">
+    <End Role="CanvasAssignment" Type="Self.CanvasAssignment" Multiplicity="1" />
+    <End Role="SOMAnatomyPresentation" Type="Self.SOMAnatomyPresentation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasAssignment">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMAnatomyPresentation">
+        <PropertyRef Name="canvasAssignment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasAssignmentOverride_CanvasGroup">
+    <End Role="CanvasGroup" Type="Self.CanvasGroup" Multiplicity="0..1" />
+    <End Role="CanvasAssignmentOverride" Type="Self.CanvasAssignmentOverride" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasAssignmentOverride">
+        <PropertyRef Name="canvasgroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasAssignmentOverride_CanvasSection">
+    <End Role="CanvasSection" Type="Self.CanvasSection" Multiplicity="0..1" />
+    <End Role="CanvasAssignmentOverride" Type="Self.CanvasAssignmentOverride" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasSection">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasAssignmentOverride">
+        <PropertyRef Name="canvassection_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasGroupCategory_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasGroupCategory" Type="Self.CanvasGroupCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasGroupCategory">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasModule_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasModule" Type="Self.CanvasModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasModule">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasSection_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasSection" Type="Self.CanvasSection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasSection">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasSectionEnrollment_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1" />
+    <End Role="CanvasSectionEnrollment" Type="Self.CanvasSectionEnrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasSectionEnrollment">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMCourseClassYear_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1" />
+    <End Role="SOMCourseClassYear" Type="Self.SOMCourseClassYear" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMCourseClassYear">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMCourseHyperlink_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1" />
+    <End Role="SOMCourseHyperlink" Type="Self.SOMCourseHyperlink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMCourseHyperlink">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionTeam_CanvasCourse">
+    <End Role="CanvasCourse" Type="Self.CanvasCourse" Multiplicity="0..1" />
+    <End Role="SOMSectionTeam" Type="Self.SOMSectionTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasCourse">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionTeam">
+        <PropertyRef Name="canvascourse_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasGroup_CanvasGroupCategory">
+    <End Role="CanvasGroupCategory" Type="Self.CanvasGroupCategory" Multiplicity="0..1" />
+    <End Role="CanvasGroup" Type="Self.CanvasGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroupCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasGroup">
+        <PropertyRef Name="canvasgroupcategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasGroupMember_CanvasGroup">
+    <End Role="CanvasGroup" Type="Self.CanvasGroup" Multiplicity="0..1" />
+    <End Role="CanvasGroupMember" Type="Self.CanvasGroupMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasGroupMember">
+        <PropertyRef Name="canvasgroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMAnatomyPresentation_CanvasGroup">
+    <End Role="CanvasGroup" Type="Self.CanvasGroup" Multiplicity="1" />
+    <End Role="SOMAnatomyPresentation" Type="Self.SOMAnatomyPresentation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMAnatomyPresentation">
+        <PropertyRef Name="canvasGroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMFCMGradingByGroup_CanvasGroup">
+    <End Role="CanvasGroup" Type="Self.CanvasGroup" Multiplicity="1" />
+    <End Role="SOMFCMGradingGroup" Type="Self.SOMFCMGradingGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMFCMGradingGroup">
+        <PropertyRef Name="canvasGroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionTeam_CanvasGroup">
+    <End Role="CanvasGroup" Type="Self.CanvasGroup" Multiplicity="0..1" />
+    <End Role="SOMSectionTeam" Type="Self.SOMSectionTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionTeam">
+        <PropertyRef Name="canvasgroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMFCMGrading_CanvasGroupCategory">
+    <End Role="CanvasGroupCategory" Type="Self.CanvasGroupCategory" Multiplicity="0..1" />
+    <End Role="SOMFCMGrading" Type="Self.SOMFCMGrading" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasGroupCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMFCMGrading">
+        <PropertyRef Name="canvasGroupCategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasGroupMember_CanvasUser">
+    <End Role="CanvasUser" Type="Self.CanvasUser" Multiplicity="0..1" />
+    <End Role="CanvasGroupMember" Type="Self.CanvasGroupMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasUser">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasGroupMember">
+        <PropertyRef Name="canvasuser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasModuleItem_CanvasModule">
+    <End Role="CanvasModule" Type="Self.CanvasModule" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasModuleItem" Type="Self.CanvasModuleItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasModule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasModuleItem">
+        <PropertyRef Name="canvasmodule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMModuleFaculty_CanvasModule">
+    <End Role="CanvasModule" Type="Self.CanvasModule" Multiplicity="0..1" />
+    <End Role="zSOMModuleFaculty" Type="Self.zSOMModuleFaculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasModule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zSOMModuleFaculty">
+        <PropertyRef Name="canvasmodule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFaculty_CanvasModule">
+    <End Role="CanvasModule" Type="Self.CanvasModule" Multiplicity="0..1" />
+    <End Role="SOMSectionFaculty" Type="Self.SOMSectionFaculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasModule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFaculty">
+        <PropertyRef Name="canvasmodule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFacultyFile_CanvasModule">
+    <End Role="CanvasModule" Type="Self.CanvasModule" Multiplicity="0..1" />
+    <End Role="SOMSectionFacultyFile" Type="Self.SOMSectionFacultyFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasModule">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFacultyFile">
+        <PropertyRef Name="canvasmodule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasSectionEnrollment_CanvasRole">
+    <End Role="CanvasRole" Type="Self.CanvasRole" Multiplicity="0..1" />
+    <End Role="CanvasSectionEnrollment" Type="Self.CanvasSectionEnrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasRole">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasSectionEnrollment">
+        <PropertyRef Name="canvasrole_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionMember_CanvasRole">
+    <End Role="CanvasRole" Type="Self.CanvasRole" Multiplicity="0..1" />
+    <End Role="SOMSectionMember" Type="Self.SOMSectionMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasRole">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionMember">
+        <PropertyRef Name="canvasrole_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasSectionEnrollment_CanvasSection">
+    <End Role="CanvasSection" Type="Self.CanvasSection" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CanvasSectionEnrollment" Type="Self.CanvasSectionEnrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasSection">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasSectionEnrollment">
+        <PropertyRef Name="canvassection_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionTeam_CanvasSection">
+    <End Role="CanvasSection" Type="Self.CanvasSection" Multiplicity="0..1" />
+    <End Role="SOMSectionTeam" Type="Self.SOMSectionTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasSection">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionTeam">
+        <PropertyRef Name="canvassection_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CanvasSectionEnrollment_CanvasUser">
+    <End Role="CanvasUser" Type="Self.CanvasUser" Multiplicity="0..1" />
+    <End Role="CanvasSectionEnrollment" Type="Self.CanvasSectionEnrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasUser">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="CanvasSectionEnrollment">
+        <PropertyRef Name="canvasuser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMModuleFaculty_CanvasUser">
+    <End Role="CanvasUser" Type="Self.CanvasUser" Multiplicity="0..1" />
+    <End Role="zSOMModuleFaculty" Type="Self.zSOMModuleFaculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasUser">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zSOMModuleFaculty">
+        <PropertyRef Name="canvasuser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMModuleFaculty_CanvasUser1">
+    <End Role="CanvasUser" Type="Self.CanvasUser" Multiplicity="0..1" />
+    <End Role="zSOMModuleFaculty" Type="Self.zSOMModuleFaculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CanvasUser">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zSOMModuleFaculty">
+        <PropertyRef Name="canvasuser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMAnatomyPresentationMember_SOMAnatomyPresentation">
+    <End Role="SOMAnatomyPresentation" Type="Self.SOMAnatomyPresentation" Multiplicity="1" />
+    <End Role="SOMAnatomyPresentationMember" Type="Self.SOMAnatomyPresentationMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMAnatomyPresentation">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMAnatomyPresentationMember">
+        <PropertyRef Name="somAnatomyPresentation_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFacultyFile_SOMCourseClassYear">
+    <End Role="SOMCourseClassYear" Type="Self.SOMCourseClassYear" Multiplicity="0..1" />
+    <End Role="SOMSectionFacultyFile" Type="Self.SOMSectionFacultyFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMCourseClassYear">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFacultyFile">
+        <PropertyRef Name="somcourseclassyear_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMCourseHyperlink_SOMSectionBlock">
+    <End Role="SOMSectionBlock" Type="Self.SOMSectionBlock" Multiplicity="0..1" />
+    <End Role="SOMCourseHyperlink" Type="Self.SOMCourseHyperlink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionBlock">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMCourseHyperlink">
+        <PropertyRef Name="somsectionblock_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMModuleFaculty_SOMFacultyRole">
+    <End Role="SOMFacultyRole" Type="Self.SOMFacultyRole" Multiplicity="1" />
+    <End Role="zSOMModuleFaculty" Type="Self.zSOMModuleFaculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMFacultyRole">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="zSOMModuleFaculty">
+        <PropertyRef Name="somfacultyrolte_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMFCMGradingByGroup_SOMFCMGrading">
+    <End Role="SOMFCMGrading" Type="Self.SOMFCMGrading" Multiplicity="1" />
+    <End Role="SOMFCMGradingGroup" Type="Self.SOMFCMGradingGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMFCMGrading">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMFCMGradingGroup">
+        <PropertyRef Name="somFCMGrading_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMFCMGradingIndividual_SOMFCMGradingGroup">
+    <End Role="SOMFCMGradingGroup" Type="Self.SOMFCMGradingGroup" Multiplicity="1" />
+    <End Role="SOMFCMGradingIndividual" Type="Self.SOMFCMGradingIndividual" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMFCMGradingGroup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMFCMGradingIndividual">
+        <PropertyRef Name="SOMFCMGradingGroup_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionTeam_SOMSectionBlock">
+    <End Role="SOMSectionBlock" Type="Self.SOMSectionBlock" Multiplicity="1" />
+    <End Role="SOMSectionTeam" Type="Self.SOMSectionTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionBlock">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionTeam">
+        <PropertyRef Name="somsectionblock_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSISCourseBlock_SOMSectionBlock">
+    <End Role="SOMSectionBlock" Type="Self.SOMSectionBlock" Multiplicity="0..1" />
+    <End Role="SOMSISCourseBlock" Type="Self.SOMSISCourseBlock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionBlock">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSISCourseBlock">
+        <PropertyRef Name="somsectionblock_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFaculty_SOMSectionTeam">
+    <End Role="SOMSectionTeam" Type="Self.SOMSectionTeam" Multiplicity="0..1" />
+    <End Role="SOMSectionFaculty" Type="Self.SOMSectionFaculty" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionTeam">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFaculty">
+        <PropertyRef Name="somsectionteam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFacultyFeedback_SOMSectionFacultyFeedback">
+    <End Role="SOMSectionFaculty" Type="Self.SOMSectionFaculty" Multiplicity="0..1" />
+    <End Role="SOMSectionFacultyFeedback" Type="Self.SOMSectionFacultyFeedback" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionFaculty">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFacultyFeedback">
+        <PropertyRef Name="somsectionfaculty_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFacultyNote_SOMSectionFaculty">
+    <End Role="SOMSectionFaculty" Type="Self.SOMSectionFaculty" Multiplicity="0..1" />
+    <End Role="SOMSectionFacultyNote" Type="Self.SOMSectionFacultyNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionFaculty">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFacultyNote">
+        <PropertyRef Name="somsectionfaculty_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionFacultyFile_SOMSectionFacultyFileType">
+    <End Role="SOMSectionFacultyFileType" Type="Self.SOMSectionFacultyFileType" Multiplicity="0..1" />
+    <End Role="SOMSectionFacultyFile" Type="Self.SOMSectionFacultyFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionFacultyFileType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionFacultyFile">
+        <PropertyRef Name="somsectionfacultyfiletype_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionMember_SOMSectionTeam1">
+    <End Role="SOMSectionTeam" Type="Self.SOMSectionTeam" Multiplicity="0..1" />
+    <End Role="SOMSectionMember" Type="Self.SOMSectionMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionTeam">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionMember">
+        <PropertyRef Name="somsectionteam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SOMSectionWeek_SOMSectionWeek">
+    <End Role="SOMSectionWeek" Type="Self.SOMSectionWeek" Multiplicity="1" />
+    <End Role="SOMSectionWeek1" Type="Self.SOMSectionWeek" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SOMSectionWeek">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SOMSectionWeek1">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CanvasAPIEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CalendarEvents" EntityType="Self.CalendarEvent" />
+    <EntitySet Name="CalendarFaculties" EntityType="Self.CalendarFaculty" />
+    <EntitySet Name="CalendarFeeds" EntityType="Self.CalendarFeed" />
+    <EntitySet Name="CalendarFeedsBkup8252021" EntityType="Self.CalendarFeedsBkup8252021" />
+    <EntitySet Name="CanvasAssignments" EntityType="Self.CanvasAssignment" />
+    <EntitySet Name="CanvasAssignmentGroups" EntityType="Self.CanvasAssignmentGroup" />
+    <EntitySet Name="CanvasAssignmentOverrides" EntityType="Self.CanvasAssignmentOverride" />
+    <EntitySet Name="CanvasCourses" EntityType="Self.CanvasCourse" />
+    <EntitySet Name="CanvasDiscussionTopics" EntityType="Self.CanvasDiscussionTopic" />
+    <EntitySet Name="CanvasGroups" EntityType="Self.CanvasGroup" />
+    <EntitySet Name="CanvasGroupCategories" EntityType="Self.CanvasGroupCategory" />
+    <EntitySet Name="CanvasGroupMembers" EntityType="Self.CanvasGroupMember" />
+    <EntitySet Name="CanvasModules" EntityType="Self.CanvasModule" />
+    <EntitySet Name="CanvasModuleItems" EntityType="Self.CanvasModuleItem" />
+    <EntitySet Name="CanvasRoles" EntityType="Self.CanvasRole" />
+    <EntitySet Name="CanvasSections" EntityType="Self.CanvasSection" />
+    <EntitySet Name="CanvasSectionEnrollments" EntityType="Self.CanvasSectionEnrollment" />
+    <EntitySet Name="CanvasUsers" EntityType="Self.CanvasUser" />
+    <EntitySet Name="SelfSchedulingCourses" EntityType="Self.SelfSchedulingCours" />
+    <EntitySet Name="SOMAnatomyPresentations" EntityType="Self.SOMAnatomyPresentation" />
+    <EntitySet Name="SOMAnatomyPresentationMembers" EntityType="Self.SOMAnatomyPresentationMember" />
+    <EntitySet Name="SOMCourseClassYears" EntityType="Self.SOMCourseClassYear" />
+    <EntitySet Name="SOMCourseHyperlinks" EntityType="Self.SOMCourseHyperlink" />
+    <EntitySet Name="SOMFacultyRoles" EntityType="Self.SOMFacultyRole" />
+    <EntitySet Name="SOMFCMGradings" EntityType="Self.SOMFCMGrading" />
+    <EntitySet Name="SOMFCMGradingGroups" EntityType="Self.SOMFCMGradingGroup" />
+    <EntitySet Name="SOMFCMGradingIndividuals" EntityType="Self.SOMFCMGradingIndividual" />
+    <EntitySet Name="SOMSectionBlocks" EntityType="Self.SOMSectionBlock" />
+    <EntitySet Name="SOMSectionFaculties" EntityType="Self.SOMSectionFaculty" />
+    <EntitySet Name="SOMSectionFacultyFeedbacks" EntityType="Self.SOMSectionFacultyFeedback" />
+    <EntitySet Name="SOMSectionFacultyFiles" EntityType="Self.SOMSectionFacultyFile" />
+    <EntitySet Name="SOMSectionFacultyFileTypes" EntityType="Self.SOMSectionFacultyFileType" />
+    <EntitySet Name="SOMSectionFacultyNotes" EntityType="Self.SOMSectionFacultyNote" />
+    <EntitySet Name="SOMSectionMembers" EntityType="Self.SOMSectionMember" />
+    <EntitySet Name="SOMSectionTeams" EntityType="Self.SOMSectionTeam" />
+    <EntitySet Name="SOMSectionWeeks" EntityType="Self.SOMSectionWeek" />
+    <EntitySet Name="SOMSectionWeekSpecials" EntityType="Self.SOMSectionWeekSpecial" />
+    <EntitySet Name="SOMSISCourseBlocks" EntityType="Self.SOMSISCourseBlock" />
+    <EntitySet Name="SOMStudentFileResources" EntityType="Self.SOMStudentFileResource" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tmpGroups" EntityType="Self.tmpGroup" />
+    <EntitySet Name="tmpGroupsMediums" EntityType="Self.tmpGroupsMedium" />
+    <EntitySet Name="tmpGroupsMediumSplits" EntityType="Self.tmpGroupsMediumSplit" />
+    <EntitySet Name="tmpGroupsSwaps" EntityType="Self.tmpGroupsSwap" />
+    <EntitySet Name="UserCalendars" EntityType="Self.UserCalendar" />
+    <EntitySet Name="zSOMModuleFaculties" EntityType="Self.zSOMModuleFaculty" />
+    <EntitySet Name="zSOMSectionTeamCourses" EntityType="Self.zSOMSectionTeamCourse" />
+    <EntitySet Name="SOMAnatomyPresentationBaks" EntityType="Self.SOMAnatomyPresentationBak" />
+    <EntitySet Name="SOMAnatomyPresentationMemberBaks" EntityType="Self.SOMAnatomyPresentationMemberBak" />
+    <EntitySet Name="v_AdvisorySociety" EntityType="Self.v_AdvisorySociety" />
+    <EntitySet Name="v_CourseFeed" EntityType="Self.v_CourseFeed" />
+    <EntitySet Name="v_Ethnicity" EntityType="Self.v_Ethnicity" />
+    <EntitySet Name="v_FacultySom" EntityType="Self.v_FacultySom" />
+    <EntitySet Name="v_FileTable" EntityType="Self.v_FileTable" />
+    <EntitySet Name="v_FileTable_HierarchyIDs" EntityType="Self.v_FileTable_HierarchyIDs" />
+    <EntitySet Name="v_FileTable_ParentPathLocator" EntityType="Self.v_FileTable_ParentPathLocator" />
+    <EntitySet Name="v_StudentCoreBlockEnrollment" EntityType="Self.v_StudentCoreBlockEnrollment" />
+    <EntitySet Name="v_StudentGroups" EntityType="Self.v_StudentGroups" />
+    <EntitySet Name="v_studentsAll" EntityType="Self.v_studentsAll" />
+    <EntitySet Name="v_StudentsSOM" EntityType="Self.v_StudentsSOM" />
+    <EntitySet Name="v_StudentsSOMwithReducedFee" EntityType="Self.v_StudentsSOMwithReducedFee" />
+    <EntitySet Name="zv_CourseFeed" EntityType="Self.zv_CourseFeed" />
+    <AssociationSet Name="FK_CanvasAssignment_CanvasAssignmentGroup" Association="Self.FK_CanvasAssignment_CanvasAssignmentGroup">
+      <End Role="CanvasAssignmentGroup" EntitySet="CanvasAssignmentGroups" />
+      <End Role="CanvasAssignment" EntitySet="CanvasAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasAssignment_CanvasCourse" Association="Self.FK_CanvasAssignment_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourses" />
+      <End Role="CanvasAssignment" EntitySet="CanvasAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasAssignment_CanvasGroupCategory" Association="Self.FK_CanvasAssignment_CanvasGroupCategory">
+      <End Role="CanvasGroupCategory" EntitySet="CanvasGroupCategories" />
+      <End Role="CanvasAssignment" EntitySet="CanvasAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasAssignmentOverride_CanvasAssignment" Association="Self.FK_CanvasAssignmentOverride_CanvasAssignment">
+      <End Role="CanvasAssignment" EntitySet="CanvasAssignments" />
+      <End Role="CanvasAssignmentOverride" EntitySet="CanvasAssignmentOverrides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMAnatomyPresentation_CanvasAssignment" Association="Self.FK_SOMAnatomyPresentation_CanvasAssignment">
+      <End Role="CanvasAssignment" EntitySet="CanvasAssignments" />
+      <End Role="SOMAnatomyPresentation" EntitySet="SOMAnatomyPresentations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasAssignmentOverride_CanvasGroup" Association="Self.FK_CanvasAssignmentOverride_CanvasGroup">
+      <End Role="CanvasGroup" EntitySet="CanvasGroups" />
+      <End Role="CanvasAssignmentOverride" EntitySet="CanvasAssignmentOverrides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasAssignmentOverride_CanvasSection" Association="Self.FK_CanvasAssignmentOverride_CanvasSection">
+      <End Role="CanvasSection" EntitySet="CanvasSections" />
+      <End Role="CanvasAssignmentOverride" EntitySet="CanvasAssignmentOverrides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasGroupCategory_CanvasCourse" Association="Self.FK_CanvasGroupCategory_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourses" />
+      <End Role="CanvasGroupCategory" EntitySet="CanvasGroupCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasModule_CanvasCourse" Association="Self.FK_CanvasModule_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourses" />
+      <End Role="CanvasModule" EntitySet="CanvasModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasSection_CanvasCourse" Association="Self.FK_CanvasSection_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourses" />
+      <End Role="CanvasSection" EntitySet="CanvasSections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasSectionEnrollment_CanvasCourse" Association="Self.FK_CanvasSectionEnrollment_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourses" />
+      <End Role="CanvasSectionEnrollment" EntitySet="CanvasSectionEnrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMCourseClassYear_CanvasCourse" Association="Self.FK_SOMCourseClassYear_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourses" />
+      <End Role="SOMCourseClassYear" EntitySet="SOMCourseClassYears" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMCourseHyperlink_CanvasCourse" Association="Self.FK_SOMCourseHyperlink_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourses" />
+      <End Role="SOMCourseHyperlink" EntitySet="SOMCourseHyperlinks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionTeam_CanvasCourse" Association="Self.FK_SOMSectionTeam_CanvasCourse">
+      <End Role="CanvasCourse" EntitySet="CanvasCourses" />
+      <End Role="SOMSectionTeam" EntitySet="SOMSectionTeams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasGroup_CanvasGroupCategory" Association="Self.FK_CanvasGroup_CanvasGroupCategory">
+      <End Role="CanvasGroupCategory" EntitySet="CanvasGroupCategories" />
+      <End Role="CanvasGroup" EntitySet="CanvasGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasGroupMember_CanvasGroup" Association="Self.FK_CanvasGroupMember_CanvasGroup">
+      <End Role="CanvasGroup" EntitySet="CanvasGroups" />
+      <End Role="CanvasGroupMember" EntitySet="CanvasGroupMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMAnatomyPresentation_CanvasGroup" Association="Self.FK_SOMAnatomyPresentation_CanvasGroup">
+      <End Role="CanvasGroup" EntitySet="CanvasGroups" />
+      <End Role="SOMAnatomyPresentation" EntitySet="SOMAnatomyPresentations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMFCMGradingByGroup_CanvasGroup" Association="Self.FK_SOMFCMGradingByGroup_CanvasGroup">
+      <End Role="CanvasGroup" EntitySet="CanvasGroups" />
+      <End Role="SOMFCMGradingGroup" EntitySet="SOMFCMGradingGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionTeam_CanvasGroup" Association="Self.FK_SOMSectionTeam_CanvasGroup">
+      <End Role="CanvasGroup" EntitySet="CanvasGroups" />
+      <End Role="SOMSectionTeam" EntitySet="SOMSectionTeams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMFCMGrading_CanvasGroupCategory" Association="Self.FK_SOMFCMGrading_CanvasGroupCategory">
+      <End Role="CanvasGroupCategory" EntitySet="CanvasGroupCategories" />
+      <End Role="SOMFCMGrading" EntitySet="SOMFCMGradings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasGroupMember_CanvasUser" Association="Self.FK_CanvasGroupMember_CanvasUser">
+      <End Role="CanvasUser" EntitySet="CanvasUsers" />
+      <End Role="CanvasGroupMember" EntitySet="CanvasGroupMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasModuleItem_CanvasModule" Association="Self.FK_CanvasModuleItem_CanvasModule">
+      <End Role="CanvasModule" EntitySet="CanvasModules" />
+      <End Role="CanvasModuleItem" EntitySet="CanvasModuleItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMModuleFaculty_CanvasModule" Association="Self.FK_SOMModuleFaculty_CanvasModule">
+      <End Role="CanvasModule" EntitySet="CanvasModules" />
+      <End Role="zSOMModuleFaculty" EntitySet="zSOMModuleFaculties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFaculty_CanvasModule" Association="Self.FK_SOMSectionFaculty_CanvasModule">
+      <End Role="CanvasModule" EntitySet="CanvasModules" />
+      <End Role="SOMSectionFaculty" EntitySet="SOMSectionFaculties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFacultyFile_CanvasModule" Association="Self.FK_SOMSectionFacultyFile_CanvasModule">
+      <End Role="CanvasModule" EntitySet="CanvasModules" />
+      <End Role="SOMSectionFacultyFile" EntitySet="SOMSectionFacultyFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasSectionEnrollment_CanvasRole" Association="Self.FK_CanvasSectionEnrollment_CanvasRole">
+      <End Role="CanvasRole" EntitySet="CanvasRoles" />
+      <End Role="CanvasSectionEnrollment" EntitySet="CanvasSectionEnrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionMember_CanvasRole" Association="Self.FK_SOMSectionMember_CanvasRole">
+      <End Role="CanvasRole" EntitySet="CanvasRoles" />
+      <End Role="SOMSectionMember" EntitySet="SOMSectionMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasSectionEnrollment_CanvasSection" Association="Self.FK_CanvasSectionEnrollment_CanvasSection">
+      <End Role="CanvasSection" EntitySet="CanvasSections" />
+      <End Role="CanvasSectionEnrollment" EntitySet="CanvasSectionEnrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionTeam_CanvasSection" Association="Self.FK_SOMSectionTeam_CanvasSection">
+      <End Role="CanvasSection" EntitySet="CanvasSections" />
+      <End Role="SOMSectionTeam" EntitySet="SOMSectionTeams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CanvasSectionEnrollment_CanvasUser" Association="Self.FK_CanvasSectionEnrollment_CanvasUser">
+      <End Role="CanvasUser" EntitySet="CanvasUsers" />
+      <End Role="CanvasSectionEnrollment" EntitySet="CanvasSectionEnrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMModuleFaculty_CanvasUser" Association="Self.FK_SOMModuleFaculty_CanvasUser">
+      <End Role="CanvasUser" EntitySet="CanvasUsers" />
+      <End Role="zSOMModuleFaculty" EntitySet="zSOMModuleFaculties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMModuleFaculty_CanvasUser1" Association="Self.FK_SOMModuleFaculty_CanvasUser1">
+      <End Role="CanvasUser" EntitySet="CanvasUsers" />
+      <End Role="zSOMModuleFaculty" EntitySet="zSOMModuleFaculties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMAnatomyPresentationMember_SOMAnatomyPresentation" Association="Self.FK_SOMAnatomyPresentationMember_SOMAnatomyPresentation">
+      <End Role="SOMAnatomyPresentation" EntitySet="SOMAnatomyPresentations" />
+      <End Role="SOMAnatomyPresentationMember" EntitySet="SOMAnatomyPresentationMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFacultyFile_SOMCourseClassYear" Association="Self.FK_SOMSectionFacultyFile_SOMCourseClassYear">
+      <End Role="SOMCourseClassYear" EntitySet="SOMCourseClassYears" />
+      <End Role="SOMSectionFacultyFile" EntitySet="SOMSectionFacultyFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMCourseHyperlink_SOMSectionBlock" Association="Self.FK_SOMCourseHyperlink_SOMSectionBlock">
+      <End Role="SOMSectionBlock" EntitySet="SOMSectionBlocks" />
+      <End Role="SOMCourseHyperlink" EntitySet="SOMCourseHyperlinks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMModuleFaculty_SOMFacultyRole" Association="Self.FK_SOMModuleFaculty_SOMFacultyRole">
+      <End Role="SOMFacultyRole" EntitySet="SOMFacultyRoles" />
+      <End Role="zSOMModuleFaculty" EntitySet="zSOMModuleFaculties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMFCMGradingByGroup_SOMFCMGrading" Association="Self.FK_SOMFCMGradingByGroup_SOMFCMGrading">
+      <End Role="SOMFCMGrading" EntitySet="SOMFCMGradings" />
+      <End Role="SOMFCMGradingGroup" EntitySet="SOMFCMGradingGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMFCMGradingIndividual_SOMFCMGradingGroup" Association="Self.FK_SOMFCMGradingIndividual_SOMFCMGradingGroup">
+      <End Role="SOMFCMGradingGroup" EntitySet="SOMFCMGradingGroups" />
+      <End Role="SOMFCMGradingIndividual" EntitySet="SOMFCMGradingIndividuals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionTeam_SOMSectionBlock" Association="Self.FK_SOMSectionTeam_SOMSectionBlock">
+      <End Role="SOMSectionBlock" EntitySet="SOMSectionBlocks" />
+      <End Role="SOMSectionTeam" EntitySet="SOMSectionTeams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSISCourseBlock_SOMSectionBlock" Association="Self.FK_SOMSISCourseBlock_SOMSectionBlock">
+      <End Role="SOMSectionBlock" EntitySet="SOMSectionBlocks" />
+      <End Role="SOMSISCourseBlock" EntitySet="SOMSISCourseBlocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFaculty_SOMSectionTeam" Association="Self.FK_SOMSectionFaculty_SOMSectionTeam">
+      <End Role="SOMSectionTeam" EntitySet="SOMSectionTeams" />
+      <End Role="SOMSectionFaculty" EntitySet="SOMSectionFaculties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFacultyFeedback_SOMSectionFacultyFeedback" Association="Self.FK_SOMSectionFacultyFeedback_SOMSectionFacultyFeedback">
+      <End Role="SOMSectionFaculty" EntitySet="SOMSectionFaculties" />
+      <End Role="SOMSectionFacultyFeedback" EntitySet="SOMSectionFacultyFeedbacks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFacultyNote_SOMSectionFaculty" Association="Self.FK_SOMSectionFacultyNote_SOMSectionFaculty">
+      <End Role="SOMSectionFaculty" EntitySet="SOMSectionFaculties" />
+      <End Role="SOMSectionFacultyNote" EntitySet="SOMSectionFacultyNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionFacultyFile_SOMSectionFacultyFileType" Association="Self.FK_SOMSectionFacultyFile_SOMSectionFacultyFileType">
+      <End Role="SOMSectionFacultyFileType" EntitySet="SOMSectionFacultyFileTypes" />
+      <End Role="SOMSectionFacultyFile" EntitySet="SOMSectionFacultyFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionMember_SOMSectionTeam1" Association="Self.FK_SOMSectionMember_SOMSectionTeam1">
+      <End Role="SOMSectionTeam" EntitySet="SOMSectionTeams" />
+      <End Role="SOMSectionMember" EntitySet="SOMSectionMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SOMSectionWeek_SOMSectionWeek" Association="Self.FK_SOMSectionWeek_SOMSectionWeek">
+      <End Role="SOMSectionWeek" EntitySet="SOMSectionWeeks" />
+      <End Role="SOMSectionWeek1" EntitySet="SOMSectionWeeks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

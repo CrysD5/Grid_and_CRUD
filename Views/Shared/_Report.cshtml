@@ -1,0 +1,68 @@
+﻿@using Kendo.Mvc.UI
+
+<div id="RosterDDL" class="report">
+    <h4>Roster Reports: </h4>
+
+    @(Html.Kendo().DropDownTree()
+                    .Name("rostReps")
+                    .HtmlAttributes(new { Style = "float: center, width:90px;" })
+                    .Placeholder("Select an Option...")
+                    .Height("auto")
+                    //.AutoWidth(true)
+                    .DataValueField("id")
+                    .DataUrlField("LinksTo")
+                    .AutoBind(true)
+                    .Items(items=>
+                    {
+                        items.Add().Text("Full Summary").Id("1");
+                        items.Add().Text("Foundation Blocks Summary").Id("2").Expanded(true).Items(children =>
+                        {
+                            children.Add().Text("Block 1").Id("3");
+                            children.Add().Text("Block 2").Id("4");
+                            children.Add().Text("Block 3").Id("5");
+                            children.Add().Text("Block 4").Id("6");
+                            children.Add().Text("Block 5").Id("7");
+                            children.Add().Text("Block 6").Id("8");
+                        });
+                        items.Add().Text("CAT Score Details").Id("9");
+                        items.Add().Text("Summative ePortfolio").Id("10");
+                        items.Add().Text("Clinical Basic Core Evaluation").Id("11");
+                        items.Add().Text("Clinical Advanced Core Evaluation").Id("12");
+                        items.Add().Text("Clinical Honors Report").Id("13");
+                        items.Add().Text("Professional Learning Plan (PLP)").Id("14").Expanded(true).Items(children =>
+                        {
+                            children.Add().Text("Block 1").Id("15");
+                            children.Add().Text("Block 2").Id("16");
+                            children.Add().Text("Block 3").Id("17");
+                            children.Add().Text("Block 4").Id("18");
+                            children.Add().Text("Block 5").Id("19");
+                            children.Add().Text("Block 6").Id("20");
+                        });
+                        items.Add().Text("Attendance").Id("21");
+                        items.Add().Text("USMLE Scores").Id("22");
+                        items.Add().Text("IQ Self & Peer Feedback").Id("23").Expanded(true).Items(children =>
+                        {
+                            children.Add().Text("Block 1").Id("24");
+                            children.Add().Text("Block 2").Id("25");
+                            children.Add().Text("Block 3").Id("26");
+                            children.Add().Text("Block 4").Id("27");
+                            children.Add().Text("Block 5").Id("28");
+                        });
+                        items.Add().Text("SAMI Attendance").Id("29");
+                        items.Add().Text("Advising").Id("30").Url("https://med-ed.case.edu/SocietyDeanAdvisingAdmin");
+                        items.Add().Text("MD Requirements Registrar Report").Id("31").Url("https://data.case.edu/#/site/CWRUAnalytics/views/SOM-MDGraduationAnalysis/MDGradRequirements?:iid=1");
+                        items.Add().Text("Specialty Advisor List Google Doc").Id("32").Url("https://docs.google.com/spreadsheets/d/13Pb8mTpPibfMOk_vxOmIFE8rF95Cn8rfN548xVM2vFQ/edit?usp=sharing");
+                        items.Add().Text("CAS").Id("33").Url("https://putamen.case.edu/CAS/");
+                        items.Add().Text("Easel").Id("34").Url("https://med-ed.case.edu/Easel/");
+                        items.Add().Text("NBME").Id("35").Url("https://www.mynbme.org/servicesportal/s/login/?ec=302&startURL=%2Fservicesportal%2Fs%2Fscore-reports");
+                        items.Add().Text("Amount of Credit Report for the Graduating Class").Id("36").Url("https://data.case.edu/");
+                    })
+                    .Events(e=>
+                    {
+                        e.Change("changeReport");
+
+                    })
+
+                )
+</div>
+

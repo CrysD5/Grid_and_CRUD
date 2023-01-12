@@ -1,0 +1,52 @@
+﻿@model Grid_and_CRUD.Models.FullSummary.AdvisoryNotesViewModel
+
+<h3>Dean Notes</h3>
+
+    <br />
+
+    @(Html.Kendo().Grid<Grid_and_CRUD.Models.FullSummary.AdvisoryNotesViewModel>()
+        .Name("grid")
+        //.Events(events => events.Edit("onEdit"))
+        .Columns(columns =>
+        {
+            columns.Bound(advisoryNote => advisoryNote.nid).Hidden();
+            columns.Bound(advisoryNote => advisoryNote.emaddr);
+            columns.Bound(advisoryNote => advisoryNote.edate).Format("{0:MM/dd/yyyy}").Title("Date");
+            columns.Bound(advisoryNote => advisoryNote.etitle).Title("Title");
+            columns.Bound(advisoryNote => advisoryNote.enotes).Title("Notes");
+            columns.Bound(advisoryNote => advisoryNote.adlogin).Title("Dean");
+            columns.Bound(advisoryNote => advisoryNote.notefile).Hidden();
+            columns.Command(commands =>
+            {
+                commands.Destroy();
+                commands.Edit();
+            });
+        })
+        .ToolBar(toolbar =>
+        {
+            toolbar.Create();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .Model(model =>
+            {
+                model.Id(advisoryNote => advisoryNote.nid);
+                model.Field(advisoryNote => advisoryNote.nid).Editable(false);
+                // model.Field(advisoryNote => advisoryNote.caseID).DefaultValue(Session["selectedValue"]);
+                model.Field(advisoryNote => advisoryNote.emaddr).DefaultValue(@Grid_and_CRUD.Classes.UserSession.Student);
+                model.Field(advisoryNote => advisoryNote.edate);
+                model.Field(advisoryNote => advisoryNote.etitle);
+                model.Field(advisoryNote => advisoryNote.enotes);
+                model.Field(advisoryNote => advisoryNote.adlogin).DefaultValue("cxd450");
+                model.Field(advisoryNote => advisoryNote.notefile);
+            })
+            .Create(create => create.Action("Notes_Create", "FullSummary").Data("addAdditionalData"))
+            .Read(read => read.Action("Notes_Read", "FullSummary").Data("GetStudID"))
+            .Update(update => update.Action("Notes_Update", "FullSummary"))
+            .Destroy(destroy => destroy.Action("Notes_Destroy", "FullSummary"))
+        )
+        .Selectable()
+        .Pageable()
+        .HtmlAttributes(new { style = "text-align: center;" })
+        )

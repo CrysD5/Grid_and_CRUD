@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SouthwindModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdvisoryNote">
+    <Key>
+      <PropertyRef Name="nid" />
+    </Key>
+    <Property Name="nid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="emaddr" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="edate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="adlogin" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="etitle" Type="String" MaxLength="200" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="enotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="notefile" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AdvisorySociety">
+    <Key>
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+    <Property Name="Society_Name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_Days" Type="Int32" />
+    <Property Name="Advisor_Email" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_ID" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_Years" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_Address" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="Advisor_phone" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_Name" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Advisor_EmailAddress" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Personal">
+    <Key>
+      <PropertyRef Name="Emplid" />
+    </Key>
+    <Property Name="Emplid" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="First_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Middle_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="CW_PREF_LAST_NAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="CW_PREF_FIRST_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="CW_PREF_MID_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="BIRTHDATE" Type="DateTime" Precision="3" />
+    <Property Name="Visa_Permit_Type" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="BirthCountry" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Citizen_Country" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="55" FixedLength="true" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="55" FixedLength="true" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="County" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="Postal" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="24" FixedLength="true" Unicode="false" />
+    <Property Name="Extension" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="Address1_Other" Type="String" MaxLength="55" FixedLength="true" Unicode="false" />
+    <Property Name="Address2_Other" Type="String" MaxLength="55" FixedLength="true" Unicode="false" />
+    <Property Name="City_Other" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="State_Other" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="Postal_Other" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="Country_Other" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="CW_Phone_Other" Type="String" MaxLength="24" FixedLength="true" Unicode="false" />
+    <Property Name="CW_Extension" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="Email_Addr" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="Campus_Id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="CW_CELL_PHONE" Type="String" MaxLength="24" FixedLength="true" Unicode="false" />
+    <Property Name="CW_CC_GIC_DESCR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CW_CC_PRONOUN_DESCR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Student_Misc">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="emplid" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="emaddr" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="stpict" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="stsound" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="aamc_id" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="History_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="reduced_fee" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="mdt" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="leave_reason" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="leave_start_date" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="leave_end_date" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="mdt_yr1" Type="DateTime" Precision="3" />
+    <Property Name="mdt_yr2" Type="DateTime" Precision="3" />
+    <Property Name="mdt_yr3" Type="DateTime" Precision="3" />
+    <Property Name="mdt_yr4" Type="DateTime" Precision="3" />
+    <Property Name="mdt_yr5" Type="DateTime" Precision="3" />
+    <Property Name="admission_ethnicity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="admission_race" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="vw_Matri_Grad_Dates">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Emplid" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="emaddr" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="Acad_Prog" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="campuscode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="exp_grad_year" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="mdyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="mdt" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="gyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="gdt" Type="DateTime" Precision="3" />
+    <Property Name="Effdt" Type="DateTime" Precision="3" />
+    <Property Name="desk" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_name" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_email" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_campus_id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="Prog_status" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="dcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ethnicity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="priordegrees" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="mstpprog_status" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_society" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="v_AdvisorySociety">
+    <Key>
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+    <Property Name="Society_Name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_Days" Type="Int32" />
+    <Property Name="Advisor_Email" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_ID" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_Years" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Advisor_Address" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="Advisor_phone" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="v_studentsAll">
+    <Key>
+      <PropertyRef Name="Emplid" />
+      <PropertyRef Name="reduced_fee" />
+    </Key>
+    <Property Name="Emplid" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="First_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Middle_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Ethnic_Grp_CD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BIRTHDATE" Type="DateTime" Precision="3" />
+    <Property Name="studentname" Type="String" MaxLength="98" FixedLength="false" Unicode="false" />
+    <Property Name="Email_Addr" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="emaddr" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="mdyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="gyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="campuscode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Acad_Prog" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="desk" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_name" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_email" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_campus_id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="Prog_status" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="CW_PREF_FIRST_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="reduced_fee" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="gender_identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gender_pronoun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="v_StudentsSOM">
+    <Key>
+      <PropertyRef Name="gyr" />
+      <PropertyRef Name="Emplid" />
+    </Key>
+    <Property Name="case_id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="First_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Middle_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="CW_PREF_FIRST_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="gyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="seyear" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="mdyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="campuscode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="stpict" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_name" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_email" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_campus_id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_society" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_society_id" Type="Int32" />
+    <Property Name="Emplid" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="desk" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Acad_Prog" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Prog_status" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="BIRTHDATE" Type="DateTime" Precision="3" />
+    <Property Name="dcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="stsound" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="24" FixedLength="true" Unicode="false" />
+    <Property Name="Extension" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="aamc_id" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ethnicity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email_Addr" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="gender_identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gender_pronoun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="v_StudentsSOMwithReducedFee">
+    <Key>
+      <PropertyRef Name="gyr" />
+      <PropertyRef Name="Emplid" />
+    </Key>
+    <Property Name="case_id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="First_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Middle_Name" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="CW_PREF_FIRST_NAME" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="gyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="seyear" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="mdyr" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="campuscode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="stpict" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_name" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_email" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_campus_id" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_society" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="advisor_society_id" Type="Int32" />
+    <Property Name="Emplid" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="desk" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Acad_Prog" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="Prog_status" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="BIRTHDATE" Type="DateTime" Precision="3" />
+    <Property Name="dcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="stsound" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="24" FixedLength="true" Unicode="false" />
+    <Property Name="Extension" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="aamc_id" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="ethnicity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email_Addr" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+    <Property Name="gender_identity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gender_pronoun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="SouthwindEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdvisoryNotes" EntityType="Self.AdvisoryNote" />
+    <EntitySet Name="AdvisorySocieties" EntityType="Self.AdvisorySociety" />
+    <EntitySet Name="Personals" EntityType="Self.Personal" />
+    <EntitySet Name="Student_Misc" EntityType="Self.Student_Misc" />
+    <EntitySet Name="vw_Matri_Grad_Dates" EntityType="Self.vw_Matri_Grad_Dates" />
+    <EntitySet Name="v_AdvisorySociety" EntityType="Self.v_AdvisorySociety" />
+    <EntitySet Name="v_studentsAll" EntityType="Self.v_studentsAll" />
+    <EntitySet Name="v_StudentsSOM" EntityType="Self.v_StudentsSOM" />
+    <EntitySet Name="v_StudentsSOMwithReducedFee" EntityType="Self.v_StudentsSOMwithReducedFee" />
+  </EntityContainer>
+</Schema>

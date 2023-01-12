@@ -1,0 +1,2416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EaselModelStoreContainer" CdmEntityContainer="EaselEntities">
+    <EntitySetMapping Name="CIKeywordCategories">
+      <EntityTypeMapping TypeName="EaselModel.CIKeywordCategory">
+        <MappingFragment StoreEntitySet="CIKeywordCategory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="EaselModel.Application">
+        <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="path" ColumnName="path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationsConnects">
+      <EntityTypeMapping TypeName="EaselModel.ApplicationsConnect">
+        <MappingFragment StoreEntitySet="ApplicationsConnect">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Applications_id" ColumnName="Applications_id" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="matriculationYear" ColumnName="matriculationYear" />
+          <ScalarProperty Name="graduationYear" ColumnName="graduationYear" />
+          <ScalarProperty Name="blockId" ColumnName="blockId" />
+          <ScalarProperty Name="assignid" ColumnName="assignid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentBlockComponents">
+      <EntityTypeMapping TypeName="EaselModel.AssessmentBlockComponent">
+        <MappingFragment StoreEntitySet="AssessmentBlockComponent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="somsectionblock_id" ColumnName="somsectionblock_id" />
+          <ScalarProperty Name="assessmentblockcomponentdetail_id" ColumnName="assessmentblockcomponentdetail_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="isRedirected" ColumnName="isRedirected" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="seyear_old" ColumnName="seyear_old" />
+          <ScalarProperty Name="bcode_old" ColumnName="bcode_old" />
+          <ScalarProperty Name="asscomp_old" ColumnName="asscomp_old" />
+          <ScalarProperty Name="asssubcomp_old" ColumnName="asssubcomp_old" />
+          <ScalarProperty Name="active_old" ColumnName="active_old" />
+          <ScalarProperty Name="seqnum_old" ColumnName="seqnum_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentBlockComponentDetails">
+      <EntityTypeMapping TypeName="EaselModel.AssessmentBlockComponentDetail">
+        <MappingFragment StoreEntitySet="AssessmentBlockComponentDetail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="subcode" ColumnName="subcode" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="othername" ColumnName="othername" />
+          <ScalarProperty Name="ismanual" ColumnName="ismanual" />
+          <ScalarProperty Name="isattendance" ColumnName="isattendance" />
+          <ScalarProperty Name="gradesource" ColumnName="gradesource" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="issubcomponent" ColumnName="issubcomponent" />
+          <ScalarProperty Name="issourcedata" ColumnName="issourcedata" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="asscomp_old" ColumnName="asscomp_old" />
+          <ScalarProperty Name="asssubcomp_old" ColumnName="asssubcomp_old" />
+          <ScalarProperty Name="asscompname_old" ColumnName="asscompname_old" />
+          <ScalarProperty Name="asssubcompname_old" ColumnName="asssubcompname_old" />
+          <ScalarProperty Name="manual_update_old" ColumnName="manual_update_old" />
+          <ScalarProperty Name="attendance_old" ColumnName="attendance_old" />
+          <ScalarProperty Name="subcomp_old" ColumnName="subcomp_old" />
+          <ScalarProperty Name="source_data_old" ColumnName="source_data_old" />
+          <ScalarProperty Name="sort_num_old" ColumnName="sort_num_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentBlockComponentStudents">
+      <EntityTypeMapping TypeName="EaselModel.AssessmentBlockComponentStudent">
+        <MappingFragment StoreEntitySet="AssessmentBlockComponentStudent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="somsectionblock_id" ColumnName="somsectionblock_id" />
+          <ScalarProperty Name="assessmentblockcomponentdetail_id" ColumnName="assessmentblockcomponentdetail_id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="assessmentgradecode_id" ColumnName="assessmentgradecode_id" />
+          <ScalarProperty Name="attempt" ColumnName="attempt" />
+          <ScalarProperty Name="release" ColumnName="release" />
+          <ScalarProperty Name="examdate" ColumnName="examdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="seyear_old" ColumnName="seyear_old" />
+          <ScalarProperty Name="bcode_old" ColumnName="bcode_old" />
+          <ScalarProperty Name="asscomp_old" ColumnName="asscomp_old" />
+          <ScalarProperty Name="asssubcomp_old" ColumnName="asssubcomp_old" />
+          <ScalarProperty Name="release_old" ColumnName="release_old" />
+          <ScalarProperty Name="grade_old" ColumnName="grade_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentGradeCodes">
+      <EntityTypeMapping TypeName="EaselModel.AssessmentGradeCode">
+        <MappingFragment StoreEntitySet="AssessmentGradeCode">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="shortname" ColumnName="shortname" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="grcode_old" ColumnName="grcode_old" />
+          <ScalarProperty Name="grname_old" ColumnName="grname_old" />
+          <ScalarProperty Name="grnameabbr_old" ColumnName="grnameabbr_old" />
+          <ScalarProperty Name="grnameshort_old" ColumnName="grnameshort_old" />
+          <ScalarProperty Name="details_old" ColumnName="details_old" />
+          <ScalarProperty Name="active_old" ColumnName="active_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentGradeStudents">
+      <EntityTypeMapping TypeName="EaselModel.AssessmentGradeStudent">
+        <MappingFragment StoreEntitySet="AssessmentGradeStudent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="somsectionblock_id" ColumnName="somsectionblock_id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="assessmentgradecode_id" ColumnName="assessmentgradecode_id" />
+          <ScalarProperty Name="assessmentnotmeetreasoncode_id" ColumnName="assessmentnotmeetreasoncode_id" />
+          <ScalarProperty Name="attempt" ColumnName="attempt" />
+          <ScalarProperty Name="release" ColumnName="release" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="nmcode_old" ColumnName="nmcode_old" />
+          <ScalarProperty Name="seyear_old" ColumnName="seyear_old" />
+          <ScalarProperty Name="bcode_old" ColumnName="bcode_old" />
+          <ScalarProperty Name="finalGrade_old" ColumnName="finalGrade_old" />
+          <ScalarProperty Name="release_old" ColumnName="release_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentGradeStudentNotes">
+      <EntityTypeMapping TypeName="EaselModel.AssessmentGradeStudentNote">
+        <MappingFragment StoreEntitySet="AssessmentGradeStudentNote">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentNotMeetReasonCodes">
+      <EntityTypeMapping TypeName="EaselModel.AssessmentNotMeetReasonCode">
+        <MappingFragment StoreEntitySet="AssessmentNotMeetReasonCode">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="nmcode_old" ColumnName="nmcode_old" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentProfessionalismStudents">
+      <EntityTypeMapping TypeName="EaselModel.AssessmentProfessionalismStudent">
+        <MappingFragment StoreEntitySet="AssessmentProfessionalismStudent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="somsectionblock_id" ColumnName="somsectionblock_id" />
+          <ScalarProperty Name="IQFacultyRating" ColumnName="IQFacultyRating" />
+          <ScalarProperty Name="anapprovedabsence" ColumnName="anapprovedabsence" />
+          <ScalarProperty Name="tardies" ColumnName="tardies" />
+          <ScalarProperty Name="missingseqreconciliation" ColumnName="missingseqreconciliation" />
+          <ScalarProperty Name="fcmactivityassignment" ColumnName="fcmactivityassignment" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="plpsocietydeanmeeting" ColumnName="plpsocietydeanmeeting" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="previousissue" ColumnName="previousissue" />
+          <ScalarProperty Name="admininstrativenote" ColumnName="admininstrativenote" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceActivities">
+      <EntityTypeMapping TypeName="EaselModel.AttendanceActivity">
+        <MappingFragment StoreEntitySet="AttendanceActivity">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="classavailto" ColumnName="classavailto" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="issubject" ColumnName="issubject" />
+          <ScalarProperty Name="blockoutoverride" ColumnName="blockoutoverride" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="atype_old" ColumnName="atype_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceCodes">
+      <EntityTypeMapping TypeName="EaselModel.AttendanceCode">
+        <MappingFragment StoreEntitySet="AttendanceCode">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="sort" ColumnName="sort" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceDateCatagories">
+      <EntityTypeMapping TypeName="EaselModel.AttendanceDateCatagory">
+        <MappingFragment StoreEntitySet="AttendanceDateCatagory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceEmailTemplates">
+      <EntityTypeMapping TypeName="EaselModel.AttendanceEmailTemplate">
+        <MappingFragment StoreEntitySet="AttendanceEmailTemplate">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="body" ColumnName="body" />
+          <ScalarProperty Name="attendancecode_code" ColumnName="attendancecode_code" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+          <ScalarProperty Name="addressto" ColumnName="addressto" />
+          <ScalarProperty Name="addressfrom" ColumnName="addressfrom" />
+          <ScalarProperty Name="addresscc" ColumnName="addresscc" />
+          <ScalarProperty Name="issami" ColumnName="issami" />
+          <ScalarProperty Name="attendanceactivity_ids" ColumnName="attendanceactivity_ids" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceGenerals">
+      <EntityTypeMapping TypeName="EaselModel.AttendanceGeneral">
+        <MappingFragment StoreEntitySet="AttendanceGeneral">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="classyear" ColumnName="classyear" />
+          <ScalarProperty Name="maximumflexibledays" ColumnName="maximumflexibledays" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceReasonCodes">
+      <EntityTypeMapping TypeName="EaselModel.AttendanceReasonCode">
+        <MappingFragment StoreEntitySet="AttendanceReasonCode">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceSpecialDates">
+      <EntityTypeMapping TypeName="EaselModel.AttendanceSpecialDate">
+        <MappingFragment StoreEntitySet="AttendanceSpecialDate">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="attendancedatecatagory_id" ColumnName="attendancedatecatagory_id" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="blockoutdate" ColumnName="blockoutdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceStudents">
+      <EntityTypeMapping TypeName="EaselModel.AttendanceStudent">
+        <MappingFragment StoreEntitySet="AttendanceStudent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="datestart" ColumnName="datestart" />
+          <ScalarProperty Name="dateend" ColumnName="dateend" />
+          <ScalarProperty Name="attendancecode_code" ColumnName="attendancecode_code" />
+          <ScalarProperty Name="activity" ColumnName="activity" />
+          <ScalarProperty Name="deanemail" ColumnName="deanemail" />
+          <ScalarProperty Name="deandate" ColumnName="deandate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceStudentActivities">
+      <EntityTypeMapping TypeName="EaselModel.AttendanceStudentActivity">
+        <MappingFragment StoreEntitySet="AttendanceStudentActivity">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="attendancestudent_id" ColumnName="attendancestudent_id" />
+          <ScalarProperty Name="attendanceactivity_id" ColumnName="attendanceactivity_id" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="atype_old" ColumnName="atype_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceStudentIntermediates">
+      <EntityTypeMapping TypeName="EaselModel.AttendanceStudentIntermediate">
+        <MappingFragment StoreEntitySet="AttendanceStudentIntermediate">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="somsectionblock_id" ColumnName="somsectionblock_id" />
+          <ScalarProperty Name="datestart" ColumnName="datestart" />
+          <ScalarProperty Name="dateend" ColumnName="dateend" />
+          <ScalarProperty Name="attendancecode_code" ColumnName="attendancecode_code" />
+          <ScalarProperty Name="attendancereasoncode_id" ColumnName="attendancereasoncode_id" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="activity" ColumnName="activity" />
+          <ScalarProperty Name="deanemail" ColumnName="deanemail" />
+          <ScalarProperty Name="deandate" ColumnName="deandate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="bcode_old" ColumnName="bcode_old" />
+          <ScalarProperty Name="atype_old" ColumnName="atype_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceStudentReasons">
+      <EntityTypeMapping TypeName="EaselModel.AttendanceStudentReason">
+        <MappingFragment StoreEntitySet="AttendanceStudentReason">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="attendancestudent_id" ColumnName="attendancestudent_id" />
+          <ScalarProperty Name="attendancereasoncode_id" ColumnName="attendancereasoncode_id" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttendanceStudentSomSectionBlocks">
+      <EntityTypeMapping TypeName="EaselModel.AttendanceStudentSomSectionBlock">
+        <MappingFragment StoreEntitySet="AttendanceStudentSomSectionBlock">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="attendancestudent_id" ColumnName="attendancestudent_id" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="somsectionblock_id" ColumnName="somsectionblock_id" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="bcode_old" ColumnName="bcode_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buildings">
+      <EntityTypeMapping TypeName="EaselModel.Building">
+        <MappingFragment StoreEntitySet="Building">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CICanvasDatas">
+      <EntityTypeMapping TypeName="EaselModel.CICanvasData">
+        <MappingFragment StoreEntitySet="CICanvasData">
+          <ScalarProperty Name="LOId" ColumnName="LOId" />
+          <ScalarProperty Name="learningObjectives" ColumnName="learningObjectives" />
+          <ScalarProperty Name="canvascourse_id" ColumnName="canvascourse_id" />
+          <ScalarProperty Name="blockNum" ColumnName="blockNum" />
+          <ScalarProperty Name="weekNum" ColumnName="weekNum" />
+          <ScalarProperty Name="IQcaseid" ColumnName="IQcaseid" />
+          <ScalarProperty Name="canvasassignment_id" ColumnName="canvasassignment_id" />
+          <ScalarProperty Name="eventTitle" ColumnName="eventTitle" />
+          <ScalarProperty Name="eventDuration" ColumnName="eventDuration" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+          <ScalarProperty Name="eventType" ColumnName="eventType" />
+          <ScalarProperty Name="AAMCCode" ColumnName="AAMCCode" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="keywords" ColumnName="keywords" />
+          <ScalarProperty Name="keycodes" ColumnName="keycodes" />
+          <ScalarProperty Name="approved" ColumnName="approved" />
+          <ScalarProperty Name="subBlock" ColumnName="subBlock" />
+          <ScalarProperty Name="dueAt" ColumnName="dueAt" />
+          <ScalarProperty Name="releaseStatus" ColumnName="releaseStatus" />
+          <ScalarProperty Name="LOTemp" ColumnName="LOTemp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CICourseDataUpdateStatus">
+      <EntityTypeMapping TypeName="EaselModel.CICourseDataUpdateStatu">
+        <MappingFragment StoreEntitySet="CICourseDataUpdateStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="canvascourse_id" ColumnName="canvascourse_id" />
+          <ScalarProperty Name="issuesIdentified" ColumnName="issuesIdentified" />
+          <ScalarProperty Name="issuesSubmitDate" ColumnName="issuesSubmitDate" />
+          <ScalarProperty Name="canvasDataUpdated" ColumnName="canvasDataUpdated" />
+          <ScalarProperty Name="completionDate" ColumnName="completionDate" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIKeywords">
+      <EntityTypeMapping TypeName="EaselModel.CIKeyword">
+        <MappingFragment StoreEntitySet="CIKeyword">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+          <ScalarProperty Name="CombinedCodeAndKeyword" ColumnName="CombinedCodeAndKeyword" />
+          <ScalarProperty Name="KeywordDefinition" ColumnName="KeywordDefinition" />
+          <ScalarProperty Name="SynonymsAndRelatedTerms" ColumnName="SynonymsAndRelatedTerms" />
+          <ScalarProperty Name="ExcludedTerms" ColumnName="ExcludedTerms" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+          <ScalarProperty Name="CIKeywordCategory_id" ColumnName="CIKeywordCategory_id" />
+          <ScalarProperty Name="CIKeywordBank_id" ColumnName="CIKeywordBank_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIKeywordBanks">
+      <EntityTypeMapping TypeName="EaselModel.CIKeywordBank">
+        <MappingFragment StoreEntitySet="CIKeywordBank">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="keyword" ColumnName="keyword" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+          <ScalarProperty Name="categoryIds" ColumnName="categoryIds" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIKeywordCategory1">
+      <EntityTypeMapping TypeName="EaselModel.CIKeywordCategory1">
+        <MappingFragment StoreEntitySet="CIKeywordCategory1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CILearningObjectives">
+      <EntityTypeMapping TypeName="EaselModel.CILearningObjective">
+        <MappingFragment StoreEntitySet="CILearningObjective">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="LOid" ColumnName="LOid" />
+          <ScalarProperty Name="learningObjectives" ColumnName="learningObjectives" />
+          <ScalarProperty Name="caseid" ColumnName="caseid" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="canvascourse_id" ColumnName="canvascourse_id" />
+          <ScalarProperty Name="canvasassignment_id" ColumnName="canvasassignment_id" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="keywords" ColumnName="keywords" />
+          <ScalarProperty Name="keycodes" ColumnName="keycodes" />
+          <ScalarProperty Name="weekNum" ColumnName="weekNum" />
+          <ScalarProperty Name="approved" ColumnName="approved" />
+          <ScalarProperty Name="subBlock" ColumnName="subBlock" />
+          <ScalarProperty Name="dueAt" ColumnName="dueAt" />
+          <ScalarProperty Name="releaseStatus" ColumnName="releaseStatus" />
+          <ScalarProperty Name="LOTemp" ColumnName="LOTemp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIMainMenus">
+      <EntityTypeMapping TypeName="EaselModel.CIMainMenu">
+        <MappingFragment StoreEntitySet="CIMainMenu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+          <ScalarProperty Name="sequenceNumber" ColumnName="sequenceNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CISubMenus">
+      <EntityTypeMapping TypeName="EaselModel.CISubMenu">
+        <MappingFragment StoreEntitySet="CISubMenu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CIMainMenu_id" ColumnName="CIMainMenu_id" />
+          <ScalarProperty Name="subTitle" ColumnName="subTitle" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+          <ScalarProperty Name="sequenceNumber" ColumnName="sequenceNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventSets">
+      <EntityTypeMapping TypeName="EaselModel.EventSet">
+        <MappingFragment StoreEntitySet="EventSets">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ScheduleAssignment_Id" ColumnName="ScheduleAssignment_Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="CanvasGroup_id" ColumnName="CanvasGroup_id" />
+          <ScalarProperty Name="eventsetorder" ColumnName="eventsetorder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Faculties">
+      <EntityTypeMapping TypeName="EaselModel.Faculty">
+        <MappingFragment StoreEntitySet="Faculty">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="email2" ColumnName="email2" />
+          <ScalarProperty Name="caseid" ColumnName="caseid" />
+          <ScalarProperty Name="hospital" ColumnName="hospital" />
+          <ScalarProperty Name="facultystatus_id" ColumnName="facultystatus_id" />
+          <ScalarProperty Name="fmhblock" ColumnName="fmhblock" />
+          <ScalarProperty Name="clinicalblock" ColumnName="clinicalblock" />
+          <ScalarProperty Name="teachingclassyear" ColumnName="teachingclassyear" />
+          <ScalarProperty Name="suppressemail" ColumnName="suppressemail" />
+          <ScalarProperty Name="somalumni" ColumnName="somalumni" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="fstatus_old" ColumnName="fstatus_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacultyLocations">
+      <EntityTypeMapping TypeName="EaselModel.FacultyLocation">
+        <MappingFragment StoreEntitySet="FacultyLocation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="faculty_id" ColumnName="faculty_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="ismain" ColumnName="ismain" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacultyRoles">
+      <EntityTypeMapping TypeName="EaselModel.FacultyRole">
+        <MappingFragment StoreEntitySet="FacultyRole">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Iq" ColumnName="Iq" />
+          <ScalarProperty Name="fcm" ColumnName="fcm" />
+          <ScalarProperty Name="tus" ColumnName="tus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacultyStatus">
+      <EntityTypeMapping TypeName="EaselModel.FacultyStatu">
+        <MappingFragment StoreEntitySet="FacultyStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackCategories">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackCategory">
+        <MappingFragment StoreEntitySet="FeedbackCategory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="combine" ColumnName="combine" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="combine_old" ColumnName="combine_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackForms">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackForm">
+        <MappingFragment StoreEntitySet="FeedbackForm">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="feedbacktype_id" ColumnName="feedbacktype_id" />
+          <ScalarProperty Name="titlemain" ColumnName="titlemain" />
+          <ScalarProperty Name="titleself" ColumnName="titleself" />
+          <ScalarProperty Name="titlegroup" ColumnName="titlegroup" />
+          <ScalarProperty Name="Guidelineself" ColumnName="Guidelineself" />
+          <ScalarProperty Name="GuidelineGroup" ColumnName="GuidelineGroup" />
+          <ScalarProperty Name="Instructionself" ColumnName="Instructionself" />
+          <ScalarProperty Name="InstructionGroup" ColumnName="InstructionGroup" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="feedback_type_old" ColumnName="feedback_type_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackFormHeaders">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackFormHeader">
+        <MappingFragment StoreEntitySet="FeedbackFormHeader">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="feedbackform_id" ColumnName="feedbackform_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="subtitle" ColumnName="subtitle" />
+          <ScalarProperty Name="totalcolumn" ColumnName="totalcolumn" />
+          <ScalarProperty Name="heading1" ColumnName="heading1" />
+          <ScalarProperty Name="heading2" ColumnName="heading2" />
+          <ScalarProperty Name="heading3" ColumnName="heading3" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackFormQuestions">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackFormQuestion">
+        <MappingFragment StoreEntitySet="FeedbackFormQuestion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="feedbackformheader_id" ColumnName="feedbackformheader_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="questionmain1" ColumnName="questionmain1" />
+          <ScalarProperty Name="questionself1" ColumnName="questionself1" />
+          <ScalarProperty Name="feedbackformresponsetype_code1" ColumnName="feedbackformresponsetype_code1" />
+          <ScalarProperty Name="questionmain2" ColumnName="questionmain2" />
+          <ScalarProperty Name="questionself2" ColumnName="questionself2" />
+          <ScalarProperty Name="feedbackformresponsetype_code2" ColumnName="feedbackformresponsetype_code2" />
+          <ScalarProperty Name="questionmain3" ColumnName="questionmain3" />
+          <ScalarProperty Name="questionself3" ColumnName="questionself3" />
+          <ScalarProperty Name="feedbackformresponsetype_code3" ColumnName="feedbackformresponsetype_code3" />
+          <ScalarProperty Name="ismerge" ColumnName="ismerge" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="fdbid_old" ColumnName="fdbid_old" />
+          <ScalarProperty Name="header_id_old" ColumnName="header_id_old" />
+          <ScalarProperty Name="quest_disp_old" ColumnName="quest_disp_old" />
+          <ScalarProperty Name="merge_quest_old" ColumnName="merge_quest_old" />
+          <ScalarProperty Name="is_overall_old" ColumnName="is_overall_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackFormRatingGroups">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackFormRatingGroup">
+        <MappingFragment StoreEntitySet="FeedbackFormRatingGroup">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="feedbackform_id" ColumnName="feedbackform_id" />
+          <ScalarProperty Name="assessmentblockcomponentdetail_id" ColumnName="assessmentblockcomponentdetail_id" />
+          <ScalarProperty Name="isadministration" ColumnName="isadministration" />
+          <ScalarProperty Name="feedbackresponsetype_code" ColumnName="feedbackresponsetype_code" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="rating_type_old" ColumnName="rating_type_old" />
+          <ScalarProperty Name="rating_question_old" ColumnName="rating_question_old" />
+          <ScalarProperty Name="rating_scale1_old" ColumnName="rating_scale1_old" />
+          <ScalarProperty Name="rating_scale2_old" ColumnName="rating_scale2_old" />
+          <ScalarProperty Name="rating_scale3_old" ColumnName="rating_scale3_old" />
+          <ScalarProperty Name="rating_scale4_old" ColumnName="rating_scale4_old" />
+          <ScalarProperty Name="rating_scale5_old" ColumnName="rating_scale5_old" />
+          <ScalarProperty Name="rating_scale6_old" ColumnName="rating_scale6_old" />
+          <ScalarProperty Name="rating_scale7_old" ColumnName="rating_scale7_old" />
+          <ScalarProperty Name="rating_scale8_old" ColumnName="rating_scale8_old" />
+          <ScalarProperty Name="rating_scale9_old" ColumnName="rating_scale9_old" />
+          <ScalarProperty Name="feedback_type_old" ColumnName="feedback_type_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackFormRatingResults">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackFormRatingResult">
+        <MappingFragment StoreEntitySet="FeedbackFormRatingResult">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="feedbackschedule_id" ColumnName="feedbackschedule_id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="faculty_id" ColumnName="faculty_id" />
+          <ScalarProperty Name="feedbackformratinggroup_id" ColumnName="feedbackformratinggroup_id" />
+          <ScalarProperty Name="feedbackformratingscale_sequence" ColumnName="feedbackformratingscale_sequence" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="seyear_old" ColumnName="seyear_old" />
+          <ScalarProperty Name="bcode_old" ColumnName="bcode_old" />
+          <ScalarProperty Name="fdbid_old" ColumnName="fdbid_old" />
+          <ScalarProperty Name="rating_num_old" ColumnName="rating_num_old" />
+          <ScalarProperty Name="feedback_type_old" ColumnName="feedback_type_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackFormRatingScales">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackFormRatingScale">
+        <MappingFragment StoreEntitySet="FeedbackFormRatingScale">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="feedbackratinggroup_id" ColumnName="feedbackratinggroup_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackFormResponseAnswers">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackFormResponseAnswer">
+        <MappingFragment StoreEntitySet="FeedbackFormResponseAnswer">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="feedbackformresponsestatus_id" ColumnName="feedbackformresponsestatus_id" />
+          <ScalarProperty Name="feedbackformquestion_id" ColumnName="feedbackformquestion_id" />
+          <ScalarProperty Name="answer1" ColumnName="answer1" />
+          <ScalarProperty Name="answer2" ColumnName="answer2" />
+          <ScalarProperty Name="answer3" ColumnName="answer3" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="fdbid_old" ColumnName="fdbid_old" />
+          <ScalarProperty Name="seyear_old" ColumnName="seyear_old" />
+          <ScalarProperty Name="bcode_old" ColumnName="bcode_old" />
+          <ScalarProperty Name="header_id_old" ColumnName="header_id_old" />
+          <ScalarProperty Name="quest_id_old" ColumnName="quest_id_old" />
+          <ScalarProperty Name="emaddr_old" ColumnName="emaddr_old" />
+          <ScalarProperty Name="beAssessed_old" ColumnName="beAssessed_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackFormResponseStatus">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackFormResponseStatu">
+        <MappingFragment StoreEntitySet="FeedbackFormResponseStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="feedbackschedule_id" ColumnName="feedbackschedule_id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="beassessed" ColumnName="beassessed" />
+          <ScalarProperty Name="submitstatus" ColumnName="submitstatus" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="fdbid_old" ColumnName="fdbid_old" />
+          <ScalarProperty Name="seyear_old" ColumnName="seyear_old" />
+          <ScalarProperty Name="bcode_old" ColumnName="bcode_old" />
+          <ScalarProperty Name="submitstatus_old" ColumnName="submitstatus_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackFormResponseTypes">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackFormResponseType">
+        <MappingFragment StoreEntitySet="FeedbackFormResponseType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackIQFaculties">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackIQFaculty">
+        <MappingFragment StoreEntitySet="FeedbackIQFaculty">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="somsectionblock_id" ColumnName="somsectionblock_id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="release" ColumnName="release" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="seyear_old" ColumnName="seyear_old" />
+          <ScalarProperty Name="bcode_old" ColumnName="bcode_old" />
+          <ScalarProperty Name="midFacEvalRelease_old" ColumnName="midFacEvalRelease_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackRatingOveralls">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackRatingOverall">
+        <MappingFragment StoreEntitySet="FeedbackRatingOverall">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="grade" ColumnName="grade" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackSchedules">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackSchedule">
+        <MappingFragment StoreEntitySet="FeedbackSchedule">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="somsectionblock_id" ColumnName="somsectionblock_id" />
+          <ScalarProperty Name="feedbackform_id" ColumnName="feedbackform_id" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="releasedate" ColumnName="releasedate" />
+          <ScalarProperty Name="combine" ColumnName="combine" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="seyear_old" ColumnName="seyear_old" />
+          <ScalarProperty Name="bcode_old" ColumnName="bcode_old" />
+          <ScalarProperty Name="combine_faculty_old" ColumnName="combine_faculty_old" />
+          <ScalarProperty Name="feedback_type_old" ColumnName="feedback_type_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeedbackTypes">
+      <EntityTypeMapping TypeName="EaselModel.FeedbackType">
+        <MappingFragment StoreEntitySet="FeedbackType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isschedule" ColumnName="isschedule" />
+          <ScalarProperty Name="feedbackcategory_id" ColumnName="feedbackcategory_id" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="schedule_old" ColumnName="schedule_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="EaselModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="transport" ColumnName="transport" />
+          <ScalarProperty Name="orientation" ColumnName="orientation" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="active_old" ColumnName="active_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioAssignments">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioAssignment">
+        <MappingFragment StoreEntitySet="PortfolioAssignment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="portfoliotype_id" ColumnName="portfoliotype_id" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="stemail" ColumnName="stemail" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="defaultenddate" ColumnName="defaultenddate" />
+          <ScalarProperty Name="showpreviouscompetency" ColumnName="showpreviouscompetency" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="scyear_old" ColumnName="scyear_old" />
+          <ScalarProperty Name="cnum_old" ColumnName="cnum_old" />
+          <ScalarProperty Name="category_old" ColumnName="category_old" />
+          <ScalarProperty Name="showprevcomp_old" ColumnName="showprevcomp_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioCompetencies">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioCompetency">
+        <MappingFragment StoreEntitySet="PortfolioCompetency">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfolioassignment_id" ColumnName="portfolioassignment_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="competency" ColumnName="competency" />
+          <ScalarProperty Name="achievementlevel" ColumnName="achievementlevel" />
+          <ScalarProperty Name="requiredevidence" ColumnName="requiredevidence" />
+          <ScalarProperty Name="required" ColumnName="required" />
+          <ScalarProperty Name="shorttitle" ColumnName="shorttitle" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="previousportfoliocompetency_id" ColumnName="previousportfoliocompetency_id" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="scyear_old" ColumnName="scyear_old" />
+          <ScalarProperty Name="cnum_old" ColumnName="cnum_old" />
+          <ScalarProperty Name="competency_id_old" ColumnName="competency_id_old" />
+          <ScalarProperty Name="required_old" ColumnName="required_old" />
+          <ScalarProperty Name="show_cnum__old" ColumnName="show_cnum__old" />
+          <ScalarProperty Name="show_cid_old" ColumnName="show_cid_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioEssays">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioEssay">
+        <MappingFragment StoreEntitySet="PortfolioEssay">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfoliocompetency_id" ColumnName="portfoliocompetency_id" />
+          <ScalarProperty Name="portfolioessayquestiontype_id" ColumnName="portfolioessayquestiontype_id" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="template" ColumnName="template" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioEssayCurrents">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioEssayCurrent">
+        <MappingFragment StoreEntitySet="PortfolioEssayCurrent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfoliocompetency_id" ColumnName="portfoliocompetency_id" />
+          <ScalarProperty Name="question11" ColumnName="question11" />
+          <ScalarProperty Name="question21" ColumnName="question21" />
+          <ScalarProperty Name="question22" ColumnName="question22" />
+          <ScalarProperty Name="question23" ColumnName="question23" />
+          <ScalarProperty Name="remark11" ColumnName="remark11" />
+          <ScalarProperty Name="remark21" ColumnName="remark21" />
+          <ScalarProperty Name="remark22" ColumnName="remark22" />
+          <ScalarProperty Name="remark23" ColumnName="remark23" />
+          <ScalarProperty Name="template11" ColumnName="template11" />
+          <ScalarProperty Name="template21" ColumnName="template21" />
+          <ScalarProperty Name="template22" ColumnName="template22" />
+          <ScalarProperty Name="template23" ColumnName="template23" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="portfolioassignment_id_old" ColumnName="portfolioassignment_id_old" />
+          <ScalarProperty Name="competency_id_old" ColumnName="competency_id_old" />
+          <ScalarProperty Name="question_old" ColumnName="question_old" />
+          <ScalarProperty Name="remark_old" ColumnName="remark_old" />
+          <ScalarProperty Name="template_old" ColumnName="template_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioEssayQuestionTypes">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioEssayQuestionType">
+        <MappingFragment StoreEntitySet="PortfolioEssayQuestionType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfoliotabcomponent_id" ColumnName="portfoliotabcomponent_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioEssaySections">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioEssaySection">
+        <MappingFragment StoreEntitySet="PortfolioEssaySection">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="details" ColumnName="details" />
+          <ScalarProperty Name="field" ColumnName="field" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioEvidences">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioEvidence">
+        <MappingFragment StoreEntitySet="PortfolioEvidence">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfolioassignment_id" ColumnName="portfolioassignment_id" />
+          <ScalarProperty Name="portfolioevidencecomponent_id" ColumnName="portfolioevidencecomponent_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="scyear_old" ColumnName="scyear_old" />
+          <ScalarProperty Name="cnum_old" ColumnName="cnum_old" />
+          <ScalarProperty Name="tab_id_old" ColumnName="tab_id_old" />
+          <ScalarProperty Name="existineportfolio_old" ColumnName="existineportfolio_old" />
+          <ScalarProperty Name="evidence_acronym_old" ColumnName="evidence_acronym_old" />
+          <ScalarProperty Name="details_old" ColumnName="details_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioEvidenceComponents">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioEvidenceComponent">
+        <MappingFragment StoreEntitySet="PortfolioEvidenceComponent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfoliotabcomponent_id" ColumnName="portfoliotabcomponent_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="eassessmentexamid_prefix" ColumnName="eassessmentexamid_prefix" />
+          <ScalarProperty Name="assessmentblockcomponentdetail_id" ColumnName="assessmentblockcomponentdetail_id" />
+          <ScalarProperty Name="assessmentblockcomponentdetail_component_old" ColumnName="assessmentblockcomponentdetail_component_old" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioFacultyGuidelines">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioFacultyGuideline">
+        <MappingFragment StoreEntitySet="PortfolioFacultyGuideline">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfoliocompetency_id" ColumnName="portfoliocompetency_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="isdraft" ColumnName="isdraft" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="scyear_old" ColumnName="scyear_old" />
+          <ScalarProperty Name="cnum_old" ColumnName="cnum_old" />
+          <ScalarProperty Name="competencyid_old" ColumnName="competencyid_old" />
+          <ScalarProperty Name="category_old" ColumnName="category_old" />
+          <ScalarProperty Name="gdindex_old" ColumnName="gdindex_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioFacultyResponses">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioFacultyResponse">
+        <MappingFragment StoreEntitySet="PortfolioFacultyResponse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfoliofacultystatus_id" ColumnName="portfoliofacultystatus_id" />
+          <ScalarProperty Name="portfoliocompetency_id" ColumnName="portfoliocompetency_id" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="submitstatus" ColumnName="submitstatus" />
+          <ScalarProperty Name="responsecomment" ColumnName="responsecomment" />
+          <ScalarProperty Name="responserating" ColumnName="responserating" />
+          <ScalarProperty Name="responsereason" ColumnName="responsereason" />
+          <ScalarProperty Name="responsesubmitdate" ColumnName="responsesubmitdate" />
+          <ScalarProperty Name="responsesubmitstatus" ColumnName="responsesubmitstatus" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+          <ScalarProperty Name="administrativeLog" ColumnName="administrativeLog" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="competencyid_old" ColumnName="competencyid_old" />
+          <ScalarProperty Name="emaddr_old" ColumnName="emaddr_old" />
+          <ScalarProperty Name="fcode_old" ColumnName="fcode_old" />
+          <ScalarProperty Name="assignment_id_old" ColumnName="assignment_id_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioFacultyResponseCurrents">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioFacultyResponseCurrent">
+        <MappingFragment StoreEntitySet="PortfolioFacultyResponseCurrent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Assignment_ID" ColumnName="Assignment_ID" />
+          <ScalarProperty Name="Competency_ID" ColumnName="Competency_ID" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="fcode" ColumnName="fcode" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="fdate" ColumnName="fdate" />
+          <ScalarProperty Name="releaseSOM" ColumnName="releaseSOM" />
+          <ScalarProperty Name="releaseStud" ColumnName="releaseStud" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+          <ScalarProperty Name="CommentFac" ColumnName="CommentFac" />
+          <ScalarProperty Name="RatingFac" ColumnName="RatingFac" />
+          <ScalarProperty Name="ReasonFac" ColumnName="ReasonFac" />
+          <ScalarProperty Name="AdminLog" ColumnName="AdminLog" />
+          <ScalarProperty Name="ReviseFcode" ColumnName="ReviseFcode" />
+          <ScalarProperty Name="ReviseComment" ColumnName="ReviseComment" />
+          <ScalarProperty Name="ReviseRating" ColumnName="ReviseRating" />
+          <ScalarProperty Name="ReviseReason" ColumnName="ReviseReason" />
+          <ScalarProperty Name="Revisefdate" ColumnName="Revisefdate" />
+          <ScalarProperty Name="ReviseReleaseSOM" ColumnName="ReviseReleaseSOM" />
+          <ScalarProperty Name="ReviseReleaseStud" ColumnName="ReviseReleaseStud" />
+          <ScalarProperty Name="ResponseComment" ColumnName="ResponseComment" />
+          <ScalarProperty Name="ResponseRating" ColumnName="ResponseRating" />
+          <ScalarProperty Name="ResponseReason" ColumnName="ResponseReason" />
+          <ScalarProperty Name="Responsefdate" ColumnName="Responsefdate" />
+          <ScalarProperty Name="portfoliofacultystatus_id_new" ColumnName="portfoliofacultystatus_id_new" />
+          <ScalarProperty Name="portfoliostudentstatus_id_new" ColumnName="portfoliostudentstatus_id_new" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioFacultyStatus">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioFacultyStatu">
+        <MappingFragment StoreEntitySet="PortfolioFacultyStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfolioassignment_id" ColumnName="portfolioassignment_id" />
+          <ScalarProperty Name="portfoliostudentstatus_id" ColumnName="portfoliostudentstatus_id" />
+          <ScalarProperty Name="faculty_id" ColumnName="faculty_id" />
+          <ScalarProperty Name="portfoliorole_id" ColumnName="portfoliorole_id" />
+          <ScalarProperty Name="attemptid" ColumnName="attemptid" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="submitstatus" ColumnName="submitstatus" />
+          <ScalarProperty Name="releaseSOM" ColumnName="releaseSOM" />
+          <ScalarProperty Name="releasestudent" ColumnName="releasestudent" />
+          <ScalarProperty Name="responsecomment" ColumnName="responsecomment" />
+          <ScalarProperty Name="responserating" ColumnName="responserating" />
+          <ScalarProperty Name="responsereason" ColumnName="responsereason" />
+          <ScalarProperty Name="responsesubmitdate" ColumnName="responsesubmitdate" />
+          <ScalarProperty Name="responsesubmitstatus" ColumnName="responsesubmitstatus" />
+          <ScalarProperty Name="responsereleaseSOM" ColumnName="responsereleaseSOM" />
+          <ScalarProperty Name="responsereleasestudent" ColumnName="responsereleasestudent" />
+          <ScalarProperty Name="updatelog" ColumnName="updatelog" />
+          <ScalarProperty Name="administrativelog" ColumnName="administrativelog" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioFCMTables">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioFCMTable">
+        <MappingFragment StoreEntitySet="PortfolioFCMTable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioFeedbackQuestions">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioFeedbackQuestion">
+        <MappingFragment StoreEntitySet="PortfolioFeedbackQuestion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfolioassignment_id" ColumnName="portfolioassignment_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="question1" ColumnName="question1" />
+          <ScalarProperty Name="radiobuttonlist1" ColumnName="radiobuttonlist1" />
+          <ScalarProperty Name="question2" ColumnName="question2" />
+          <ScalarProperty Name="radiobuttonlist2" ColumnName="radiobuttonlist2" />
+          <ScalarProperty Name="question3" ColumnName="question3" />
+          <ScalarProperty Name="radiobuttonlist3" ColumnName="radiobuttonlist3" />
+          <ScalarProperty Name="question4" ColumnName="question4" />
+          <ScalarProperty Name="radiobuttonlist4" ColumnName="radiobuttonlist4" />
+          <ScalarProperty Name="question5" ColumnName="question5" />
+          <ScalarProperty Name="radiobuttonlist5" ColumnName="radiobuttonlist5" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="releasedate" ColumnName="releasedate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioFeedbackStudents">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioFeedbackStudent">
+        <MappingFragment StoreEntitySet="PortfolioFeedbackStudent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfoliofeedbackquestion_id" ColumnName="portfoliofeedbackquestion_id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="answer1" ColumnName="answer1" />
+          <ScalarProperty Name="answer2" ColumnName="answer2" />
+          <ScalarProperty Name="answer3" ColumnName="answer3" />
+          <ScalarProperty Name="answer4" ColumnName="answer4" />
+          <ScalarProperty Name="answer5" ColumnName="answer5" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="submitstatus" ColumnName="submitstatus" />
+          <ScalarProperty Name="releasedate" ColumnName="releasedate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="assignment_id_old" ColumnName="assignment_id_old" />
+          <ScalarProperty Name="submitstatus_old" ColumnName="submitstatus_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioGradingScales">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioGradingScale">
+        <MappingFragment StoreEntitySet="PortfolioGradingScale">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="details" ColumnName="details" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioNotMeetReasonCodes">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioNotMeetReasonCode">
+        <MappingFragment StoreEntitySet="PortfolioNotMeetReasonCode">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfolioassignment_id" ColumnName="portfolioassignment_id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="scyear_old" ColumnName="scyear_old" />
+          <ScalarProperty Name="cnum_old" ColumnName="cnum_old" />
+          <ScalarProperty Name="rsindex_old" ColumnName="rsindex_old" />
+          <ScalarProperty Name="type_old" ColumnName="type_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioOverviews">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioOverview">
+        <MappingFragment StoreEntitySet="PortfolioOverview">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfolioassignment_id" ColumnName="portfolioassignment_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="filelink" ColumnName="filelink" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="scyear_old" ColumnName="scyear_old" />
+          <ScalarProperty Name="cnum_old" ColumnName="cnum_old" />
+          <ScalarProperty Name="overview_id_old" ColumnName="overview_id_old" />
+          <ScalarProperty Name="overview_title_old" ColumnName="overview_title_old" />
+          <ScalarProperty Name="overview_link_old" ColumnName="overview_link_old" />
+          <ScalarProperty Name="overview_linkfileresources_old" ColumnName="overview_linkfileresources_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioRoles">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioRole">
+        <MappingFragment StoreEntitySet="PortfolioRole">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isviewable" ColumnName="isviewable" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioStudentCompetencies">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioStudentCompetency">
+        <MappingFragment StoreEntitySet="PortfolioStudentCompetency">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfoliostudentstatus_id" ColumnName="portfoliostudentstatus_id" />
+          <ScalarProperty Name="portfoliocompetency_id" ColumnName="portfoliocompetency_id" />
+          <ScalarProperty Name="attemptid" ColumnName="attemptid" />
+          <ScalarProperty Name="evidence" ColumnName="evidence" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="submitstatus" ColumnName="submitstatus" />
+          <ScalarProperty Name="response" ColumnName="response" />
+          <ScalarProperty Name="responsedate" ColumnName="responsedate" />
+          <ScalarProperty Name="responsstatus" ColumnName="responsstatus" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="competencyid_old" ColumnName="competencyid_old" />
+          <ScalarProperty Name="answer_old" ColumnName="answer_old" />
+          <ScalarProperty Name="answer21_old" ColumnName="answer21_old" />
+          <ScalarProperty Name="answer22_old" ColumnName="answer22_old" />
+          <ScalarProperty Name="answer23_old" ColumnName="answer23_old" />
+          <ScalarProperty Name="submitstatus_old" ColumnName="submitstatus_old" />
+          <ScalarProperty Name="responsestatus_old" ColumnName="responsestatus_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioStudentEssays">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioStudentEssay">
+        <MappingFragment StoreEntitySet="PortfolioStudentEssay">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfoliostudentcompetency_id" ColumnName="portfoliostudentcompetency_id" />
+          <ScalarProperty Name="portfolioessay_id" ColumnName="portfolioessay_id" />
+          <ScalarProperty Name="answer" ColumnName="answer" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioStudentGuidelines">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioStudentGuideline">
+        <MappingFragment StoreEntitySet="PortfolioStudentGuideline">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfolioassignment_id" ColumnName="portfolioassignment_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="scyear_old" ColumnName="scyear_old" />
+          <ScalarProperty Name="cnum_old" ColumnName="cnum_old" />
+          <ScalarProperty Name="guide_id_old" ColumnName="guide_id_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioStudentRemediations">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioStudentRemediation">
+        <MappingFragment StoreEntitySet="PortfolioStudentRemediation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfoliocompetency_id" ColumnName="portfoliocompetency_id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="scyear_old" ColumnName="scyear_old" />
+          <ScalarProperty Name="cnum_old" ColumnName="cnum_old" />
+          <ScalarProperty Name="assignment_id_old" ColumnName="assignment_id_old" />
+          <ScalarProperty Name="competencyid_old" ColumnName="competencyid_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioStudentResponseCurrents">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioStudentResponseCurrent">
+        <MappingFragment StoreEntitySet="PortfolioStudentResponseCurrent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Assignment_ID" ColumnName="Assignment_ID" />
+          <ScalarProperty Name="Competency_ID" ColumnName="Competency_ID" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="answer" ColumnName="answer" />
+          <ScalarProperty Name="Evidence" ColumnName="Evidence" />
+          <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+          <ScalarProperty Name="SubmitStatus" ColumnName="SubmitStatus" />
+          <ScalarProperty Name="ReviseAnswer" ColumnName="ReviseAnswer" />
+          <ScalarProperty Name="ReviseEvidence" ColumnName="ReviseEvidence" />
+          <ScalarProperty Name="ReviseDate" ColumnName="ReviseDate" />
+          <ScalarProperty Name="ReviseStatus" ColumnName="ReviseStatus" />
+          <ScalarProperty Name="answer21" ColumnName="answer21" />
+          <ScalarProperty Name="answer22" ColumnName="answer22" />
+          <ScalarProperty Name="answer23" ColumnName="answer23" />
+          <ScalarProperty Name="ReviseAnswer21" ColumnName="ReviseAnswer21" />
+          <ScalarProperty Name="ReviseAnswer22" ColumnName="ReviseAnswer22" />
+          <ScalarProperty Name="ReviseAnswer23" ColumnName="ReviseAnswer23" />
+          <ScalarProperty Name="response" ColumnName="response" />
+          <ScalarProperty Name="responseDate" ColumnName="responseDate" />
+          <ScalarProperty Name="responseStatus" ColumnName="responseStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioStudentScheduleCurrents">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioStudentScheduleCurrent">
+        <MappingFragment StoreEntitySet="PortfolioStudentScheduleCurrent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fcode" ColumnName="fcode" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="assignment_ID" ColumnName="assignment_ID" />
+          <ScalarProperty Name="frole_id" ColumnName="frole_id" />
+          <ScalarProperty Name="asrepeat" ColumnName="asrepeat" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioStudentStatus">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioStudentStatu">
+        <MappingFragment StoreEntitySet="PortfolioStudentStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="portfolioassignment_id" ColumnName="portfolioassignment_id" />
+          <ScalarProperty Name="isrepeat" ColumnName="isrepeat" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="resopnseenddate" ColumnName="resopnseenddate" />
+          <ScalarProperty Name="repeatenddate" ColumnName="repeatenddate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="isrepeat_old" ColumnName="isrepeat_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioTabs">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioTab">
+        <MappingFragment StoreEntitySet="PortfolioTab">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfolioassignment_id" ColumnName="portfolioassignment_id" />
+          <ScalarProperty Name="portfoliotabcomponent_id" ColumnName="portfoliotabcomponent_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="scyear_old" ColumnName="scyear_old" />
+          <ScalarProperty Name="cnum_old" ColumnName="cnum_old" />
+          <ScalarProperty Name="isevidence_old" ColumnName="isevidence_old" />
+          <ScalarProperty Name="isactive_old" ColumnName="isactive_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioTabComponents">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioTabComponent">
+        <MappingFragment StoreEntitySet="PortfolioTabComponent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="isevidence" ColumnName="isevidence" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortfolioTypes">
+      <EntityTypeMapping TypeName="EaselModel.PortfolioType">
+        <MappingFragment StoreEntitySet="PortfolioType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="somsectionblock_code" ColumnName="somsectionblock_code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="isdraft" ColumnName="isdraft" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="cnum_old" ColumnName="cnum_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchAcademicPrograms">
+      <EntityTypeMapping TypeName="EaselModel.ResearchAcademicProgram">
+        <MappingFragment StoreEntitySet="ResearchAcademicProgram">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchAdvisorTypes">
+      <EntityTypeMapping TypeName="EaselModel.ResearchAdvisorType">
+        <MappingFragment StoreEntitySet="ResearchAdvisorType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchApplicationTypes">
+      <EntityTypeMapping TypeName="EaselModel.ResearchApplicationType">
+        <MappingFragment StoreEntitySet="ResearchApplicationType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isschedule" ColumnName="isschedule" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchApprovals">
+      <EntityTypeMapping TypeName="EaselModel.ResearchApproval">
+        <MappingFragment StoreEntitySet="ResearchApproval">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchBlocks">
+      <EntityTypeMapping TypeName="EaselModel.ResearchBlock">
+        <MappingFragment StoreEntitySet="ResearchBlock">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchCalendars">
+      <EntityTypeMapping TypeName="EaselModel.ResearchCalendar">
+        <MappingFragment StoreEntitySet="ResearchCalendar">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gyr" ColumnName="gyr" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchCalendarStudents">
+      <EntityTypeMapping TypeName="EaselModel.ResearchCalendarStudent">
+        <MappingFragment StoreEntitySet="ResearchCalendarStudent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="breakstartdate" ColumnName="breakstartdate" />
+          <ScalarProperty Name="breakenddate" ColumnName="breakenddate" />
+          <ScalarProperty Name="gyrcalendar_id" ColumnName="gyrcalendar_id" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="otherlocation" ColumnName="otherlocation" />
+          <ScalarProperty Name="splitreason" ColumnName="splitreason" />
+          <ScalarProperty Name="splitcomment" ColumnName="splitcomment" />
+          <ScalarProperty Name="waived" ColumnName="waived" />
+          <ScalarProperty Name="waivedreason" ColumnName="waivedreason" />
+          <ScalarProperty Name="approved" ColumnName="approved" />
+          <ScalarProperty Name="requiredresearchreleasestatus" ColumnName="requiredresearchreleasestatus" />
+          <ScalarProperty Name="requiredresearchreleaselogin" ColumnName="requiredresearchreleaselogin" />
+          <ScalarProperty Name="requiredresearchreleasedate" ColumnName="requiredresearchreleasedate" />
+          <ScalarProperty Name="thesisreleasestatus" ColumnName="thesisreleasestatus" />
+          <ScalarProperty Name="thesisreleaselogin" ColumnName="thesisreleaselogin" />
+          <ScalarProperty Name="thesisreleasedate" ColumnName="thesisreleasedate" />
+          <ScalarProperty Name="summerresearchreleasestatus" ColumnName="summerresearchreleasestatus" />
+          <ScalarProperty Name="summerresearchreleaselogin" ColumnName="summerresearchreleaselogin" />
+          <ScalarProperty Name="summerresearchreleasedate" ColumnName="summerresearchreleasedate" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="waived_old" ColumnName="waived_old" />
+          <ScalarProperty Name="approved_old" ColumnName="approved_old" />
+          <ScalarProperty Name="researchstatus_old" ColumnName="researchstatus_old" />
+          <ScalarProperty Name="thesisstatus_old" ColumnName="thesisstatus_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchCategories">
+      <EntityTypeMapping TypeName="EaselModel.ResearchCategory">
+        <MappingFragment StoreEntitySet="ResearchCategory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchDepartments">
+      <EntityTypeMapping TypeName="EaselModel.ResearchDepartment">
+        <MappingFragment StoreEntitySet="ResearchDepartment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchDurations">
+      <EntityTypeMapping TypeName="EaselModel.ResearchDuration">
+        <MappingFragment StoreEntitySet="ResearchDuration">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchEvaluationCodes">
+      <EntityTypeMapping TypeName="EaselModel.ResearchEvaluationCode">
+        <MappingFragment StoreEntitySet="ResearchEvaluationCode">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchcategory_id" ColumnName="researchcategory_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchEvaluationQuestions">
+      <EntityTypeMapping TypeName="EaselModel.ResearchEvaluationQuestion">
+        <MappingFragment StoreEntitySet="ResearchEvaluationQuestion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchEvaluationStudents">
+      <EntityTypeMapping TypeName="EaselModel.ResearchEvaluationStudent">
+        <MappingFragment StoreEntitySet="ResearchEvaluationStudent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="researchcategory_id" ColumnName="researchcategory_id" />
+          <ScalarProperty Name="academiyear" ColumnName="academiyear" />
+          <ScalarProperty Name="reseachduration_id" ColumnName="reseachduration_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="mentorsequence" ColumnName="mentorsequence" />
+          <ScalarProperty Name="mentorname" ColumnName="mentorname" />
+          <ScalarProperty Name="researchevaluationquestionresponse1" ColumnName="researchevaluationquestionresponse1" />
+          <ScalarProperty Name="researchevaluationquestionresponse2" ColumnName="researchevaluationquestionresponse2" />
+          <ScalarProperty Name="researchevaluationquestionresponse3" ColumnName="researchevaluationquestionresponse3" />
+          <ScalarProperty Name="researchevaluationquestionresponse4" ColumnName="researchevaluationquestionresponse4" />
+          <ScalarProperty Name="researchevaluationquestionresponse5" ColumnName="researchevaluationquestionresponse5" />
+          <ScalarProperty Name="researchevaluationquestionresponse6" ColumnName="researchevaluationquestionresponse6" />
+          <ScalarProperty Name="commentstrength" ColumnName="commentstrength" />
+          <ScalarProperty Name="commentimprove" ColumnName="commentimprove" />
+          <ScalarProperty Name="release" ColumnName="release" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="RE_old" ColumnName="RE_old" />
+          <ScalarProperty Name="Period_old" ColumnName="Period_old" />
+          <ScalarProperty Name="release_old" ColumnName="release_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchExperienceStudents">
+      <EntityTypeMapping TypeName="EaselModel.ResearchExperienceStudent">
+        <MappingFragment StoreEntitySet="ResearchExperienceStudent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="researchcategory_id" ColumnName="researchcategory_id" />
+          <ScalarProperty Name="experience" ColumnName="experience" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="research_type_old" ColumnName="research_type_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchFellowshipStudentArchieves">
+      <EntityTypeMapping TypeName="EaselModel.ResearchFellowshipStudentArchieve">
+        <MappingFragment StoreEntitySet="ResearchFellowshipStudentArchieve">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="researchfellowshipname" ColumnName="researchfellowshipname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Advisor" ColumnName="Advisor" />
+          <ScalarProperty Name="faculty_id" ColumnName="faculty_id" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Agency" ColumnName="Agency" />
+          <ScalarProperty Name="Dates" ColumnName="Dates" />
+          <ScalarProperty Name="OtherInformation" ColumnName="OtherInformation" />
+          <ScalarProperty Name="submitstatus" ColumnName="submitstatus" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="SubmitStatus_old" ColumnName="SubmitStatus_old" />
+          <ScalarProperty Name="id_old" ColumnName="id_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchFileTypes">
+      <EntityTypeMapping TypeName="EaselModel.ResearchFileType">
+        <MappingFragment StoreEntitySet="ResearchFileType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchIACUCs">
+      <EntityTypeMapping TypeName="EaselModel.ResearchIACUC">
+        <MappingFragment StoreEntitySet="ResearchIACUC">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchInformations">
+      <EntityTypeMapping TypeName="EaselModel.ResearchInformation">
+        <MappingFragment StoreEntitySet="ResearchInformation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="usertype" ColumnName="usertype" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchInstructions">
+      <EntityTypeMapping TypeName="EaselModel.ResearchInstruction">
+        <MappingFragment StoreEntitySet="ResearchInstruction">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="researchcategory_id" ColumnName="researchcategory_id" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchIRBs">
+      <EntityTypeMapping TypeName="EaselModel.ResearchIRB">
+        <MappingFragment StoreEntitySet="ResearchIRB">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchLocations">
+      <EntityTypeMapping TypeName="EaselModel.ResearchLocation">
+        <MappingFragment StoreEntitySet="ResearchLocation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchProposalStudentAdvisors">
+      <EntityTypeMapping TypeName="EaselModel.ResearchProposalStudentAdvisor">
+        <MappingFragment StoreEntitySet="ResearchProposalStudentAdvisor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchproposalstudentstatus_id" ColumnName="researchproposalstudentstatus_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="faculty_id" ColumnName="faculty_id" />
+          <ScalarProperty Name="researchadvisortype_id" ColumnName="researchadvisortype_id" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="name_old" ColumnName="name_old" />
+          <ScalarProperty Name="email_old" ColumnName="email_old" />
+          <ScalarProperty Name="id_old" ColumnName="id_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchProposalStudentApplications">
+      <EntityTypeMapping TypeName="EaselModel.ResearchProposalStudentApplication">
+        <MappingFragment StoreEntitySet="ResearchProposalStudentApplication">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchproposalstudentstatus_id" ColumnName="researchproposalstudentstatus_id" />
+          <ScalarProperty Name="researchapplicationtype_id" ColumnName="researchapplicationtype_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="proposal" ColumnName="proposal" />
+          <ScalarProperty Name="journal" ColumnName="journal" />
+          <ScalarProperty Name="otherdescription1" ColumnName="otherdescription1" />
+          <ScalarProperty Name="otherdescription2" ColumnName="otherdescription2" />
+          <ScalarProperty Name="otherdescription3" ColumnName="otherdescription3" />
+          <ScalarProperty Name="otherdescription4" ColumnName="otherdescription4" />
+          <ScalarProperty Name="researchapproval_id" ColumnName="researchapproval_id" />
+          <ScalarProperty Name="approvalnote" ColumnName="approvalnote" />
+          <ScalarProperty Name="externalfunding" ColumnName="externalfunding" />
+          <ScalarProperty Name="fundingsource" ColumnName="fundingsource" />
+          <ScalarProperty Name="applitedothersource" ColumnName="applitedothersource" />
+          <ScalarProperty Name="appliedsources" ColumnName="appliedsources" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="submitstatus" ColumnName="submitstatus" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="approval_old" ColumnName="approval_old" />
+          <ScalarProperty Name="id_old" ColumnName="id_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchProposalStudentFiles">
+      <EntityTypeMapping TypeName="EaselModel.ResearchProposalStudentFile">
+        <MappingFragment StoreEntitySet="ResearchProposalStudentFile">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchproposalstudentstatus_id" ColumnName="researchproposalstudentstatus_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="researchfiletype_id" ColumnName="researchfiletype_id" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="id_old" ColumnName="id_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchProposalStudentStatus">
+      <EntityTypeMapping TypeName="EaselModel.ResearchProposalStudentStatu">
+        <MappingFragment StoreEntitySet="ResearchProposalStudentStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="academicyear" ColumnName="academicyear" />
+          <ScalarProperty Name="researchcategory_id" ColumnName="researchcategory_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="researchdepartment_id" ColumnName="researchdepartment_id" />
+          <ScalarProperty Name="researchacademicprogram_id" ColumnName="researchacademicprogram_id" />
+          <ScalarProperty Name="researchsciencearea_id" ColumnName="researchsciencearea_id" />
+          <ScalarProperty Name="studentrole" ColumnName="studentrole" />
+          <ScalarProperty Name="studentroleother" ColumnName="studentroleother" />
+          <ScalarProperty Name="IRB" ColumnName="IRB" />
+          <ScalarProperty Name="IACUC" ColumnName="IACUC" />
+          <ScalarProperty Name="submitstatus" ColumnName="submitstatus" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="approval_old" ColumnName="approval_old" />
+          <ScalarProperty Name="id_old" ColumnName="id_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchReasons">
+      <EntityTypeMapping TypeName="EaselModel.ResearchReason">
+        <MappingFragment StoreEntitySet="ResearchReason">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="researchreasoncategory_id" ColumnName="researchreasoncategory_id" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchReasonCategories">
+      <EntityTypeMapping TypeName="EaselModel.ResearchReasonCategory">
+        <MappingFragment StoreEntitySet="ResearchReasonCategory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchSchedules">
+      <EntityTypeMapping TypeName="EaselModel.ResearchSchedule">
+        <MappingFragment StoreEntitySet="ResearchSchedule">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchcategory_id" ColumnName="researchcategory_id" />
+          <ScalarProperty Name="researchblock_id" ColumnName="researchblock_id" />
+          <ScalarProperty Name="researchapplicationtype_id" ColumnName="researchapplicationtype_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="deadlinedate" ColumnName="deadlinedate" />
+          <ScalarProperty Name="eventdate" ColumnName="eventdate" />
+          <ScalarProperty Name="multiplesubmission" ColumnName="multiplesubmission" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchScheduleStudents">
+      <EntityTypeMapping TypeName="EaselModel.ResearchScheduleStudent">
+        <MappingFragment StoreEntitySet="ResearchScheduleStudent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="researchapplication_id" ColumnName="researchapplication_id" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchScienceAreas">
+      <EntityTypeMapping TypeName="EaselModel.ResearchScienceArea">
+        <MappingFragment StoreEntitySet="ResearchScienceArea">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchStudentRoles">
+      <EntityTypeMapping TypeName="EaselModel.ResearchStudentRole">
+        <MappingFragment StoreEntitySet="ResearchStudentRole">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="explainationrequired" ColumnName="explainationrequired" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchSurveyCodes">
+      <EntityTypeMapping TypeName="EaselModel.ResearchSurveyCode">
+        <MappingFragment StoreEntitySet="ResearchSurveyCode">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchSurveyQuestions">
+      <EntityTypeMapping TypeName="EaselModel.ResearchSurveyQuestion">
+        <MappingFragment StoreEntitySet="ResearchSurveyQuestion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pagenumber" ColumnName="pagenumber" />
+          <ScalarProperty Name="displayid" ColumnName="displayid" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="researchsurveyquestiontype_id" ColumnName="researchsurveyquestiontype_id" />
+          <ScalarProperty Name="required" ColumnName="required" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="ismandatory_old" ColumnName="ismandatory_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchSurveyQuestionCodeMappings">
+      <EntityTypeMapping TypeName="EaselModel.ResearchSurveyQuestionCodeMapping">
+        <MappingFragment StoreEntitySet="ResearchSurveyQuestionCodeMapping">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchsurveyquestion_id" ColumnName="researchsurveyquestion_id" />
+          <ScalarProperty Name="researchsurveycode_id" ColumnName="researchsurveycode_id" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="questionid_old" ColumnName="questionid_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchSurveyQuestionTypes">
+      <EntityTypeMapping TypeName="EaselModel.ResearchSurveyQuestionType">
+        <MappingFragment StoreEntitySet="ResearchSurveyQuestionType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchSurveyStudentResponses">
+      <EntityTypeMapping TypeName="EaselModel.ResearchSurveyStudentResponse">
+        <MappingFragment StoreEntitySet="ResearchSurveyStudentResponse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchsurveystudentstatus_id" ColumnName="researchsurveystudentstatus_id" />
+          <ScalarProperty Name="researchsurveyquestion_id" ColumnName="researchsurveyquestion_id" />
+          <ScalarProperty Name="answer" ColumnName="answer" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="questionid_old" ColumnName="questionid_old" />
+          <ScalarProperty Name="shortanswer_old" ColumnName="shortanswer_old" />
+          <ScalarProperty Name="emaddr_old" ColumnName="emaddr_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchSurveyStudentStatus">
+      <EntityTypeMapping TypeName="EaselModel.ResearchSurveyStudentStatu">
+        <MappingFragment StoreEntitySet="ResearchSurveyStudentStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="submitstatus" ColumnName="submitstatus" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="submitstatus_old" ColumnName="submitstatus_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisCommittees">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisCommittee">
+        <MappingFragment StoreEntitySet="ResearchThesisCommittee">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="academicyear" ColumnName="academicyear" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="ayear_old" ColumnName="ayear_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisCommitteeFaculties">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisCommitteeFaculty">
+        <MappingFragment StoreEntitySet="ResearchThesisCommitteeFaculty">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchthesiscommittee_id" ColumnName="researchthesiscommittee_id" />
+          <ScalarProperty Name="faculty_id" ColumnName="faculty_id" />
+          <ScalarProperty Name="classyear" ColumnName="classyear" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisCommitteeFacultyClassYears">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisCommitteeFacultyClassYear">
+        <MappingFragment StoreEntitySet="ResearchThesisCommitteeFacultyClassYear">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ResearchThesisCommitteeFaculty_Id" ColumnName="ResearchThesisCommitteeFaculty_Id" />
+          <ScalarProperty Name="classyear" ColumnName="classyear" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisFacultyResponses">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisFacultyResponse">
+        <MappingFragment StoreEntitySet="ResearchThesisFacultyResponse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchthesisfacultystatus_id" ColumnName="researchthesisfacultystatus_id" />
+          <ScalarProperty Name="researchthesisquestionmapping_id" ColumnName="researchthesisquestionmapping_id" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="emaddr_old" ColumnName="emaddr_old" />
+          <ScalarProperty Name="commid_old" ColumnName="commid_old" />
+          <ScalarProperty Name="fcode_old" ColumnName="fcode_old" />
+          <ScalarProperty Name="category_old" ColumnName="category_old" />
+          <ScalarProperty Name="qidlevel1_old" ColumnName="qidlevel1_old" />
+          <ScalarProperty Name="qidlevel2_old" ColumnName="qidlevel2_old" />
+          <ScalarProperty Name="qidlevel3_old" ColumnName="qidlevel3_old" />
+          <ScalarProperty Name="response_old" ColumnName="response_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisFacultyResponseArchieves">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisFacultyResponseArchieve">
+        <MappingFragment StoreEntitySet="ResearchThesisFacultyResponseArchieve">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchthesiscommittee_id" ColumnName="researchthesiscommittee_id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="faculty_id" ColumnName="faculty_id" />
+          <ScalarProperty Name="researchthesisquestion_id" ColumnName="researchthesisquestion_id" />
+          <ScalarProperty Name="response1" ColumnName="response1" />
+          <ScalarProperty Name="response2" ColumnName="response2" />
+          <ScalarProperty Name="response3" ColumnName="response3" />
+          <ScalarProperty Name="response4" ColumnName="response4" />
+          <ScalarProperty Name="response5" ColumnName="response5" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisFacultyStatus">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisFacultyStatu">
+        <MappingFragment StoreEntitySet="ResearchThesisFacultyStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchthesisstudentfacultyreviewer_id" ColumnName="researchthesisstudentfacultyreviewer_id" />
+          <ScalarProperty Name="researchthesisquestioncategory_id" ColumnName="researchthesisquestioncategory_id" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="submitstatus" ColumnName="submitstatus" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="id_old" ColumnName="id_old" />
+          <ScalarProperty Name="emaddr_old" ColumnName="emaddr_old" />
+          <ScalarProperty Name="commid_old" ColumnName="commid_old" />
+          <ScalarProperty Name="fcode_old" ColumnName="fcode_old" />
+          <ScalarProperty Name="category_old" ColumnName="category_old" />
+          <ScalarProperty Name="overallresponse_old" ColumnName="overallresponse_old" />
+          <ScalarProperty Name="submitstatus_old" ColumnName="submitstatus_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisQuestions">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisQuestion">
+        <MappingFragment StoreEntitySet="ResearchThesisQuestion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchthesiscommittee_id" ColumnName="researchthesiscommittee_id" />
+          <ScalarProperty Name="researchthesisquestionlevel_id" ColumnName="researchthesisquestionlevel_id" />
+          <ScalarProperty Name="questionsequence" ColumnName="questionsequence" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisQuestionArchieves">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisQuestionArchieve">
+        <MappingFragment StoreEntitySet="ResearchThesisQuestionArchieve">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="header" ColumnName="header" />
+          <ScalarProperty Name="question1" ColumnName="question1" />
+          <ScalarProperty Name="question2" ColumnName="question2" />
+          <ScalarProperty Name="question3" ColumnName="question3" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisQuestionCategories">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisQuestionCategory">
+        <MappingFragment StoreEntitySet="ResearchThesisQuestionCategory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisQuestionLevels">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisQuestionLevel">
+        <MappingFragment StoreEntitySet="ResearchThesisQuestionLevel">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisQuestionMappings">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisQuestionMapping">
+        <MappingFragment StoreEntitySet="ResearchThesisQuestionMapping">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchthesiscommittee_id" ColumnName="researchthesiscommittee_id" />
+          <ScalarProperty Name="researchthesisquestioncategory_id" ColumnName="researchthesisquestioncategory_id" />
+          <ScalarProperty Name="researchthesisquestion_id1" ColumnName="researchthesisquestion_id1" />
+          <ScalarProperty Name="sort1" ColumnName="sort1" />
+          <ScalarProperty Name="researchthesisquestion_id2" ColumnName="researchthesisquestion_id2" />
+          <ScalarProperty Name="sort2" ColumnName="sort2" />
+          <ScalarProperty Name="researchthesisquestion_id3" ColumnName="researchthesisquestion_id3" />
+          <ScalarProperty Name="sort3" ColumnName="sort3" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="category_old" ColumnName="category_old" />
+          <ScalarProperty Name="qidlevel1_old" ColumnName="qidlevel1_old" />
+          <ScalarProperty Name="qidlevel2_old" ColumnName="qidlevel2_old" />
+          <ScalarProperty Name="qidlevel3_old" ColumnName="qidlevel3_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisStudentAdvisors">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisStudentAdvisor">
+        <MappingFragment StoreEntitySet="ResearchThesisStudentAdvisor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchthesisstudentstatus_id" ColumnName="researchthesisstudentstatus_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="faculty_id" ColumnName="faculty_id" />
+          <ScalarProperty Name="researchadvisortype_id" ColumnName="researchadvisortype_id" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="name_old" ColumnName="name_old" />
+          <ScalarProperty Name="id_old" ColumnName="id_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisStudentFacultyReviewers">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisStudentFacultyReviewer">
+        <MappingFragment StoreEntitySet="ResearchThesisStudentFacultyReviewer">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchthesiscommittee_id" ColumnName="researchthesiscommittee_id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="faculty_id" ColumnName="faculty_id" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisStudentFiles">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisStudentFile">
+        <MappingFragment StoreEntitySet="ResearchThesisStudentFile">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="researchthesisstudentstatus_id" ColumnName="researchthesisstudentstatus_id" />
+          <ScalarProperty Name="sequence" ColumnName="sequence" />
+          <ScalarProperty Name="researchfiletype_id" ColumnName="researchfiletype_id" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="id_old" ColumnName="id_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisStudentStatus">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisStudentStatu">
+        <MappingFragment StoreEntitySet="ResearchThesisStudentStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="researchthesistype_id" ColumnName="researchthesistype_id" />
+          <ScalarProperty Name="researchdepartment_id" ColumnName="researchdepartment_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="journal" ColumnName="journal" />
+          <ScalarProperty Name="abstract" ColumnName="abstract" />
+          <ScalarProperty Name="otherdescription1" ColumnName="otherdescription1" />
+          <ScalarProperty Name="otherdescription2" ColumnName="otherdescription2" />
+          <ScalarProperty Name="otherdescription3" ColumnName="otherdescription3" />
+          <ScalarProperty Name="otherdescription4" ColumnName="otherdescription4" />
+          <ScalarProperty Name="submitstatus" ColumnName="submitstatus" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="submitstatus_old" ColumnName="submitstatus_old" />
+          <ScalarProperty Name="id_old" ColumnName="id_old" />
+          <ScalarProperty Name="ResearchArea_old" ColumnName="ResearchArea_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResearchThesisTypes">
+      <EntityTypeMapping TypeName="EaselModel.ResearchThesisType">
+        <MappingFragment StoreEntitySet="ResearchThesisType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="EaselModel.Room">
+        <MappingFragment StoreEntitySet="Room">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Building_id" ColumnName="Building_id" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScheduleAssignments">
+      <EntityTypeMapping TypeName="EaselModel.ScheduleAssignment">
+        <MappingFragment StoreEntitySet="ScheduleAssignment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="CanvasGroupCategory_id" ColumnName="CanvasGroupCategory_id" />
+          <ScalarProperty Name="scheduleType_id" ColumnName="scheduleType_id" />
+          <ScalarProperty Name="ScheduleOption_id" ColumnName="ScheduleOption_id" />
+          <ScalarProperty Name="numSessions" ColumnName="numSessions" />
+          <ScalarProperty Name="numSets" ColumnName="numSets" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="closeDaysBefore" ColumnName="closeDaysBefore" />
+          <ScalarProperty Name="CanvasCourse_id" ColumnName="CanvasCourse_id" />
+          <ScalarProperty Name="classYear" ColumnName="classYear" />
+          <ScalarProperty Name="CanvasAssignment_id" ColumnName="CanvasAssignment_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScheduleOptions">
+      <EntityTypeMapping TypeName="EaselModel.ScheduleOption">
+        <MappingFragment StoreEntitySet="ScheduleOption">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScheduleSessions">
+      <EntityTypeMapping TypeName="EaselModel.ScheduleSession">
+        <MappingFragment StoreEntitySet="ScheduleSession">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="eventset_id" ColumnName="eventset_id" />
+          <ScalarProperty Name="startingDate" ColumnName="startingDate" />
+          <ScalarProperty Name="endingDate" ColumnName="endingDate" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="capacity" ColumnName="capacity" />
+          <ScalarProperty Name="openEnrollment" ColumnName="openEnrollment" />
+          <ScalarProperty Name="sessionorder" ColumnName="sessionorder" />
+          <ScalarProperty Name="CanvasAssignment_id" ColumnName="CanvasAssignment_id" />
+          <ScalarProperty Name="CanvasGroup_id" ColumnName="CanvasGroup_id" />
+          <ScalarProperty Name="CanvasAssignmentOverride_id" ColumnName="CanvasAssignmentOverride_id" />
+          <ScalarProperty Name="parentCanvasAssignment_id" ColumnName="parentCanvasAssignment_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="instruction" ColumnName="instruction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScheduleTypes">
+      <EntityTypeMapping TypeName="EaselModel.ScheduleType">
+        <MappingFragment StoreEntitySet="ScheduleType">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SessionFacultyEnrollments">
+      <EntityTypeMapping TypeName="EaselModel.SessionFacultyEnrollment">
+        <MappingFragment StoreEntitySet="SessionFacultyEnrollment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="faculty_id" ColumnName="faculty_id" />
+          <ScalarProperty Name="ScheduleSession_id" ColumnName="ScheduleSession_id" />
+          <ScalarProperty Name="isFacilitator" ColumnName="isFacilitator" />
+          <ScalarProperty Name="isCoFacilitator" ColumnName="isCoFacilitator" />
+          <ScalarProperty Name="isGrader" ColumnName="isGrader" />
+          <ScalarProperty Name="isEvaluator" ColumnName="isEvaluator" />
+          <ScalarProperty Name="accessLog" ColumnName="accessLog" />
+          <ScalarProperty Name="room_id" ColumnName="room_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SessionStudentEnrollments">
+      <EntityTypeMapping TypeName="EaselModel.SessionStudentEnrollment">
+        <MappingFragment StoreEntitySet="SessionStudentEnrollment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ScheduleSession_id" ColumnName="ScheduleSession_id" />
+          <ScalarProperty Name="caseid" ColumnName="caseid" />
+          <ScalarProperty Name="assignmentOverrideID" ColumnName="assignmentOverrideID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentVotes">
+      <EntityTypeMapping TypeName="EaselModel.StudentVote">
+        <MappingFragment StoreEntitySet="StudentVote">
+          <ScalarProperty Name="old_id" ColumnName="old_id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="office_id" ColumnName="office_id" />
+          <ScalarProperty Name="candidate_id" ColumnName="candidate_id" />
+          <ScalarProperty Name="voterank" ColumnName="voterank" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentVoteCandidates">
+      <EntityTypeMapping TypeName="EaselModel.StudentVoteCandidate">
+        <MappingFragment StoreEntitySet="StudentVoteCandidate">
+          <ScalarProperty Name="old_id" ColumnName="old_id" />
+          <ScalarProperty Name="candidate_id" ColumnName="candidate_id" />
+          <ScalarProperty Name="office_id" ColumnName="office_id" />
+          <ScalarProperty Name="cvpathfname" ColumnName="cvpathfname" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="candidatestatement" ColumnName="candidatestatement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentVoteOffices">
+      <EntityTypeMapping TypeName="EaselModel.StudentVoteOffice">
+        <MappingFragment StoreEntitySet="StudentVoteOffice">
+          <ScalarProperty Name="old_id" ColumnName="old_id" />
+          <ScalarProperty Name="officetitle" ColumnName="officetitle" />
+          <ScalarProperty Name="votestart" ColumnName="votestart" />
+          <ScalarProperty Name="voteend" ColumnName="voteend" />
+          <ScalarProperty Name="votercampus" ColumnName="votercampus" />
+          <ScalarProperty Name="voterclass" ColumnName="voterclass" />
+          <ScalarProperty Name="ayear" ColumnName="ayear" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="hasstatement" ColumnName="hasstatement" />
+          <ScalarProperty Name="statementend" ColumnName="statementend" />
+          <ScalarProperty Name="winnercount" ColumnName="winnercount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentVoteStatus">
+      <EntityTypeMapping TypeName="EaselModel.StudentVoteStatu">
+        <MappingFragment StoreEntitySet="StudentVoteStatus">
+          <ScalarProperty Name="old_id" ColumnName="old_id" />
+          <ScalarProperty Name="emaddr" ColumnName="emaddr" />
+          <ScalarProperty Name="office_id" ColumnName="office_id" />
+          <ScalarProperty Name="submitdate" ColumnName="submitdate" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="EaselModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usmles">
+      <EntityTypeMapping TypeName="EaselModel.Usmle">
+        <MappingFragment StoreEntitySet="Usmle">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="usmle_id" ColumnName="usmle_id" />
+          <ScalarProperty Name="aamc_id" ColumnName="aamc_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gradyear" ColumnName="gradyear" />
+          <ScalarProperty Name="exam" ColumnName="exam" />
+          <ScalarProperty Name="pass_fail" ColumnName="pass_fail" />
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="repeat" ColumnName="repeat" />
+          <ScalarProperty Name="test_date" ColumnName="test_date" />
+          <ScalarProperty Name="report_date" ColumnName="report_date" />
+          <ScalarProperty Name="eligibility_start_date" ColumnName="eligibility_start_date" />
+          <ScalarProperty Name="eligibility_end_date" ColumnName="eligibility_end_date" />
+          <ScalarProperty Name="permit_sent_date" ColumnName="permit_sent_date" />
+          <ScalarProperty Name="scheduled_test_date" ColumnName="scheduled_test_date" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsmleScores">
+      <EntityTypeMapping TypeName="EaselModel.UsmleScore">
+        <MappingFragment StoreEntitySet="UsmleScore">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="usmle_id" ColumnName="usmle_id" />
+          <ScalarProperty Name="aamc_id" ColumnName="aamc_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gradyear" ColumnName="gradyear" />
+          <ScalarProperty Name="exam" ColumnName="exam" />
+          <ScalarProperty Name="pass_fail" ColumnName="pass_fail" />
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="repeat" ColumnName="repeat" />
+          <ScalarProperty Name="schedule_date" ColumnName="schedule_date" />
+          <ScalarProperty Name="test_date" ColumnName="test_date" />
+          <ScalarProperty Name="report_date" ColumnName="report_date" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zAttendanceStudentCourses">
+      <EntityTypeMapping TypeName="EaselModel.zAttendanceStudentCourse">
+        <MappingFragment StoreEntitySet="zAttendanceStudentCourse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="attendancestudent_id" ColumnName="attendancestudent_id" />
+          <ScalarProperty Name="canvascourse_id" ColumnName="canvascourse_id" />
+          <ScalarProperty Name="canvascourse_name" ColumnName="canvascourse_name" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zCIEventKeywords">
+      <EntityTypeMapping TypeName="EaselModel.zCIEventKeyword">
+        <MappingFragment StoreEntitySet="zCIEventKeywords">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="canvasassignment_id" ColumnName="canvasassignment_id" />
+          <ScalarProperty Name="canvascourse_id" ColumnName="canvascourse_id" />
+          <ScalarProperty Name="sequenceNumber" ColumnName="sequenceNumber" />
+          <ScalarProperty Name="keyword" ColumnName="keyword" />
+          <ScalarProperty Name="caseid" ColumnName="caseid" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+          <ScalarProperty Name="code" ColumnName="code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zPortfolioFacultyResources">
+      <EntityTypeMapping TypeName="EaselModel.zPortfolioFacultyResource">
+        <MappingFragment StoreEntitySet="zPortfolioFacultyResource">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portfolioassignment_id" ColumnName="portfolioassignment_id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+          <ScalarProperty Name="userdate" ColumnName="userdate" />
+          <ScalarProperty Name="scyear_old" ColumnName="scyear_old" />
+          <ScalarProperty Name="cnum_old" ColumnName="cnum_old" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zCILearningObjectives">
+      <EntityTypeMapping TypeName="EaselModel.zCILearningObjective">
+        <MappingFragment StoreEntitySet="zCILearningObjectives">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="LOid" ColumnName="LOid" />
+          <ScalarProperty Name="sequenceNumber" ColumnName="sequenceNumber" />
+          <ScalarProperty Name="learningObjective" ColumnName="learningObjective" />
+          <ScalarProperty Name="caseid" ColumnName="caseid" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="canvascourse_id" ColumnName="canvascourse_id" />
+          <ScalarProperty Name="canvasassignment_id" ColumnName="canvasassignment_id" />
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="updateLog" ColumnName="updateLog" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
