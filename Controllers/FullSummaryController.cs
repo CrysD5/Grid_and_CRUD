@@ -17,10 +17,7 @@ namespace Grid_and_CRUD.Controllers
     {
         public Data.Southwind.SouthwindEntities southwind = new Data.Southwind.SouthwindEntities();
         // GET: FullSummary
-        public ActionResult FullSummary()
-        {
-            return PartialView("FullSummary");
-        }
+      
 
         // Dropdown Lists/Tree
         public JsonResult SocietyDDL()

@@ -1,2 +1,42 @@
 ﻿<h6>Home Index</h6>
 
+<div class="selectedStudentOptions">
+
+
+
+	@(Html.Kendo().TabStrip()
+		.Name("studentStatusOptions")
+		.Items(x =>
+		{
+			x.Add().Text("Student Information")
+				.Selected(true)
+				.Content(@<text>
+					         <div class="studDet" style="display:grid; grid-template-columns:auto auto; gap:10px; padding:10px;">
+						         <div class="studPic" style="padding: 20px 0;">
+							         @* <img src="https://www.w3schools.com/html/img_girl.jpg" style="height:275px; width:auto; "> *@
+						         </div>
+						         <div class="studInfo" style="padding: 20px 0;">
+							         <h3>Personal Information</h3>
+                                        
+							         <ul>
+								         <li>Student Name</li>
+								         <li>Student Society</li>
+								         <li>Student Expected Grad Year</li>
+							         </ul>
+                                        
+						         </div>
+					         </div>
+				          </text>);
+
+			x.Add().Text("Full Summary Details");
+			// .LoadContentFrom(Url.Content("~/Home/ReportDetails"));
+
+
+			x.Add().Text("Type A & B Electives");
+				// .LoadContentFrom(Url.Content("~/Home/FoundationBlks"));
+
+			x.Add().Text("Dean Notes");
+			// .LoadContentFrom(Url.Content("~/Home/CATscores"));
+		})
+		)
+</div>

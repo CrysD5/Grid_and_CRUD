@@ -25,14 +25,6 @@ namespace Grid_and_CRUD.Data.Southwind
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<AdvisoryNote> AdvisoryNotes { get; set; }
-        public DbSet<AdvisorySociety> AdvisorySocieties { get; set; }
-        public DbSet<Personal> Personals { get; set; }
-        public DbSet<Student_Misc> Student_Misc { get; set; }
-        public DbSet<vw_Matri_Grad_Dates> vw_Matri_Grad_Dates { get; set; }
-        public DbSet<v_AdvisorySociety> v_AdvisorySociety { get; set; }
-        public DbSet<v_studentsAll> v_studentsAll { get; set; }
-        public DbSet<v_StudentsSOM> v_StudentsSOM { get; set; }
         public DbSet<v_StudentsSOMwithReducedFee> v_StudentsSOMwithReducedFee { get; set; }
     }
 }
