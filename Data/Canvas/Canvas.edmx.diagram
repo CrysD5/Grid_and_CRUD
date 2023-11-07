@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eeacddb3f628472b8ade31566ae47ed3" Name="Diagram1">
+        <EntityTypeShape EntityType="CanvasAPIModel.CalendarEvent" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CalendarFaculty" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CalendarFeed" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CalendarFeedsBkup8252021" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasAssignment" Width="1.5" PointX="8.25" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasAssignmentGroup" Width="1.5" PointX="6" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasAssignmentOverride" Width="1.5" PointX="15.5" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasCourse" Width="1.5" PointX="0.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasDiscussionTopic" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasGroup" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasGroupCategory" Width="1.5" PointX="3" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasGroupMember" Width="1.5" PointX="7.5" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasModule" Width="1.5" PointX="3" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasModuleItem" Width="1.5" PointX="5.25" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasRole" Width="1.5" PointX="10.5" PointY="40.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasSection" Width="1.5" PointX="3" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasSectionEnrollment" Width="1.5" PointX="10.25" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.CanvasUser" Width="1.5" PointX="5.25" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SelfSchedulingCours" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMAnatomyPresentation" Width="1.5" PointX="10.5" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMAnatomyPresentationMember" Width="1.5" PointX="12.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMCourseClassYear" Width="1.5" PointX="3" PointY="39.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMCourseHyperlink" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMFacultyRole" Width="1.5" PointX="8" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMFCMGrading" Width="1.5" PointX="5.25" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMFCMGradingGroup" Width="1.5" PointX="10.5" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMFCMGradingIndividual" Width="1.5" PointX="12.75" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMSectionBlock" Width="1.5" PointX="0.75" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMSectionFaculty" Width="1.5" PointX="12.75" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMSectionFacultyFeedback" Width="1.5" PointX="15" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMSectionFacultyFile" Width="1.5" PointX="5.25" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMSectionFacultyFileType" Width="1.5" PointX="3" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMSectionFacultyNote" Width="1.5" PointX="15" PointY="40.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMSectionMember" Width="1.5" PointX="12.75" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMSectionTeam" Width="1.5" PointX="7.5" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMSectionWeek" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMSectionWeekSpecial" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMSISCourseBlock" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMStudentFileResource" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.sysdiagram" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.tmpGroup" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.tmpGroupsMedium" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.tmpGroupsMediumSplit" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.tmpGroupsSwap" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.UserCalendar" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.zSOMModuleFaculty" Width="1.5" PointX="10.25" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.zSOMSectionTeamCourse" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMAnatomyPresentationBak" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.SOMAnatomyPresentationMemberBak" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.v_AdvisorySociety" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.v_CourseFeed" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.v_Ethnicity" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.v_FacultySom" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.v_FileTable" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.v_FileTable_HierarchyIDs" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.v_FileTable_ParentPathLocator" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.v_StudentCoreBlockEnrollment" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.v_StudentGroups" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.v_studentsAll" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.v_StudentsSOM" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.v_StudentsSOMwithReducedFee" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CanvasAPIModel.zv_CourseFeed" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasAssignment_CanvasAssignmentGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasAssignment_CanvasCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasAssignment_CanvasGroupCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasAssignmentOverride_CanvasAssignment" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMAnatomyPresentation_CanvasAssignment" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasAssignmentOverride_CanvasGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasAssignmentOverride_CanvasSection" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasGroupCategory_CanvasCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasModule_CanvasCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasSection_CanvasCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasSectionEnrollment_CanvasCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMCourseClassYear_CanvasCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMCourseHyperlink_CanvasCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionTeam_CanvasCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasGroup_CanvasGroupCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasGroupMember_CanvasGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMAnatomyPresentation_CanvasGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMFCMGradingByGroup_CanvasGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionTeam_CanvasGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMFCMGrading_CanvasGroupCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasGroupMember_CanvasUser" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasModuleItem_CanvasModule" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMModuleFaculty_CanvasModule" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionFaculty_CanvasModule" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionFacultyFile_CanvasModule" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasSectionEnrollment_CanvasRole" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionMember_CanvasRole" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasSectionEnrollment_CanvasSection" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionTeam_CanvasSection" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_CanvasSectionEnrollment_CanvasUser" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMModuleFaculty_CanvasUser" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMModuleFaculty_CanvasUser1" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMAnatomyPresentationMember_SOMAnatomyPresentation" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionFacultyFile_SOMCourseClassYear" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMCourseHyperlink_SOMSectionBlock" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMModuleFaculty_SOMFacultyRole" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMFCMGradingByGroup_SOMFCMGrading" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMFCMGradingIndividual_SOMFCMGradingGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionTeam_SOMSectionBlock" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSISCourseBlock_SOMSectionBlock" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionFaculty_SOMSectionTeam" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionFacultyFeedback_SOMSectionFacultyFeedback" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionFacultyNote_SOMSectionFaculty" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionFacultyFile_SOMSectionFacultyFileType" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionMember_SOMSectionTeam1" ManuallyRouted="false" />
+        <AssociationConnector Association="CanvasAPIModel.FK_SOMSectionWeek_SOMSectionWeek" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

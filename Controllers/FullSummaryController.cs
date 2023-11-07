@@ -7,15 +7,17 @@ using System.Web.Mvc;
 using Grid_and_CRUD.Data;
 using Grid_and_CRUD.Models;
 using Grid_and_CRUD.Classes;
-using Grid_and_CRUD.Data.Southwind;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+using Grid_and_CRUD.Data.Reg;
 
 namespace Grid_and_CRUD.Controllers
 {
     public class FullSummaryController : Controller
     {
-        public Data.Southwind.SouthwindEntities southwind = new Data.Southwind.SouthwindEntities();
+        //public Data.Reg.SouthwindEntities southwind = new Data.Southwind.SouthwindEntities();
+        public Data.Reg.RegistrarEntities1 regEnt = new Data.Reg.RegistrarEntities1();
+        public Data.Canvas.CanvasAPIEntities2 canEnt = new Data.Canvas.CanvasAPIEntities2();
         // GET: FullSummary
       
 
@@ -38,7 +40,7 @@ namespace Grid_and_CRUD.Controllers
 
         public JsonResult GyrDDL()
         {
-            var classYear = southwind.vw_Matri_Grad_Dates
+            var classYear = regEnt.vw_Matri_Grad_Dates
                 .Where(c => c.campuscode == "cwru")
                 .Where(c => c.Prog_status == "AC" || c.Prog_status=="LA")
                 .GroupBy(c => c.gyr)
@@ -65,7 +67,7 @@ namespace Grid_and_CRUD.Controllers
 
             if (society == "All")
             {
-                var allByYear = southwind.v_studentsAll
+                var allByYear = canEnt.v_studentsAll
                     .Where(x => x.gyr == classYear)
                     .Where(x => x.Prog_status == "AC")
                     .OrderBy(x => x.Emplid)
@@ -78,7 +80,7 @@ namespace Grid_and_CRUD.Controllers
 
 
 
-                var loaByYear = southwind.v_studentsAll
+                var loaByYear = canEnt.v_studentsAll
                     .Where(c => c.campuscode == "cwru")
                     .Where(c => c.Prog_status == "LA" || (c.Prog_status == "AC" && c.reduced_fee == "y"))
                     .OrderBy(c => c.Emplid)
@@ -89,7 +91,7 @@ namespace Grid_and_CRUD.Controllers
                     .Select(c => Int32.Parse(c))
                     .ToList();
 
-                var allPersonalInfo = southwind.v_studentsAll
+                var allPersonalInfo = canEnt.v_studentsAll
                     .Where(x => allByYear.Contains(x.Emplid) || loaByYear.Contains(x.Emplid))
                     .OrderBy(x => x.Last_Name)
                     .Select(x => new { Name = x.studentname, Value = x.emaddr.Trim() })
@@ -100,7 +102,7 @@ namespace Grid_and_CRUD.Controllers
 
             if (classYear == "LOA" || classYear == "PHD")
             {
-                var loaByYear = southwind.v_studentsAll
+                var loaByYear = canEnt.v_studentsAll
                     .Where(c => c.campuscode == "cwru")
                     .Where(c => c.Prog_status == "LA" || (c.Prog_status == "AC" && c.reduced_fee == "y"))
                     .OrderBy(c => c.Emplid)
@@ -111,7 +113,7 @@ namespace Grid_and_CRUD.Controllers
                     .Select(c => Int32.Parse(c))
                     .ToList();
 
-                var loaBySociety = southwind.v_StudentsSOM
+                var loaBySociety = canEnt.v_StudentsSOM
                     .Where(x => x.advisor_society.Contains(society))
                     .Where(x => loaByYear.Contains(x.Emplid))
                     .Select(x => x.Emplid)
@@ -121,7 +123,7 @@ namespace Grid_and_CRUD.Controllers
                     .Select(c => Int32.Parse(c))
                     .ToList();
 
-                var loaPersonalInfo = southwind.v_studentsAll
+                var loaPersonalInfo = canEnt.v_studentsAll
                     .Where(x => loaBySociety.Contains(x.Emplid) && (loaByYear.Contains(x.Emplid)))
                     .OrderBy(x => x.Last_Name)
                     .Select(x => new { Name = x.studentname, Value = x.emaddr.Trim() })
@@ -132,7 +134,7 @@ namespace Grid_and_CRUD.Controllers
 
             }
 
-            var gradsByYear = southwind.v_StudentsSOM
+            var gradsByYear = canEnt.v_StudentsSOM
                    .Where(x => x.gyr == classYear)
                    .Where(x => x.advisor_society.Contains(society))
                    .Where(x => x.Prog_status == "AC")
@@ -144,7 +146,7 @@ namespace Grid_and_CRUD.Controllers
                 .Select(x => Int32.Parse(x))
                 .ToList();
 
-            var personalInfo = southwind.v_studentsAll
+            var personalInfo = canEnt.v_studentsAll
                 .Where(x => gradsByYear.Contains(x.Emplid))
                 .OrderBy(x => x.Last_Name)
                 .Select(x => new { Name = x.studentname, Value = x.emaddr.Trim() })
@@ -165,7 +167,7 @@ namespace Grid_and_CRUD.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (var sw = new SouthwindEntities())
+                using (var sw = new RegistrarEntities1())
                 {                   
                     var entity = new AdvisoryNote
                     {
@@ -190,7 +192,7 @@ namespace Grid_and_CRUD.Controllers
         public ActionResult Notes_Read([DataSourceRequest] DataSourceRequest request, string emaddr)
         {
             emaddr = UserSession.Student;
-            var result = southwind.AdvisoryNotes.Select(n => new FullSummary.AdvisoryNotesViewModel()
+            var result = regEnt.AdvisoryNotes.Select(n => new FullSummary.AdvisoryNotesViewModel()
             {
                 adlogin = n.adlogin.Trim(),
                 edate = n.edate,
@@ -209,7 +211,7 @@ namespace Grid_and_CRUD.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (var sw = new SouthwindEntities())
+                using (var sw = new RegistrarEntities1())
                 {
                     var entity = new AdvisoryNote
                     {
@@ -234,7 +236,7 @@ namespace Grid_and_CRUD.Controllers
         {
             if (ModelState.IsValid)
             {
-                using (var sw = new SouthwindEntities())
+                using (var sw = new RegistrarEntities1())
                 {
                     var entity = new AdvisoryNote
                     {

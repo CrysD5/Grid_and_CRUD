@@ -67,3 +67,7 @@ D:\Repos\Grid_and_CRUD\obj\Debug\Grid_and_CRUD.csproj.CoreCompileInputs.cache
 D:\Repos\Grid_and_CRUD\obj\Debug\Grid_and_CRUD.csproj.CopyComplete
 D:\Repos\Grid_and_CRUD\obj\Debug\Grid_and_CRUD.dll
 D:\Repos\Grid_and_CRUD\obj\Debug\Grid_and_CRUD.pdb
+C:\Users\matri\source\repos\Grid_and_CRUD\obj\Debug\Grid_and_CRUD.csproj.AssemblyReference.cache
+C:\Users\matri\source\repos\Grid_and_CRUD\obj\Debug\Grid_and_CRUD.csproj.CoreCompileInputs.cache
+C:\Users\matri\source\repos\Grid_and_CRUD\obj\Debug\Grid_and_CRUD.dll
+C:\Users\matri\source\repos\Grid_and_CRUD\obj\Debug\Grid_and_CRUD.pdb

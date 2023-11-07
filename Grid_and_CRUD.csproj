@@ -181,20 +181,344 @@
     <Compile Include="Controllers\FullSummaryController.cs" />
     <Compile Include="Controllers\GridController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Data\Southwind\Southwind.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Southwind.Context.tt</DependentUpon>
+    <Compile Include="Data\Canvas\AttendanceGetStudentCourses_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Southwind\Southwind.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Southwind.tt</DependentUpon>
+    <Compile Include="Data\Canvas\AttendanceGetUsersByGradYear_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Southwind\Southwind.Designer.cs">
+    <Compile Include="Data\Canvas\cagrp_StudentClassRosterFacilitator_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\cagrp_StudentGroupsMediumToElentra_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\cagrp_StudentGroupswithCategoryInsert_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\cagrp_StudentSectionIQToeCurriculum_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\cagrp_StudentSectionIQToElentra_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CalendarEvent.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CalendarFaculty.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CalendarFeed.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CalendarFeedsBkup8252021.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\Canvas.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Southwind.edmx</DependentUpon>
+      <DependentUpon>Canvas.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\Canvas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\Canvas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Canvas.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasAssignment.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasAssignmentGroup.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasAssignmentOverride.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasCourse.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasDiscussionTopic.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasGroup.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasGroupCategory.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasGroupMember.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasModule.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasModuleItem.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasRole.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasSection.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasSectionEnrollment.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\CanvasUser.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\eCurriculumAminJrSEQBlockWeeksSelect_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\fac_facultyLocationByFlidNRow_select_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\fac_GetFacultyList_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\fac_GetFacultyLocations_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\fac_GetLocations_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\fn_Split_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\iq_FacultyFacilitatorsCurrentWeek_select_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\iq_FacultyFeedback_Select_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\iq_GetBlockWeeksByWtcode_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\iq_GetCasesByWtcode_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\iq_GetFacultyWtcode_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\iq_GetPDFsBySeyearBcode_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SelfSchedulingCours.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMAnatomyPresentation.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMAnatomyPresentationBak.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMAnatomyPresentationMember.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMAnatomyPresentationMemberBak.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMCourseClassYear.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMCourseHyperlink.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMFacultyRole.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMFCMGrading.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMFCMGradingGroup.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMFCMGradingIndividual.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMSectionBlock.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMSectionFaculty.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMSectionFacultyFeedback.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMSectionFacultyFile.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMSectionFacultyFileType.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMSectionFacultyNote.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMSectionMember.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMSectionTeam.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMSectionWeek.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMSectionWeekSpecial.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMSISCourseBlock.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\SOMStudentFileResource.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\sysdiagram.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\tmpGroup.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\tmpGroupsMedium.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\tmpGroupsMediumSplit.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\tmpGroupsSwap.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\UserCalendar.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\v_AdvisorySociety.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\v_CourseFeed.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\v_Ethnicity.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\v_FacultySom.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\v_FileTable.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\v_FileTable_HierarchyIDs.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\v_FileTable_ParentPathLocator.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\v_StudentCoreBlockEnrollment.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\v_StudentGroups.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\v_studentsAll.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\v_StudentsSOM.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\v_StudentsSOMwithReducedFee.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\zSOMModuleFaculty.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\zSOMSectionTeamCourse.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Canvas\zv_CourseFeed.cs">
+      <DependentUpon>Canvas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\DevCollections.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DevCollections.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\DevCollections.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DevCollections.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\DevCollections.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DevCollections.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\ErrorLog.cs">
+      <DependentUpon>DevCollections.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\FailedLogin.cs">
+      <DependentUpon>DevCollections.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\GetRolesByUser_Result.cs">
+      <DependentUpon>DevCollections.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\Menu.cs">
+      <DependentUpon>DevCollections.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\MenuCategory.cs">
+      <DependentUpon>DevCollections.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\PerformanceData.cs">
+      <DependentUpon>DevCollections.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\somRole.cs">
+      <DependentUpon>DevCollections.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\somSite.cs">
+      <DependentUpon>DevCollections.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\somUser.cs">
+      <DependentUpon>DevCollections.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\somUserRole.cs">
+      <DependentUpon>DevCollections.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dev\SuccessfulLogin.cs">
+      <DependentUpon>DevCollections.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Reg\AdvisoryNote.cs">
+      <DependentUpon>RegEnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Reg\AdvisorySociety.cs">
+      <DependentUpon>RegEnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Reg\Personal.cs">
+      <DependentUpon>RegEnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Reg\RegEnt.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegEnt.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Reg\RegEnt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegEnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Reg\RegEnt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegEnt.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Reg\vw_Matri_Grad_Dates.cs">
+      <DependentUpon>RegEnt.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -593,24 +917,37 @@
     <Content Include="Content\kendo\2023.1.117\Uniform\sprite_2x.png" />
     <Content Include="Content\kendo\2023.1.117\Uniform\sprite_kpi.png" />
     <Content Include="Content\kendo\2023.1.117\Uniform\sprite_kpi_2x.png" />
-    <Content Include="Data\Southwind\Southwind.Context.tt">
+    <Content Include="Data\Canvas\Canvas.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Southwind.edmx</DependentUpon>
-      <LastGenOutput>Southwind.Context.cs</LastGenOutput>
+      <DependentUpon>Canvas.edmx</DependentUpon>
+      <LastGenOutput>Canvas.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Data\Southwind\Southwind.tt">
+    <Content Include="Data\Canvas\Canvas.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Southwind.edmx</DependentUpon>
-      <LastGenOutput>Southwind.cs</LastGenOutput>
+      <DependentUpon>Canvas.edmx</DependentUpon>
+      <LastGenOutput>Canvas.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\Dev\DevCollections.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DevCollections.edmx</DependentUpon>
+      <LastGenOutput>DevCollections.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\Dev\DevCollections.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DevCollections.edmx</DependentUpon>
+      <LastGenOutput>DevCollections.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\Reg\RegEnt.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RegEnt.edmx</DependentUpon>
+      <LastGenOutput>RegEnt.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\Reg\RegEnt.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RegEnt.edmx</DependentUpon>
+      <LastGenOutput>RegEnt.cs</LastGenOutput>
     </Content>
     <Content Include="Global.asax" />
-    <EntityDeploy Include="Data\Southwind\Southwind.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Southwind.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Data\Southwind\Southwind.edmx.diagram">
-      <DependentUpon>Southwind.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\kendo\2023.1.117\kendo.black.min.css.map" />
     <Content Include="Content\kendo\2023.1.117\kendo.black.mobile.min.css.map" />
     <Content Include="Content\kendo\2023.1.117\kendo.blueopal.min.css.map" />
@@ -726,6 +1063,27 @@
     <Content Include="Content\kendo\2023.1.117\fonts\glyphs\WebComponentsIcons.woff" />
     <Content Include="Content\kendo\2023.1.117\images\kendoui.ttf" />
     <Content Include="Content\kendo\2023.1.117\images\kendoui.woff" />
+    <EntityDeploy Include="Data\Dev\DevCollections.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DevCollections.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\Dev\DevCollections.edmx.diagram">
+      <DependentUpon>DevCollections.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Data\Reg\RegEnt.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RegEnt.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\Reg\RegEnt.edmx.diagram">
+      <DependentUpon>RegEnt.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Data\Canvas\Canvas.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Canvas.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\Canvas\Canvas.edmx.diagram">
+      <DependentUpon>Canvas.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Images\200.png" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

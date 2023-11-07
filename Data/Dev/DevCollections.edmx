@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="processName" Type="varchar(max)" />
+          <Property Name="message" Type="varchar(max)" />
+          <Property Name="stacktrace" Type="varchar(max)" />
+          <Property Name="parameters" Type="varchar(max)" />
+          <Property Name="timeLogged" Type="datetime" />
+          <Property Name="useragent" Type="varchar(max)" />
+          <Property Name="sitename" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="FailedLogins">
+          <Key>
+            <PropertyRef Name="AttemptID" />
+          </Key>
+          <Property Name="AttemptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Timestamp" Type="datetime" Nullable="false" />
+          <Property Name="sitename" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="parent_id" Type="int" />
+          <Property Name="menucategory_id" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="controller" Type="nvarchar" MaxLength="200" />
+          <Property Name="Viewer" Type="nvarchar" MaxLength="200" />
+          <Property Name="icon" Type="nvarchar" MaxLength="100" />
+          <Property Name="active" Type="bit" />
+          <Property Name="sequence" Type="int" />
+          <Property Name="hidden" Type="bit" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createuser" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MenuCategory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="createdate" Type="datetime" />
+          <Property Name="createuser" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PerformanceData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sitename" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="functionName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="functionTime" Type="bigint" Nullable="false" />
+          <Property Name="loggedAt" Type="datetime" Nullable="false" />
+          <Property Name="cacheHit" Type="bit" Nullable="false" />
+          <Property Name="parameters" Type="varchar(max)" />
+          <Property Name="hostname" Type="varchar" MaxLength="100" />
+          <Property Name="username" Type="varchar" MaxLength="100" />
+          <Property Name="useragent" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="somRoles">
+          <Key>
+            <PropertyRef Name="roleid" />
+          </Key>
+          <Property Name="roleid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rolename" Type="varchar" MaxLength="300" />
+          <Property Name="roledescription" Type="varchar" MaxLength="300" />
+          <Property Name="domain" Type="nvarchar" MaxLength="500" />
+          <Property Name="userlogin" Type="varchar" MaxLength="50" />
+          <Property Name="userdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="somSites">
+          <Key>
+            <PropertyRef Name="siteid" />
+          </Key>
+          <Property Name="siteid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleid" Type="int" />
+          <Property Name="sitename" Type="nvarchar" MaxLength="250" />
+          <Property Name="domain" Type="nvarchar" MaxLength="500" />
+          <Property Name="userlogin" Type="nvarchar" MaxLength="50" />
+          <Property Name="userdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="somUserRoles">
+          <Key>
+            <PropertyRef Name="userroleid" />
+          </Key>
+          <Property Name="userroleid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="roleid" Type="int" />
+          <Property Name="userlogin" Type="nvarchar" MaxLength="50" />
+          <Property Name="userdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="somUsers">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="caseid" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fname" Type="varchar" MaxLength="20" />
+          <Property Name="lname" Type="varchar" MaxLength="20" />
+          <Property Name="mname" Type="varchar" MaxLength="20" />
+          <Property Name="som_phone" Type="varchar" MaxLength="15" />
+          <Property Name="oth_phone" Type="varchar" MaxLength="15" />
+          <Property Name="room" Type="varchar" MaxLength="50" />
+          <Property Name="dept" Type="varchar" MaxLength="50" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="userlogin" Type="nvarchar" MaxLength="50" />
+          <Property Name="userdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SuccessfulLogins">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="sitename" Type="nvarchar" MaxLength="200" />
+          <Property Name="Timestamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Menu_Menu">
+          <End Role="MenuCategory" Type="Self.MenuCategory" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCategory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="menucategory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_somSite_somRoles">
+          <End Role="somRoles" Type="Self.somRoles" Multiplicity="0..1" />
+          <End Role="somSites" Type="Self.somSites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="somRoles">
+              <PropertyRef Name="roleid" />
+            </Principal>
+            <Dependent Role="somSites">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_somUserRoles_somRoles">
+          <End Role="somRoles" Type="Self.somRoles" Multiplicity="0..1" />
+          <End Role="somUserRoles" Type="Self.somUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="somRoles">
+              <PropertyRef Name="roleid" />
+            </Principal>
+            <Dependent Role="somUserRoles">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_somUserRoles_somUsers">
+          <End Role="somUsers" Type="Self.somUsers" Multiplicity="0..1" />
+          <End Role="somUserRoles" Type="Self.somUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="somUsers">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="somUserRoles">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetRolesByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="caseid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetUserRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="caseid" Type="varchar" Mode="In" />
+          <Parameter Name="role" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="gtp_GetRoleByCaseid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="caseid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SaveErrorLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sitename" Type="varchar" Mode="In" />
+          <Parameter Name="processName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="message" Type="varchar(max)" Mode="In" />
+          <Parameter Name="stacktrace" Type="varchar(max)" Mode="In" />
+          <Parameter Name="params" Type="varchar(max)" Mode="In" />
+          <Parameter Name="useragent" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SaveFailedLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="sitename" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SavePerformanceData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="appName" Type="varchar" Mode="In" />
+          <Parameter Name="cacheHit" Type="bit" Mode="In" />
+          <Parameter Name="functionName" Type="varchar" Mode="In" />
+          <Parameter Name="functionTime" Type="bigint" Mode="In" />
+          <Parameter Name="loggedAt" Type="datetime" Mode="In" />
+          <Parameter Name="parameters" Type="varchar(max)" Mode="In" />
+          <Parameter Name="hostname" Type="varchar" Mode="In" />
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="useragent" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SaveSuccessfulLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="sitename" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FailedLogins" EntityType="Self.FailedLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuCategory" EntityType="Self.MenuCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PerformanceData" EntityType="Self.PerformanceData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="somRoles" EntityType="Self.somRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="somSites" EntityType="Self.somSites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="somUserRoles" EntityType="Self.somUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="somUsers" EntityType="Self.somUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuccessfulLogins" EntityType="Self.SuccessfulLogins" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Menu_Menu" Association="Self.FK_Menu_Menu">
+            <End Role="MenuCategory" EntitySet="MenuCategory" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_somSite_somRoles" Association="Self.FK_somSite_somRoles">
+            <End Role="somRoles" EntitySet="somRoles" />
+            <End Role="somSites" EntitySet="somSites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_somUserRoles_somRoles" Association="Self.FK_somUserRoles_somRoles">
+            <End Role="somRoles" EntitySet="somRoles" />
+            <End Role="somUserRoles" EntitySet="somUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_somUserRoles_somUsers" Association="Self.FK_somUserRoles_somUsers">
+            <End Role="somUsers" EntitySet="somUsers" />
+            <End Role="somUserRoles" EntitySet="somUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="processName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="stacktrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="parameters" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="timeLogged" Type="DateTime" Precision="3" />
+          <Property Name="useragent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sitename" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FailedLogin">
+          <Key>
+            <PropertyRef Name="AttemptID" />
+          </Key>
+          <Property Name="AttemptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="sitename" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="parent_id" Type="Int32" />
+          <Property Name="menucategory_id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="controller" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Viewer" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="icon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="sequence" Type="Int32" />
+          <Property Name="hidden" Type="Boolean" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MenuCategory" Relationship="Self.FK_Menu_Menu" FromRole="Menu" ToRole="MenuCategory" />
+        </EntityType>
+        <EntityType Name="MenuCategory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="createdate" Type="DateTime" Precision="3" />
+          <Property Name="createuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Menus" Relationship="Self.FK_Menu_Menu" FromRole="MenuCategory" ToRole="Menu" />
+        </EntityType>
+        <EntityType Name="PerformanceData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sitename" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="functionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="functionTime" Type="Int64" Nullable="false" />
+          <Property Name="loggedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cacheHit" Type="Boolean" Nullable="false" />
+          <Property Name="parameters" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="hostname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="useragent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="somRole">
+          <Key>
+            <PropertyRef Name="roleid" />
+          </Key>
+          <Property Name="roleid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rolename" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="roledescription" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="domain" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="userlogin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userdate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="somSites" Relationship="Self.FK_somSite_somRoles" FromRole="somRoles" ToRole="somSites" />
+          <NavigationProperty Name="somUserRoles" Relationship="Self.FK_somUserRoles_somRoles" FromRole="somRoles" ToRole="somUserRoles" />
+        </EntityType>
+        <EntityType Name="somSite">
+          <Key>
+            <PropertyRef Name="siteid" />
+          </Key>
+          <Property Name="siteid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleid" Type="Int32" />
+          <Property Name="sitename" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="domain" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="userlogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="userdate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="somRole" Relationship="Self.FK_somSite_somRoles" FromRole="somSites" ToRole="somRoles" />
+        </EntityType>
+        <EntityType Name="somUserRole">
+          <Key>
+            <PropertyRef Name="userroleid" />
+          </Key>
+          <Property Name="userroleid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="roleid" Type="Int32" />
+          <Property Name="userlogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="userdate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="somRole" Relationship="Self.FK_somUserRoles_somRoles" FromRole="somUserRoles" ToRole="somRoles" />
+          <NavigationProperty Name="somUser" Relationship="Self.FK_somUserRoles_somUsers" FromRole="somUserRoles" ToRole="somUsers" />
+        </EntityType>
+        <EntityType Name="somUser">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="caseid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="lname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="mname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="som_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="oth_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="room" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dept" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userlogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="userdate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="somUserRoles" Relationship="Self.FK_somUserRoles_somUsers" FromRole="somUsers" ToRole="somUserRoles" />
+        </EntityType>
+        <EntityType Name="SuccessfulLogin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sitename" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Menu_Menu">
+          <End Role="MenuCategory" Type="Self.MenuCategory" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MenuCategory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="menucategory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_somSite_somRoles">
+          <End Role="somRoles" Type="Self.somRole" Multiplicity="0..1" />
+          <End Role="somSites" Type="Self.somSite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="somRoles">
+              <PropertyRef Name="roleid" />
+            </Principal>
+            <Dependent Role="somSites">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_somUserRoles_somRoles">
+          <End Role="somRoles" Type="Self.somRole" Multiplicity="0..1" />
+          <End Role="somUserRoles" Type="Self.somUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="somRoles">
+              <PropertyRef Name="roleid" />
+            </Principal>
+            <Dependent Role="somUserRoles">
+              <PropertyRef Name="roleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_somUserRoles_somUsers">
+          <End Role="somUsers" Type="Self.somUser" Multiplicity="0..1" />
+          <End Role="somUserRoles" Type="Self.somUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="somUsers">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="somUserRoles">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DevCollectionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ErrorLogs" EntityType="Self.ErrorLog" />
+          <EntitySet Name="FailedLogins" EntityType="Self.FailedLogin" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="MenuCategories" EntityType="Self.MenuCategory" />
+          <EntitySet Name="PerformanceDatas" EntityType="Self.PerformanceData" />
+          <EntitySet Name="somRoles" EntityType="Self.somRole" />
+          <EntitySet Name="somSites" EntityType="Self.somSite" />
+          <EntitySet Name="somUserRoles" EntityType="Self.somUserRole" />
+          <EntitySet Name="somUsers" EntityType="Self.somUser" />
+          <EntitySet Name="SuccessfulLogins" EntityType="Self.SuccessfulLogin" />
+          <AssociationSet Name="FK_Menu_Menu" Association="Self.FK_Menu_Menu">
+            <End Role="MenuCategory" EntitySet="MenuCategories" />
+            <End Role="Menu" EntitySet="Menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_somSite_somRoles" Association="Self.FK_somSite_somRoles">
+            <End Role="somRoles" EntitySet="somRoles" />
+            <End Role="somSites" EntitySet="somSites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_somUserRoles_somRoles" Association="Self.FK_somUserRoles_somRoles">
+            <End Role="somRoles" EntitySet="somRoles" />
+            <End Role="somUserRoles" EntitySet="somUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_somUserRoles_somUsers" Association="Self.FK_somUserRoles_somUsers">
+            <End Role="somUsers" EntitySet="somUsers" />
+            <End Role="somUserRoles" EntitySet="somUserRoles" />
+          </AssociationSet>
+          <FunctionImport Name="GetRolesByUser" ReturnType="Collection(Model.GetRolesByUser_Result)">
+            <Parameter Name="caseid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetUserRole" ReturnType="Collection(String)">
+            <Parameter Name="caseid" Mode="In" Type="String" />
+            <Parameter Name="role" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="gtp_GetRoleByCaseid" ReturnType="Collection(String)">
+            <Parameter Name="caseid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SaveErrorLog">
+            <Parameter Name="sitename" Mode="In" Type="String" />
+            <Parameter Name="processName" Mode="In" Type="String" />
+            <Parameter Name="message" Mode="In" Type="String" />
+            <Parameter Name="stacktrace" Mode="In" Type="String" />
+            <Parameter Name="params" Mode="In" Type="String" />
+            <Parameter Name="useragent" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SaveFailedLogin">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="sitename" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SavePerformanceData">
+            <Parameter Name="appName" Mode="In" Type="String" />
+            <Parameter Name="cacheHit" Mode="In" Type="Boolean" />
+            <Parameter Name="functionName" Mode="In" Type="String" />
+            <Parameter Name="functionTime" Mode="In" Type="Int64" />
+            <Parameter Name="loggedAt" Mode="In" Type="DateTime" />
+            <Parameter Name="parameters" Mode="In" Type="String" />
+            <Parameter Name="hostname" Mode="In" Type="String" />
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="useragent" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SaveSuccessfulLogin">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="sitename" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetRolesByUser_Result">
+          <Property Type="String" Name="rolename" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="roledescription" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="domain" Nullable="true" MaxLength="500" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="DevCollectionEntities">
+          <EntitySetMapping Name="ErrorLogs">
+            <EntityTypeMapping TypeName="Model.ErrorLog">
+              <MappingFragment StoreEntitySet="ErrorLog">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="processName" ColumnName="processName" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="stacktrace" ColumnName="stacktrace" />
+                <ScalarProperty Name="parameters" ColumnName="parameters" />
+                <ScalarProperty Name="timeLogged" ColumnName="timeLogged" />
+                <ScalarProperty Name="useragent" ColumnName="useragent" />
+                <ScalarProperty Name="sitename" ColumnName="sitename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FailedLogins">
+            <EntityTypeMapping TypeName="Model.FailedLogin">
+              <MappingFragment StoreEntitySet="FailedLogins">
+                <ScalarProperty Name="AttemptID" ColumnName="AttemptID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="sitename" ColumnName="sitename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="Model.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="menucategory_id" ColumnName="menucategory_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="controller" ColumnName="controller" />
+                <ScalarProperty Name="Viewer" ColumnName="Viewer" />
+                <ScalarProperty Name="icon" ColumnName="icon" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="sequence" ColumnName="sequence" />
+                <ScalarProperty Name="hidden" ColumnName="hidden" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createuser" ColumnName="createuser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MenuCategories">
+            <EntityTypeMapping TypeName="Model.MenuCategory">
+              <MappingFragment StoreEntitySet="MenuCategory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="createdate" ColumnName="createdate" />
+                <ScalarProperty Name="createuser" ColumnName="createuser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PerformanceDatas">
+            <EntityTypeMapping TypeName="Model.PerformanceData">
+              <MappingFragment StoreEntitySet="PerformanceData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="sitename" ColumnName="sitename" />
+                <ScalarProperty Name="functionName" ColumnName="functionName" />
+                <ScalarProperty Name="functionTime" ColumnName="functionTime" />
+                <ScalarProperty Name="loggedAt" ColumnName="loggedAt" />
+                <ScalarProperty Name="cacheHit" ColumnName="cacheHit" />
+                <ScalarProperty Name="parameters" ColumnName="parameters" />
+                <ScalarProperty Name="hostname" ColumnName="hostname" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="useragent" ColumnName="useragent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="somRoles">
+            <EntityTypeMapping TypeName="Model.somRole">
+              <MappingFragment StoreEntitySet="somRoles">
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="rolename" ColumnName="rolename" />
+                <ScalarProperty Name="roledescription" ColumnName="roledescription" />
+                <ScalarProperty Name="domain" ColumnName="domain" />
+                <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+                <ScalarProperty Name="userdate" ColumnName="userdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="somSites">
+            <EntityTypeMapping TypeName="Model.somSite">
+              <MappingFragment StoreEntitySet="somSites">
+                <ScalarProperty Name="siteid" ColumnName="siteid" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="sitename" ColumnName="sitename" />
+                <ScalarProperty Name="domain" ColumnName="domain" />
+                <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+                <ScalarProperty Name="userdate" ColumnName="userdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="somUserRoles">
+            <EntityTypeMapping TypeName="Model.somUserRole">
+              <MappingFragment StoreEntitySet="somUserRoles">
+                <ScalarProperty Name="userroleid" ColumnName="userroleid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="roleid" ColumnName="roleid" />
+                <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+                <ScalarProperty Name="userdate" ColumnName="userdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="somUsers">
+            <EntityTypeMapping TypeName="Model.somUser">
+              <MappingFragment StoreEntitySet="somUsers">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="caseid" ColumnName="caseid" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="som_phone" ColumnName="som_phone" />
+                <ScalarProperty Name="oth_phone" ColumnName="oth_phone" />
+                <ScalarProperty Name="room" ColumnName="room" />
+                <ScalarProperty Name="dept" ColumnName="dept" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="userlogin" ColumnName="userlogin" />
+                <ScalarProperty Name="userdate" ColumnName="userdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuccessfulLogins">
+            <EntityTypeMapping TypeName="Model.SuccessfulLogin">
+              <MappingFragment StoreEntitySet="SuccessfulLogins">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="sitename" ColumnName="sitename" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetRolesByUser" FunctionName="Model.Store.GetRolesByUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.GetRolesByUser_Result">
+                <ScalarProperty Name="rolename" ColumnName="rolename" />
+                <ScalarProperty Name="roledescription" ColumnName="roledescription" />
+                <ScalarProperty Name="domain" ColumnName="domain" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetUserRole" FunctionName="Model.Store.GetUserRole" />
+          <FunctionImportMapping FunctionImportName="gtp_GetRoleByCaseid" FunctionName="Model.Store.gtp_GetRoleByCaseid" />
+          <FunctionImportMapping FunctionImportName="SaveErrorLog" FunctionName="Model.Store.SaveErrorLog" />
+          <FunctionImportMapping FunctionImportName="SaveFailedLogin" FunctionName="Model.Store.SaveFailedLogin" />
+          <FunctionImportMapping FunctionImportName="SavePerformanceData" FunctionName="Model.Store.SavePerformanceData" />
+          <FunctionImportMapping FunctionImportName="SaveSuccessfulLogin" FunctionName="Model.Store.SaveSuccessfulLogin" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
